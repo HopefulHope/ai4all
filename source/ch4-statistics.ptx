@@ -185,7 +185,7 @@
     </p>
 
     <table xml:id="tab-imac-ownership">
-        <caption>Previous computer ownership for iMac purchasers.</caption>
+        <title>Previous computer ownership for iMac purchasers</title>
         <tabular>
             <row header="yes">
                 <cell>Previous Ownership</cell>
