@@ -625,19 +625,19 @@
 
                 <description>
                     <p>
-                        A visual overview titled "3D COST SURFACE VISUAL" depicting the process of gradient descent optimization across a continuous loss landscape.
+                        A diagram titled "3D COST SURFACE VISUAL" showing gradient descent optimization across an error landscape:
                     </p>
                     <p>
-                        The central element is a 3D surface plot representing the cost function (error space). A ball labeled "START" begins near a high-cost peak and follows a path of downward arrows along the surface topology, eventually coming to rest at the lowest valley labeled "MINIMUM."
+                        <em>Central 3D Surface Plot:</em> Displays a continuous cost surface (error space). A ball labeled "START" begins near a high-cost peak and follows a sequence of downward arrows down the slope, coming to rest at the lowest valley labeled "MINIMUM."
                     </p>
                     <p>
-                        On the left side, explanatory text under "GRADIENT DESCENT ITERATION" notes: "Each step moves downhill by analyzing the current surface slope. These calculated steps continue until a low-cost valley is reached."
+                        <em>Left Panel (Gradient Descent Iteration):</em> Explains that each step moves downhill by analyzing the current surface slope, repeating until a low-cost valley is reached.
                     </p>
                     <p>
-                        On the right side, an inset box labeled "LOCAL 2D VIEW (Calculated Steps)" shows a simplified 2D cross-section of the curve. It depicts the same ball taking discrete downward steps along the slope toward the bottom.
+                        <em>Right Panel (Local 2D View):</em> Shows an inset 2D cross-section of the curve, illustrating the ball taking discrete, calculated steps down the slope toward the bottom.
                     </p>
                     <p>
-                        A summary block in the lower right highlights: "3D SURFACE &amp; CROSS-SECTION: Shows the complete topography of the error space and a localized 2D calculation view."
+                        <em>Lower-Right Summary:</em> Notes that combining the 3D surface and 2D cross-section shows both the overall error space topography and a localized view of the calculations.
                     </p>
                 </description>
             </image>
