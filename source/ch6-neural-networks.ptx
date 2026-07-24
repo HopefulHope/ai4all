@@ -559,7 +559,8 @@
   <section xml:id="sec-training-the-network">
     <title>Training the Network</title>
 
-    <introduction xml:id="intro-training-the-network">
+    <subsection xml:id="subsec-cost-function">
+        <title>Cost Function</title>
         <p>
             To write an algorithm that can learn, we need a way to track how well it is doing. Our absolute goal in training a neural network is to find a specific combination of weights and biases which minimize a cost function.
         </p>
@@ -617,7 +618,7 @@
                 Imagine learning to shoot a basketball in total darkness. You can't see the hoop, but someone calls out how many inches to the left or right your shot missed. Every shot gives you a specific error distance (your cost). Based on that feedback, you slightly tweak your arm angle and force (your weights and biases) for the next try. Over many throws, each small adjustment brings your shots closer and closer to a swish.
             </em></p>
         </assemblage>
-    </introduction>
+    </subsection>
 
     <subsection xml:id="subsec-gradient-descent">
         <title>Learning with Gradient Descent</title>
