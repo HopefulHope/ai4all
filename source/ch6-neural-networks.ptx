@@ -321,7 +321,7 @@
             Without an activation function, a neural network would merely perform basic addition and multiplication. This means the entire system would collapse into a simple, flat linear calculation, making it mathematically impossible for the network to understand or infer complex, non-linear patterns. The non-linear nature of the activation function bends the signal, enabling the network to learn intricate and highly abstract behaviors.
         </p>
     </subsection>
-</section>
+  </section>
 
   <section xml:id="sec-the-power-of-layers">
     <title>The Power of Layers</title>
@@ -558,7 +558,182 @@
 
   <section xml:id="sec-training-the-network">
     <title>Training the Network</title>
-    <p>Content for the section.</p>
+
+    <subsection xml:id="subsec-cost-function">
+        <title>Cost Function</title>
+        <p>
+            To write an algorithm that can learn, we need a way to track how well it is doing. Our absolute goal in training a neural network is to find a specific combination of weights and biases which minimize a cost function.
+        </p>
+
+        <p>
+            A <term>cost function</term><idx><h>cost function</h></idx> (sometimes called a loss function) is a mathematical yardstick that measures a neural network's performance by calculating how far off its predictions are from the correct answers, outputting a single error score that we try to get as close to zero as possible. An example is the <term>quadratic cost function</term><idx><h>quadratic cost function</h></idx> or <term>mean squared error</term><idx><h>mean squared error</h></idx>.
+        </p>
+
+        <p>
+            The quadratic cost function works through a clear, systematic process:
+        </p>
+
+        <p>
+            <ol>
+                <li>
+                    <p>We take a training input and pass it through the network to generate a prediction output.</p>
+                </li>
+                <li>
+                    <p>We compare this prediction against the desired, correct output provided by our training data.</p>
+                </li>
+                <li>
+                    <p>We calculate the difference between the network's guess and the correct answer, and then we square that difference.</p>
+                </li>
+                <li>
+                    <p>Finally, we repeat this step for every single training input and compute the average value of all these squared differences.</p>
+                </li>
+            </ol>
+        </p>
+
+        <p>
+            If the actual outputs are approximately the same as the desired outputs for all training inputs, then the cost will be small. Conversely, if it is not, the cost will be large. The goal of our training algorithm is to find a set of weights and biases which make the cost as small as possible.
+        </p>
+
+        <assemblage xml:id="asm-look-closer-training-network">
+            <title>Look Closer..</title>
+            <p><em>
+                Imagine learning to shoot a basketball in total darkness. You can't see the hoop, but someone calls out how many inches to the left or right your shot missed. Every shot gives you a specific error distance (your cost). Based on that feedback, you slightly tweak your arm angle and force (your weights and biases) for the next try. Over many throws, each small adjustment brings your shots closer and closer to a swish.
+            </em></p>
+        </assemblage>
+    </subsection>
+
+    <subsection xml:id="subsec-gradient-descent">
+        <title>Learning with Gradient Descent</title>
+
+        <p>
+            To minimize this cost function, we use an optimization algorithm called <term>gradient descent</term><idx><h>gradient descent</h></idx>.
+        </p>
+
+        <p>
+            <em>The Valley Analogy:</em> The way the gradient descent algorithm works is to repeatedly compute the gradient and move in the opposite direction, <q>falling down</q> the slope of the valley.
+        </p>
+
+        <figure xml:id="fig-cost-surface-gradient-descent">
+            <caption>
+                A 3D cost surface landscape illustrating gradient descent, accompanied by a 2D cross-sectional view of calculated downhill steps.
+            </caption>
+
+            <image source="cost-surface-gradient-descent.png">
+                <shortdescription>
+                    Diagram featuring a 3D parabolic cost surface showing a ball descending into a valley along with an inset 2D cross-sectional view of the slope.
+                </shortdescription>
+
+                <description>
+                    <p>
+                        A diagram titled "3D COST SURFACE VISUAL" showing gradient descent optimization across an error landscape:
+                    </p>
+                    <p>
+                        <em>Central 3D Surface Plot:</em> Displays a continuous cost surface (error space). A ball labeled "START" begins near a high-cost peak and follows a sequence of downward arrows down the slope, coming to rest at the lowest valley labeled "MINIMUM."
+                    </p>
+                    <p>
+                        <em>Left Panel (Gradient Descent Iteration):</em> Explains that each step moves downhill by analyzing the current surface slope, repeating until a low-cost valley is reached.
+                    </p>
+                    <p>
+                        <em>Right Panel (Local 2D View):</em> Shows an inset 2D cross-section of the curve, illustrating the ball taking discrete, calculated steps down the slope toward the bottom.
+                    </p>
+                    <p>
+                        <em>Lower-Right Summary:</em> Notes that combining the 3D surface and 2D cross-section shows both the overall error space topography and a localized view of the calculations.
+                    </p>
+                </description>
+            </image>
+        </figure>
+
+        <p>
+            We can visualize it as a ball rolling down into a valley. Notice that with our mathematical rule, gradient descent doesn't reproduce real physical motion. In real life, a ball has momentum, and that momentum may allow it to roll across the slope, or even momentarily roll uphill. It's only after the effects of friction set in that the ball is guaranteed to roll down into the valley.
+        </p>
+
+        <p>
+            By contrast, our rule for choosing updates says <q>go down, right now</q>. That's still a pretty good rule for finding the minimum!
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-stochastic-gradient-descent">
+        <title>Stochastic Gradient Descent (SGD)</title>
+
+        <p>
+            To compute the exact direction down the valley, we technically need to average our calculations over all training inputs simultaneously. If the training set is very large, this can take a long time, and learning occurs slowly.
+        </p>
+
+        <p>
+            To speed up learning, we use <term>stochastic gradient descent</term><idx><h>stochastic gradient descent</h></idx><idx><h>SGD</h></idx>. This works by randomly choosing a small sample of training inputs, known as a <term>mini-batch</term><idx><h>mini-batch</h></idx>. By averaging the gradient over this small sample, we can quickly estimate the true direction we need to go, allowing us to make rapid, frequent updates to the weights and biases.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-backpropagation">
+        <title>The Backpropagation Algorithm</title>
+
+        <p>
+            The <term>backpropagation algorithm</term><idx><h>backpropagation</h></idx> gives us a way of computing how quickly the cost changes when we make small changes to any weight or bias in the network. It allows us to calculate all of these partial derivatives simultaneously and extremely quickly.
+        </p>
+
+        <figure xml:id="fig-backpropagation-flow">
+            <caption>
+                The two-phase iterative cycle of backpropagation: a forward pass calculates network predictions, followed by a backward pass that transmits error signals to update weights.
+            </caption>
+
+            <image source="backpropagation-flow.png">
+                <shortdescription>
+                    High-level diagram showing data moving rightward during the forward pass and error moving leftward during the backward pass across network layers.
+                </shortdescription>
+
+                <description>
+                    <p>
+                        A clean, two-phase schematic titled "BACKPROPAGATION: A TWO-PHASE LEARNING CYCLE" demonstrating network training.
+                    </p>
+                    <p>
+                        <em>Network Structure:</em> Three visual blocks in the center mark the sequence of network layers: Input Layer, Hidden Layers, and Output Layer.
+                    </p>
+                    <p>
+                        <em>Phase 1 (Forward Pass):</em> An upper blue arrow points left-to-right from an input (e.g., a cat image) through the layers to generate an output prediction. Neural activations are calculated forward to form this guess.
+                    </p>
+                    <p>
+                        <em>Phase 2 (Backward Pass):</em> A lower orange arrow points right-to-left from the output back through the hidden layers toward the input. Prediction error signals travel backward to compute required weight updates (gradients).
+                    </p>
+                    <p>
+                        <em>Iterative Loop:</em> A circular arrow on the side emphasizes that this forward-and-backward cycle repeats iteratively to continuously improve performance.
+                    </p>
+                </description>
+            </image>
+        </figure>  
+
+        <p>
+            It operates through the step-by-step process listed below:
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title><term>The Forward Pass</term></title>
+                    <p>
+                        <idx><h>forward pass</h></idx>An input is sent forward through the network, layer by layer, calculating the active values of each neuron up to the final output layer.
+                    </p>
+                </li>
+                <li>
+                    <title><term>Output Error</term></title>
+                    <p>
+                        <idx><h>output error</h></idx>We calculate how far off our final predictions are from the correct, desired labels at the very end of the network.
+                    </p>
+                </li>
+                <li>
+                    <title><term>Backpropagating the Error</term></title>
+                    <p>
+                        <idx><h>backpropagating error</h></idx>We trace this error backward through the network, layer by layer, starting from the output layer and working back to the first hidden layer.
+                    </p>
+                </li>
+                <li>
+                    <title><term>Updating the Parameters</term></title>
+                    <p>
+                        <idx><h>updating parameters</h></idx>These backpropagated errors provide the exact information needed to make a small step down the cost landscape using gradient descent. Through millions of these tiny, layer-by-layer adjustments, the network gradually learns, refining its internal parameters until it can reliably solve complex real-world problems.
+                    </p>
+                </li>
+            </dl>
+        </p>
+    </subsection>
   </section>
 
   <section xml:id="sec-large-language-models">
