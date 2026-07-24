@@ -566,32 +566,15 @@
 
     <introduction xml:id="intro-large-language-models">
         <p>
-            <term>Large language models</term><idx><h>large language models</h></idx> (LLMs) have become one of the most revolutionary advancements in artificial intelligence in recent years. These powerful systems can understand, generate, and even reason with human language in ways that were previously impossible. The key insight behind LLMs is that knowledge of the world and language can be learned through large-scale reading—simply by predicting the next word in a sentence over and over again. This approach has shifted how we build AI systems: instead of creating specialized models for each task, we now train one <term>foundation model</term><idx><h>foundation model</h></idx> that can be adapted for many different problems.
+            <term>Large language models</term><idx><h>large language models</h></idx> (LLMs) have become one of the most revolutionary advancements in artificial intelligence. These powerful systems can understand, generate, and even reason with human language in ways that were previously impossible. The key insight behind LLMs is that knowledge of the world and language can be learned simply by predicting the next word in a sentence over and over again. This approach has shifted how we build AI systems: instead of creating specialized models for each task, we now train one foundation model that can be adapted for many different problems.
         </p>
 
         <p>
-            The concept of language modeling dates back to the 1950s, when researchers first tried to predict the next letter in a text based on previous letters. For decades, the dominant approach was the <term>n-gram model</term><idx><h>n-gram model</h></idx>, which estimated word probabilities by counting how often word sequences appeared in text. While simple and useful, these models had significant limitations. The real breakthrough came with the rise of deep learning and neural networks. In 2003, researchers showed that neural networks could model language more effectively, producing <term>word embeddings</term><idx><h>word embeddings</h></idx>—dense vector representations that capture the meaning of words in a continuous space.
+            The breakthrough came with the introduction of the <term>Transformer</term><idx><h>Transformer</h></idx> architecture in 2017. Transformers use a mechanism called <term>self-attention</term><idx><h>self-attention</h></idx> that allows them to weigh the importance of different words in a sentence when making predictions. This made it possible to train much larger models on much more data. The result was a new generation of models—the large language models we use today—that exhibit remarkable capabilities in understanding and generating human language.
         </p>
 
-        <figure xml:id="fig-llm-evolution">
-            <caption>
-                The evolution from traditional n-gram models to modern large language models.
-            </caption>
-
-            <image source="llm-evolution.png">
-                <shortdescription>
-                    A timeline showing the progression from n-gram models to neural language models to Transformers to large language models.
-                </shortdescription>
-                <description>
-                    <p>
-                        The timeline starts with "n-gram Models (Pre-2010)" on the left, moves to "Neural Language Models (2010s)" with word embeddings, then to "Transformer Models (2017+)" showing the architecture, and finally to "Large Language Models (2020+)" as the current state-of-the-art.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
         <p>
-            The introduction of the <term>Transformer</term><idx><h>Transformer</h></idx> architecture in 2017 was a turning point. Transformers use a mechanism called <term>self-attention</term><idx><h>self-attention</h></idx> that allows them to weigh the importance of different words in a sentence when making predictions. This made it possible to train much larger models on much more data. The result was a new generation of models—the large language models we use today—that exhibit remarkable capabilities in understanding and generating human language.
+            These models are called "large" because they have an enormous number of <term>parameters</term><idx><h>parameters</h></idx>—the internal values the model learns during training. For example, GPT-3 has 175 billion parameters. When a model generates text, it does so step by step, predicting one token at a time and using that prediction to inform the next one. This <term>autoregressive</term><idx><h>autoregressive</h></idx> process is what allows LLMs to produce coherent, extended text.
         </p>
 
         <assemblage xml:id="asm-look-closer-llm">
@@ -602,40 +585,11 @@
         </assemblage>
     </introduction>
 
-    <subsection xml:id="subsec-decoder-only-transformers">
-        <title>How Large Language Models Work</title>
-
-        <p>
-            Most modern LLMs share a common architecture based on the <term>decoder-only Transformer</term><idx><h>decoder-only Transformer</h></idx>. These models take a sequence of input tokens (words or pieces of words) and predict what token comes next. The model consists of a stack of Transformer blocks, each containing a self-attention layer and a <term>feed-forward network</term><idx><h>feed-forward network</h></idx>. The self-attention mechanism allows each token to "attend to" or focus on other relevant tokens in the sequence, while the feed-forward network processes this information to make predictions.
-        </p>
-
-        <figure xml:id="fig-transformer-decoder">
-            <caption>
-                The decoder-only Transformer architecture used in large language models.
-            </caption>
-
-            <image source="transformer-decoder.png">
-                <shortdescription>
-                    A diagram of the Transformer decoder architecture showing the flow of data from input tokens to output predictions.
-                </shortdescription>
-                <description>
-                    <p>
-                        The diagram shows an input sequence flowing through an embedding layer, then through L stacked transformer blocks. Each block contains a self-attention sub-layer and an FFN sub-layer. A masking variable prevents the model from seeing future tokens. The output passes through a Softmax layer to generate a probability distribution over the vocabulary.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
-        <p>
-            These models are called "large" because they have an enormous number of <term>parameters</term><idx><h>parameters</h></idx>—the internal values that the model learns during training. For example, GPT-3 has 175 billion parameters, while newer models like LLaMA and Gemini come in various sizes, from 7 billion to over 400 billion parameters. When a model generates text, it does so step by step, predicting one token at a time and using that prediction to inform the next one. This <term>autoregressive</term><idx><h>autoregressive</h></idx> process is what allows LLMs to produce coherent, extended text.
-        </p>
-    </subsection>
-
     <subsection xml:id="subsec-training-llms">
         <title>Training Large Language Models</title>
 
         <p>
-            Training an LLM is a massive undertaking. The model learns by predicting the next token in a sequence and comparing its prediction to the actual token. The difference between the prediction and the correct answer is measured by a <term>loss function</term><idx><h>loss function</h></idx>, and the model adjusts its parameters to reduce this loss over time. This process, called <term>gradient descent</term><idx><h>gradient descent</h></idx>, is repeated billions of times across trillions of tokens of text.
+            Training an LLM is a massive undertaking. The model learns by predicting the next token and comparing its prediction to the actual token. The difference is measured by a <term>loss function</term><idx><h>loss function</h></idx>, and the model adjusts its parameters to reduce this loss over time. This process, called <term>gradient descent</term><idx><h>gradient descent</h></idx>, is repeated billions of times across trillions of tokens of text.
         </p>
 
         <p>
@@ -649,7 +603,7 @@
 
             <image source="llm-training-scale.png">
                 <shortdescription>
-                    A diagram showing the relationship between training data size (in trillions of tokens) and model size (in billions of parameters) for various LLMs.
+                    A diagram showing the relationship between training data size and model size for various LLMs.
                 </shortdescription>
                 <description>
                     <p>
@@ -660,17 +614,13 @@
         </figure>
 
         <p>
-            Training these models requires enormous computational power—often hundreds or thousands of specialized computer chips (GPUs) running for weeks or months. This is why only a handful of organizations in the world can build LLMs from scratch. The cost of training a model like GPT-3 is estimated to be in the millions of dollars, and newer, larger models cost even more.
-        </p>
-
-        <p>
-            A key finding in LLM research is the concept of <term>scaling laws</term><idx><h>scaling laws</h></idx>. These laws show that model performance improves predictably as we increase the amount of data, the size of the model, and the computational resources used for training. This has motivated researchers to keep building larger and larger models. As models scale up, they sometimes exhibit <term>emergent abilities</term><idx><h>emergent abilities</h></idx>—new capabilities that were not present in smaller versions of the same model.
+            A key finding in LLM research is the concept of <term>scaling laws</term><idx><h>scaling laws</h></idx>. These laws show that model performance improves predictably as we increase the amount of data, the size of the model, and the computational resources used for training. This has motivated researchers to keep building larger and larger models. As models scale up, they sometimes exhibit <term>emergent abilities</term><idx><h>emergent abilities</h></idx>—new capabilities that were not present in smaller versions.
         </p>
 
         <assemblage xml:id="asm-look-closer-scaling">
             <title>Look Closer...</title>
             <p><em>
-                Training a large language model is like teaching a student by having them read billions of books, articles, and websites. The student learns grammar, facts, and reasoning patterns just by absorbing all that text. But here's the catch—the student needs an enormous library and an army of teachers (computers) working around the clock. Training a model like GPT-3 costs millions of dollars in computing power alone. This is why only a handful of organizations in the world can build these massive models from scratch.
+                Training a large language model is like teaching a student by having them read billions of books. The student learns grammar, facts, and reasoning patterns just by absorbing all that text. But here's the catch—the student needs an enormous library and an army of teachers (computers) working around the clock. Training a model like GPT-3 costs millions of dollars in computing power alone.
             </em></p>
         </assemblage>
     </subsection>
@@ -689,7 +639,7 @@
 
             <image source="instruction-finetuning.png">
                 <shortdescription>
-                    A diagram showing a pre-trained LLM being fine-tuned on instruction-response pairs to become an instruction-following model.
+                    A diagram showing a pre-trained LLM being fine-tuned on instruction-response pairs.
                 </shortdescription>
                 <description>
                     <p>
@@ -700,33 +650,12 @@
         </figure>
 
         <p>
-            An important step in developing safe and useful LLMs is <term>alignment</term><idx><h>alignment</h></idx>—ensuring that the model's behavior matches human values and intentions. Alignment is challenging because human values are diverse, subjective, and often context-dependent. A model might generate factually accurate but harmful content, or it might follow instructions in ways that produce unintended consequences.
-        </p>
-
-        <p>
-            A widely used alignment technique is <term>reinforcement learning from human feedback</term><idx><h>reinforcement learning from human feedback</h></idx> (<term>RLHF</term><idx><h>RLHF</h></idx>). In RLHF, humans evaluate model outputs by ranking them according to quality. These rankings are used to train a <term>reward model</term><idx><h>reward model</h></idx> that predicts which outputs humans would prefer. The LLM is then fine-tuned using reinforcement learning to maximize the rewards predicted by this model. The RLHF process involves several steps:
-        </p>
-
-        <p>
-            <ol>
-                <li>
-                    <p>Build an initial model using pre-training and instruction fine-tuning.</p>
-                </li>
-                <li>
-                    <p>Generate multiple outputs for each input and collect human rankings of these outputs.</p>
-                </li>
-                <li>
-                    <p>Train a reward model to predict human preferences based on these rankings.</p>
-                </li>
-                <li>
-                    <p>Fine-tune the model using the reward model as a guide.</p>
-                </li>
-            </ol>
+            An important step in developing safe and useful LLMs is <term>alignment</term><idx><h>alignment</h></idx>—ensuring that the model's behavior matches human values and intentions. Alignment is challenging because human values are diverse, subjective, and often context-dependent. A widely used alignment technique is <term>reinforcement learning from human feedback</term><idx><h>reinforcement learning from human feedback</h></idx> (<term>RLHF</term><idx><h>RLHF</h></idx>). In RLHF, humans evaluate model outputs by ranking them according to quality. These rankings are used to train a <term>reward model</term><idx><h>reward model</h></idx> that predicts which outputs humans would prefer. The LLM is then fine-tuned using reinforcement learning to maximize the rewards predicted by this model.
         </p>
     </subsection>
 
-    <subsection xml:id="subsec-prompting">
-        <title>Prompting and In-Context Learning</title>
+    <subsection xml:id="subsec-prompting-and-reasoning">
+        <title>Prompting and Reasoning</title>
 
         <p>
             One of the most powerful features of LLMs is their ability to be <term>prompted</term><idx><h>prompting</h></idx>—to perform tasks simply by being given instructions in natural language. This has given rise to <term>prompt engineering</term><idx><h>prompt engineering</h></idx>, the practice of designing effective prompts to elicit desired responses. A good prompt can make the difference between a correct answer and an incorrect one.
@@ -736,26 +665,26 @@
             A related concept is <term>in-context learning</term><idx><h>in-context learning</h></idx>, where the model learns to perform a new task by seeing examples included in the prompt. This can be <term>zero-shot</term><idx><h>zero-shot learning</h></idx> (no examples), <term>one-shot</term><idx><h>one-shot learning</h></idx> (one example), or <term>few-shot</term><idx><h>few-shot learning</h></idx> (several examples). In-context learning is remarkable because the model adapts to new tasks without any updates to its parameters—it simply uses the context provided in the prompt to infer what is expected.
         </p>
 
-        <figure xml:id="fig-in-context-learning">
+        <p>
+            A powerful prompting technique is <term>chain-of-thought</term><idx><h>chain-of-thought</h></idx> (CoT) prompting. In CoT, the model is encouraged to generate intermediate reasoning steps before arriving at a final answer. This is particularly effective for complex problems like math, logic, and commonsense reasoning. Instead of directly answering a math problem, a CoT prompt includes step-by-step reasoning in the examples, teaching the model to think through the problem systematically.
+        </p>
+
+        <figure xml:id="fig-chain-of-thought">
             <caption>
-                In-context learning allows LLMs to perform new tasks by including demonstrations in the prompt.
+                Chain-of-thought prompting encourages the model to generate intermediate reasoning steps before arriving at a final answer.
             </caption>
 
-            <image source="in-context-learning.png">
+            <image source="chain-of-thought.png">
                 <shortdescription>
-                    A diagram showing zero-shot, one-shot, and few-shot learning with an LLM.
+                    A comparison of standard prompting versus chain-of-thought prompting on a math problem.
                 </shortdescription>
                 <description>
                     <p>
-                        Three panels show the same LLM receiving different prompts. In zero-shot, only an instruction is given. In one-shot, one demonstration is included. In few-shot, multiple demonstrations are included, with the final query following the same pattern.
+                        Two panels show the same math problem. In standard prompting, the model directly outputs an incorrect answer. In chain-of-thought prompting, the model generates step-by-step reasoning: "Tom starts with 12 marbles. After winning, he has 19. After losing, he has 14. After his brother gives him more, he has 17. Therefore, the answer is 17." The correct answer is highlighted.
                     </p>
                 </description>
             </image>
         </figure>
-
-        <p>
-            A powerful prompting technique is <term>chain-of-thought</term><idx><h>chain-of-thought</h></idx> (CoT) prompting. In CoT, the model is encouraged to generate intermediate reasoning steps before arriving at a final answer. This is particularly effective for complex problems like math, logic, and commonsense reasoning. For example, instead of asking the model to directly answer a math problem, a CoT prompt might include step-by-step reasoning in the examples, teaching the model to think through the problem systematically.
-        </p>
 
         <p>
             Another important technique is <term>retrieval-augmented generation</term><idx><h>retrieval-augmented generation</h></idx> (<term>RAG</term><idx><h>RAG</h></idx>). RAG enhances LLM responses by retrieving relevant information from external sources, such as a knowledge base or document collection, and including that information in the prompt. This allows the model to access up-to-date or specialized knowledge that may not have been in its training data, reducing the risk of generating factually incorrect information.
@@ -763,14 +692,14 @@
     </subsection>
 
     <subsection xml:id="subsec-inference">
-        <title>Inference in Large Language Models</title>
+        <title>Inference</title>
 
         <p>
-            <term>Inference</term><idx><h>inference</h></idx> is the process of using a trained LLM to generate predictions on new inputs. When you interact with a chatbot or ask an LLM a question, you are performing inference. The model considers possible outputs, assigns probabilities to each, and selects the most likely response.
+            <term>Inference</term><idx><h>inference</h></idx> is the process of using a trained LLM to generate predictions on new inputs. When you interact with a chatbot, you are performing inference. The model considers possible outputs, assigns probabilities to each, and selects the most likely response.
         </p>
 
         <p>
-            The way an LLM selects its output is controlled by <term>decoding algorithms</term><idx><h>decoding algorithms</h></idx>. The simplest method is <term>greedy decoding</term><idx><h>greedy decoding</h></idx>, which always picks the most likely next token. However, this can lead to repetitive or suboptimal outputs. <term>Beam search</term><idx><h>beam search</h></idx> keeps track of multiple possible sequences (the "beam"), improving the quality of the final output at the cost of more computation. <term>Sampling-based methods</term><idx><h>sampling-based decoding</h></idx>, like top-k and top-p sampling, introduce randomness, which can make the output more diverse and creative—useful for tasks like story generation.
+            The way an LLM selects its output is controlled by <term>decoding algorithms</term><idx><h>decoding algorithms</h></idx>. The simplest method is <term>greedy decoding</term><idx><h>greedy decoding</h></idx>, which always picks the most likely next token. <term>Beam search</term><idx><h>beam search</h></idx> keeps track of multiple possible sequences, improving output quality at the cost of more computation. <term>Sampling-based methods</term><idx><h>sampling-based decoding</h></idx>, like top-k and top-p sampling, introduce randomness for more diverse and creative outputs.
         </p>
 
         <figure xml:id="fig-decoding-methods">
@@ -791,44 +720,36 @@
         </figure>
 
         <p>
-            Inference can be computationally expensive, especially for long outputs. To address this, researchers have developed techniques like <term>speculative decoding</term><idx><h>speculative decoding</h></idx>, where a smaller, faster model generates candidate tokens that are then verified by the larger, more accurate model. This can significantly speed up generation while maintaining quality.
-        </p>
-
-        <p>
-            Evaluating LLM inference involves both quality and efficiency metrics. <term>Request latency</term><idx><h>request latency</h></idx> measures the time to receive a complete response. <term>Throughput</term><idx><h>throughput</h></idx> measures how many tokens or requests the model can process per second. <term>Time to first token</term><idx><h>time to first token</h></idx> (TTFT) and <term>inter-token latency</term><idx><h>inter-token latency</h></idx> (ITL) measure the speed of token generation. These metrics are crucial for deploying LLMs in real-world applications where speed and responsiveness matter.
+            Evaluating LLM inference involves both quality and efficiency metrics. <term>Request latency</term><idx><h>request latency</h></idx> measures the time to receive a complete response. <term>Throughput</term><idx><h>throughput</h></idx> measures how many tokens the model can process per second. <term>Time to first token</term><idx><h>time to first token</h></idx> and <term>inter-token latency</term><idx><h>inter-token latency</h></idx> measure the speed of token generation. These metrics are crucial for deploying LLMs in real-world applications.
         </p>
 
         <assemblage xml:id="asm-look-closer-inference">
             <title>Look Closer...</title>
             <p><em>
-                When you type a question into a chatbot like ChatGPT, the model is doing inference. It's not learning anything new—it's using everything it already learned during training to generate a response. The "thinking" happens in real-time, and the model considers many possible next words before choosing one. This is why generating a response can take a few seconds, especially for longer answers. The model is essentially doing a very complex, high-speed search through the space of all possible sentences to find the best response.
+                When you type a question into a chatbot, the model is doing inference. It's not learning anything new—it's using everything it already learned during training to generate a response. The "thinking" happens in real-time, and the model considers many possible next words before choosing one. This is why generating a response can take a few seconds, especially for longer answers.
             </em></p>
         </assemblage>
     </subsection>
 
     <subsection xml:id="subsec-challenges">
-        <title>Challenges and Considerations</title>
+        <title>Challenges</title>
 
         <p>
-            Despite their remarkable capabilities, LLMs face several significant challenges. <term>Bias</term><idx><h>bias in LLMs</h></idx> is a major concern. Models trained on internet data can learn and amplify societal biases related to gender, race, ethnicity, and other characteristics. For example, an LLM might associate certain professions more strongly with one gender than another. Addressing bias requires careful data curation, debiasing techniques, and ongoing monitoring.
+            Despite their remarkable capabilities, LLMs face several significant challenges. <term>Bias</term><idx><h>bias in LLMs</h></idx> is a major concern—models trained on internet data can learn and amplify societal biases related to gender, race, and other characteristics. <term>Privacy</term><idx><h>privacy concerns in LLMs</h></idx> is another concern, as LLMs can memorize and reproduce sensitive information from their training data.
         </p>
 
         <p>
-            <term>Privacy</term><idx><h>privacy concerns in LLMs</h></idx> is another concern. LLMs can memorize and reproduce sensitive information from their training data, potentially exposing personal or proprietary information. Techniques like data anonymization and differential privacy can help, but completely preventing memorization remains difficult.
-        </p>
-
-        <p>
-            <term>Hallucination</term><idx><h>hallucination in LLMs</h></idx>—when a model generates plausible-sounding but factually incorrect information—is a persistent problem. This is especially concerning in high-stakes applications like healthcare, law, or education. While techniques like RAG and RLHF can reduce hallucinations, they do not eliminate them entirely.
+            <term>Hallucination</term><idx><h>hallucination in LLMs</h></idx>—when a model generates plausible-sounding but factually incorrect information—is a persistent problem, especially in high-stakes applications. The <term>computational cost</term><idx><h>computational cost of LLMs</h></idx> of LLMs is also substantial. Training and running these models requires enormous amounts of energy and specialized hardware, raising environmental and economic concerns.
         </p>
 
         <figure xml:id="fig-llm-challenges">
             <caption>
-                LLMs face multiple challenges including bias, privacy, computational cost, hallucinations, and alignment issues.
+                LLMs face multiple challenges including bias, privacy, computational cost, hallucinations, and alignment.
             </caption>
 
             <image source="llm-challenges.png">
                 <shortdescription>
-                    A diagram showing six major challenges facing LLMs: bias, privacy, compute cost, hallucinations, alignment, and environmental impact.
+                    A diagram showing six major challenges facing LLMs.
                 </shortdescription>
                 <description>
                     <p>
@@ -839,11 +760,7 @@
         </figure>
 
         <p>
-            The <term>computational cost</term><idx><h>computational cost of LLMs</h></idx> of LLMs is substantial. Training and running these models requires enormous amounts of energy and specialized hardware, raising environmental and economic concerns. The high cost also limits access to these technologies, concentrating power in the hands of a few large organizations.
-        </p>
-
-        <p>
-            Finally, <term>AI safety</term><idx><h>AI safety</h></idx> and alignment remain open challenges. As LLMs become more capable, ensuring they act in ways that are safe, ethical, and aligned with human values becomes increasingly critical. This requires ongoing research across technical, ethical, and policy domains.
+            Finally, <term>AI safety</term><idx><h>AI safety</h></idx> and alignment remain open challenges. As LLMs become more capable, ensuring they act in ways that are safe, ethical, and aligned with human values becomes increasingly critical.
         </p>
     </subsection>
 
@@ -851,19 +768,15 @@
         <title>Summary</title>
 
         <p>
-            Large language models represent a paradigm shift in artificial intelligence. Built on Transformer architectures and trained on massive amounts of text data, these models can understand, generate, and reason with human language at an unprecedented scale. Their success is driven by scaling laws that show predictable improvements with more data, larger models, and greater computational resources.
+            Large language models represent a paradigm shift in artificial intelligence. Built on Transformer architectures and trained on massive amounts of text, these models can understand, generate, and reason with human language at an unprecedented scale. Their success is driven by scaling laws that show predictable improvements with more data, larger models, and greater computational resources.
         </p>
 
         <p>
-            After pre-training, LLMs can be adapted through fine-tuning, instruction-tuning, and alignment techniques like RLHF. They can be prompted to perform new tasks without additional training, using in-context learning and chain-of-thought reasoning. Retrieval-augmented generation extends their capabilities by incorporating external knowledge.
+            After pre-training, LLMs can be adapted through fine-tuning and alignment techniques like RLHF. They can be prompted to perform new tasks without additional training, using in-context learning and chain-of-thought reasoning. Retrieval-augmented generation extends their capabilities by incorporating external knowledge. However, LLMs also face significant challenges including bias, privacy concerns, hallucinations, and high computational costs.
         </p>
 
         <p>
-            However, LLMs also face significant challenges. Bias, privacy concerns, hallucinations, and the enormous computational cost of training and inference all require careful attention. As these models become more powerful, ensuring they are safe, ethical, and aligned with human values becomes increasingly urgent.
-        </p>
-
-        <p>
-            The strength of LLMs lies in their ability to break the constraints of training NLP models for a limited number of specific tasks. Instead, LLMs learn from large amounts of text through the simple task of token prediction. By repeating this task a large number of times, LLMs acquire knowledge of the world and language that can be applied to new tasks. As research continues, the future of LLMs lies not just in making them bigger, but in making them more reliable, efficient, and beneficial to society.
+            As these models become more powerful, ensuring they are safe, ethical, and aligned with human values becomes increasingly urgent. The future of LLMs lies not just in making them bigger, but in making them more reliable, efficient, and beneficial to society.
         </p>
     </subsection>
   </section>
