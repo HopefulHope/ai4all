@@ -673,21 +673,33 @@
 
         <figure xml:id="fig-backpropagation-flow">
             <caption>
-                The two-phase flow of data in backpropagation: forward activation pass followed by backward error pass.
+                The two-phase iterative cycle of backpropagation: a forward pass calculates network predictions, followed by a backward pass that transmits error signals to update weights.
             </caption>
 
             <image source="backpropagation-flow.png">
                 <shortdescription>
-                    Diagram showing forward signals passing left to right and error signals traveling right to left across layers.
+                    High-level diagram showing data moving rightward during the forward pass and error moving leftward during the backward pass across network layers.
                 </shortdescription>
 
                 <description>
                     <p>
-                        A two-panel layout depicting network learning. The top panel shows activations flowing left-to-right from inputs to outputs (the Forward Pass). The bottom panel shows computed output error propagating right-to-left back through the hidden layers (Backpropagating the Error).
+                        A clean, two-phase schematic titled "BACKPROPAGATION: A TWO-PHASE LEARNING CYCLE" demonstrating network training.
+                    </p>
+                    <p>
+                        <em>Network Structure:</em> Three visual blocks in the center mark the sequence of network layers: Input Layer, Hidden Layers, and Output Layer.
+                    </p>
+                    <p>
+                        <em>Phase 1 (Forward Pass):</em> An upper blue arrow points left-to-right from an input (e.g., a cat image) through the layers to generate an output prediction. Neural activations are calculated forward to form this guess.
+                    </p>
+                    <p>
+                        <em>Phase 2 (Backward Pass):</em> A lower orange arrow points right-to-left from the output back through the hidden layers toward the input. Prediction error signals travel backward to compute required weight updates (gradients).
+                    </p>
+                    <p>
+                        <em>Iterative Loop:</em> A circular arrow on the side emphasizes that this forward-and-backward cycle repeats iteratively to continuously improve performance.
                     </p>
                 </description>
             </image>
-        </figure>
+        </figure>  
 
         <p>
             It operates through the step-by-step process listed below:
