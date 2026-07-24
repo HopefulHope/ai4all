@@ -564,7 +564,8 @@
   <section xml:id="sec-large-language-models">
     <title>Large Language Models</title>
 
-    <introduction xml:id="intro-large-language-models">
+    <subsection xml:id="subsec-llms-backstory">
+        <title>The Backstory of Large Language Models</title>
         <p>
             <term>Large language models</term><idx><h>large language models</h></idx> (LLMs) have become one of the most revolutionary advancements in artificial intelligence. These powerful systems can understand, generate, and even reason with human language in ways that were previously impossible. The key insight behind LLMs is that knowledge of the world and language can be learned simply by predicting the next word in a sentence over and over again. This approach has shifted how we build AI systems: instead of creating specialized models for each task, we now train one foundation model that can be adapted for many different problems.
         </p>
@@ -574,7 +575,7 @@
         </p>
 
         <p>
-            These models are called "large" because they have an enormous number of <term>parameters</term><idx><h>parameters</h></idx>—the internal values the model learns during training. For example, GPT-3 has 175 billion parameters. When a model generates text, it does so step by step, predicting one token at a time and using that prediction to inform the next one. This <term>autoregressive</term><idx><h>autoregressive</h></idx> process is what allows LLMs to produce coherent, extended text.
+            These models are called "large" because they have an enormous number of <term>parameters</term><idx><h>parameters</h></idx>—the internal values the model learns during training. For example, GPT-3 has 175 billion parameters. When a model generates text, it does so step by step, predicting one token at a time and using that prediction to inform the next one. This autoregressive process is what allows LLMs to produce coherent, extended text.
         </p>
 
         <assemblage xml:id="asm-look-closer-llm">
@@ -583,7 +584,7 @@
                 Imagine trying to predict the next word in a sentence like "The cat sat on the ___." If you have read millions of sentences, you would know that "mat" is a very likely guess. Large language models do this on an unimaginable scale—they are trained on billions of sentences from books, websites, and articles. By repeatedly predicting the next word, they don't just learn language rules; they learn facts, reasoning patterns, and even some common sense about how the world works.
             </em></p>
         </assemblage>
-    </introduction>
+    </subsection>
 
     <subsection xml:id="subsec-training-llms">
         <title>Training Large Language Models</title>
@@ -595,23 +596,6 @@
         <p>
             The amount of data required is staggering. Modern LLMs are trained on datasets ranging from hundreds of billions to trillions of tokens, drawn from books, websites, articles, and code. The quality and diversity of this data are crucial—models trained on high-quality, diverse data perform better and generalize more effectively to new tasks. However, this also introduces challenges. Web-scraped data can contain errors, harmful content, and biases that the model may learn and reproduce.
         </p>
-
-        <figure xml:id="fig-llm-training-scale">
-            <caption>
-                Training large language models requires massive datasets and enormous computational resources.
-            </caption>
-
-            <image source="llm-training-scale.png">
-                <shortdescription>
-                    A diagram showing the relationship between training data size and model size for various LLMs.
-                </shortdescription>
-                <description>
-                    <p>
-                        A scatter plot shows different LLMs plotted by training data size (x-axis, ranging from 0.5T to 6T tokens) and model size (y-axis, ranging from 7B to 671B parameters). Larger models generally require more training data.
-                    </p>
-                </description>
-            </image>
-        </figure>
 
         <p>
             A key finding in LLM research is the concept of <term>scaling laws</term><idx><h>scaling laws</h></idx>. These laws show that model performance improves predictably as we increase the amount of data, the size of the model, and the computational resources used for training. This has motivated researchers to keep building larger and larger models. As models scale up, they sometimes exhibit <term>emergent abilities</term><idx><h>emergent abilities</h></idx>—new capabilities that were not present in smaller versions.
@@ -631,23 +615,6 @@
         <p>
             After an LLM is pre-trained, it can be adapted for specific tasks. The most common method is <term>fine-tuning</term><idx><h>fine-tuning</h></idx>, where the model is trained further on a smaller dataset of task-specific examples. <term>Instruction fine-tuning</term><idx><h>instruction fine-tuning</h></idx> is a popular approach where the model learns to follow instructions by training on examples that pair instructions with desired outputs. This allows the model to understand and respond to a wide variety of user requests.
         </p>
-
-        <figure xml:id="fig-instruction-finetuning">
-            <caption>
-                Instruction fine-tuning adapts a pre-trained LLM to follow user instructions.
-            </caption>
-
-            <image source="instruction-finetuning.png">
-                <shortdescription>
-                    A diagram showing a pre-trained LLM being fine-tuned on instruction-response pairs.
-                </shortdescription>
-                <description>
-                    <p>
-                        The diagram shows a "Pre-trained LLM" arrow pointing to a "Fine-tuned LLM" through a process labeled "Instruction Fine-Tuning." Examples of instruction-response pairs are shown: "Summarize this text" paired with a summary, "Translate to Spanish" paired with a translation, and "Classify this email" paired with a spam/not spam label.
-                    </p>
-                </description>
-            </image>
-        </figure>
 
         <p>
             An important step in developing safe and useful LLMs is <term>alignment</term><idx><h>alignment</h></idx>—ensuring that the model's behavior matches human values and intentions. Alignment is challenging because human values are diverse, subjective, and often context-dependent. A widely used alignment technique is <term>reinforcement learning from human feedback</term><idx><h>reinforcement learning from human feedback</h></idx> (<term>RLHF</term><idx><h>RLHF</h></idx>). In RLHF, humans evaluate model outputs by ranking them according to quality. These rankings are used to train a <term>reward model</term><idx><h>reward model</h></idx> that predicts which outputs humans would prefer. The LLM is then fine-tuned using reinforcement learning to maximize the rewards predicted by this model.
@@ -669,23 +636,6 @@
             A powerful prompting technique is <term>chain-of-thought</term><idx><h>chain-of-thought</h></idx> (CoT) prompting. In CoT, the model is encouraged to generate intermediate reasoning steps before arriving at a final answer. This is particularly effective for complex problems like math, logic, and commonsense reasoning. Instead of directly answering a math problem, a CoT prompt includes step-by-step reasoning in the examples, teaching the model to think through the problem systematically.
         </p>
 
-        <figure xml:id="fig-chain-of-thought">
-            <caption>
-                Chain-of-thought prompting encourages the model to generate intermediate reasoning steps before arriving at a final answer.
-            </caption>
-
-            <image source="chain-of-thought.png">
-                <shortdescription>
-                    A comparison of standard prompting versus chain-of-thought prompting on a math problem.
-                </shortdescription>
-                <description>
-                    <p>
-                        Two panels show the same math problem. In standard prompting, the model directly outputs an incorrect answer. In chain-of-thought prompting, the model generates step-by-step reasoning: "Tom starts with 12 marbles. After winning, he has 19. After losing, he has 14. After his brother gives him more, he has 17. Therefore, the answer is 17." The correct answer is highlighted.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
         <p>
             Another important technique is <term>retrieval-augmented generation</term><idx><h>retrieval-augmented generation</h></idx> (<term>RAG</term><idx><h>RAG</h></idx>). RAG enhances LLM responses by retrieving relevant information from external sources, such as a knowledge base or document collection, and including that information in the prompt. This allows the model to access up-to-date or specialized knowledge that may not have been in its training data, reducing the risk of generating factually incorrect information.
         </p>
@@ -701,23 +651,6 @@
         <p>
             The way an LLM selects its output is controlled by <term>decoding algorithms</term><idx><h>decoding algorithms</h></idx>. The simplest method is <term>greedy decoding</term><idx><h>greedy decoding</h></idx>, which always picks the most likely next token. <term>Beam search</term><idx><h>beam search</h></idx> keeps track of multiple possible sequences, improving output quality at the cost of more computation. <term>Sampling-based methods</term><idx><h>sampling-based decoding</h></idx>, like top-k and top-p sampling, introduce randomness for more diverse and creative outputs.
         </p>
-
-        <figure xml:id="fig-decoding-methods">
-            <caption>
-                Comparison of different decoding methods for LLM inference.
-            </caption>
-
-            <image source="decoding-methods.png">
-                <shortdescription>
-                    Four diagrams showing how each decoding method selects the next token in a sequence.
-                </shortdescription>
-                <description>
-                    <p>
-                        Greedy: only the highest probability token is selected. Beam Search: the top K paths are kept. Top-k Sampling: the top k tokens are considered and one is sampled. Top-p Sampling: tokens are considered until their cumulative probability reaches p, then one is sampled.
-                    </p>
-                </description>
-            </image>
-        </figure>
 
         <p>
             Evaluating LLM inference involves both quality and efficiency metrics. <term>Request latency</term><idx><h>request latency</h></idx> measures the time to receive a complete response. <term>Throughput</term><idx><h>throughput</h></idx> measures how many tokens the model can process per second. <term>Time to first token</term><idx><h>time to first token</h></idx> and <term>inter-token latency</term><idx><h>inter-token latency</h></idx> measure the speed of token generation. These metrics are crucial for deploying LLMs in real-world applications.
@@ -735,32 +668,15 @@
         <title>Challenges</title>
 
         <p>
-            Despite their remarkable capabilities, LLMs face several significant challenges. <term>Bias</term><idx><h>bias in LLMs</h></idx> is a major concern—models trained on internet data can learn and amplify societal biases related to gender, race, and other characteristics. <term>Privacy</term><idx><h>privacy concerns in LLMs</h></idx> is another concern, as LLMs can memorize and reproduce sensitive information from their training data.
+            Despite their remarkable capabilities, LLMs face several significant challenges. <term>Bias</term><idx><h>bias in LLMs</h></idx> is a major concern—models trained on internet data can learn and amplify societal biases related to gender, race, and other characteristics. Privacy is another concern, as LLMs can memorize and reproduce sensitive information from their training data.
         </p>
 
         <p>
-            <term>Hallucination</term><idx><h>hallucination in LLMs</h></idx>—when a model generates plausible-sounding but factually incorrect information—is a persistent problem, especially in high-stakes applications. The <term>computational cost</term><idx><h>computational cost of LLMs</h></idx> of LLMs is also substantial. Training and running these models requires enormous amounts of energy and specialized hardware, raising environmental and economic concerns.
+            <term>Hallucination</term><idx><h>hallucination in LLMs</h></idx>—when a model generates plausible-sounding but factually incorrect information—is a persistent problem, especially in high-stakes applications. The computational cost of LLMs is also substantial. Training and running these models requires enormous amounts of energy and specialized hardware, raising environmental and economic concerns.
         </p>
 
-        <figure xml:id="fig-llm-challenges">
-            <caption>
-                LLMs face multiple challenges including bias, privacy, computational cost, hallucinations, and alignment.
-            </caption>
-
-            <image source="llm-challenges.png">
-                <shortdescription>
-                    A diagram showing six major challenges facing LLMs.
-                </shortdescription>
-                <description>
-                    <p>
-                        A central LLM icon is surrounded by six challenge icons: a scale for bias, a lock for privacy, a processor for compute cost, a question mark for hallucinations, a person for alignment, and a leaf for environmental impact.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
         <p>
-            Finally, <term>AI safety</term><idx><h>AI safety</h></idx> and alignment remain open challenges. As LLMs become more capable, ensuring they act in ways that are safe, ethical, and aligned with human values becomes increasingly critical.
+            Finally, AI safety and alignment remain open challenges. As LLMs become more capable, ensuring they act in ways that are safe, ethical, and aligned with human values becomes increasingly critical.
         </p>
     </subsection>
 
