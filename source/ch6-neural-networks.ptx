@@ -569,24 +569,6 @@
             A <term>cost function</term><idx><h>cost function</h></idx> (sometimes called a loss function) is a mathematical yardstick that measures a neural network's performance by calculating how far off its predictions are from the correct answers, outputting a single error score that we try to get as close to zero as possible. An example is the <term>quadratic cost function</term><idx><h>quadratic cost function</h></idx> or <term>mean squared error</term><idx><h>mean squared error</h></idx>.
         </p>
 
-        <figure xml:id="fig-cost-function-landscape">
-            <caption>
-                A visual representation of a cost function landscape where training reduces error down to a minimum point.
-            </caption>
-
-            <image source="cost-function-landscape.png">
-                <shortdescription>
-                    A 3D surface plot depicting a curved valley with a high error point sloping down to a minimum value.
-                </shortdescription>
-
-                <description>
-                    <p>
-                        A continuous three-dimensional surface representing error values mapped across weight and bias configurations. High peaks indicate large error, while a deep central basin represents the minimum cost state.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
         <p>
             The quadratic cost function works through a clear, systematic process:
         </p>
@@ -631,19 +613,31 @@
             <em>The Valley Analogy:</em> The way the gradient descent algorithm works is to repeatedly compute the gradient and move in the opposite direction, <q>falling down</q> the slope of the valley.
         </p>
 
-        <figure xml:id="fig-gradient-descent-valley">
+        <figure xml:id="fig-cost-surface-gradient-descent">
             <caption>
-                Gradient descent visualized as step-by-step motion down a curved slope toward a minimum.
+                A 3D cost surface landscape illustrating gradient descent, accompanied by a 2D cross-sectional view of calculated downhill steps.
             </caption>
 
-            <image source="gradient-descent-valley.png">
+            <image source="cost-surface-gradient-descent.png">
                 <shortdescription>
-                    A ball rolling down a bowl-shaped curve step by step toward the bottom.
+                    Diagram featuring a 3D parabolic cost surface showing a ball descending into a valley along with an inset 2D cross-sectional view of the slope.
                 </shortdescription>
 
                 <description>
                     <p>
-                        A 2D cross-section graph of a parabolic cost curve. A ball icon starts near the top of the curve and follows discrete downward arrows indicating calculated steps down the slope toward the lowest point.
+                        A visual overview titled "3D COST SURFACE VISUAL" depicting the process of gradient descent optimization across a continuous loss landscape.
+                    </p>
+                    <p>
+                        The central element is a 3D surface plot representing the cost function (error space). A ball labeled "START" begins near a high-cost peak and follows a path of downward arrows along the surface topology, eventually coming to rest at the lowest valley labeled "MINIMUM."
+                    </p>
+                    <p>
+                        On the left side, explanatory text under "GRADIENT DESCENT ITERATION" notes: "Each step moves downhill by analyzing the current surface slope. These calculated steps continue until a low-cost valley is reached."
+                    </p>
+                    <p>
+                        On the right side, an inset box labeled "LOCAL 2D VIEW (Calculated Steps)" shows a simplified 2D cross-section of the curve. It depicts the same ball taking discrete downward steps along the slope toward the bottom.
+                    </p>
+                    <p>
+                        A summary block in the lower right highlights: "3D SURFACE &amp; CROSS-SECTION: Shows the complete topography of the error space and a localized 2D calculation view."
                     </p>
                 </description>
             </image>
