@@ -3,40 +3,100 @@
 <chapter xml:id="ai-in-education" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>AI in Education</title>
 
-  <introduction>
-    <p> Text before the first section. </p>
-  </introduction>
+<introduction>
 
-  <!-- include sections -->
+    <p>
+        Generative AI has changed education faster than almost any technology in history. In just a few years, students have gained access to AI systems that can answer questions, explain difficult ideas, generate practice problems, summarize readings, and provide feedback in seconds. Whether you are writing an essay, studying for an exam, or learning a new skill, AI is becoming a common part of the learning experience.
+    </p>
+
+    <p>
+        Like any educational tool, however, generative AI can be used well or poorly. Used thoughtfully, it can help you understand new concepts, practice difficult material, and become a more independent learner. Used carelessly, it can tempt you to skip the very thinking that leads to lasting understanding. Learning how to use AI effectively is quickly becoming an essential academic skill.
+    </p>
+
+    <p>
+        This chapter explores how to make AI work <em>for your learning</em> rather than <em>instead of your learning</em>. In this chapter, you will learn how AI can support your education, why productive struggle remains essential for learning, how to write effective prompts, how to recognize AI hallucination and other errors, and how to use AI responsibly and ethically as a learner.
+    </p>
+
+</introduction>
+
   <section xml:id="sec-the-dangers-of-ai-as-a-learner">
     <title>The Dangers of AI as a Learner</title>
 
-    <introduction>
-      <p>
-          The rapid emergence of generative AI tools like OpenAI's ChatGPT has
-          fundamentally shifted how students approach learning, presenting a
-          critical tension between short-term task completion and long-term
-          skill acquisition. While early discussions around generative AI have
-          heavily celebrated its ability to boost immediate productivity and
-          efficiency on knowledge-intensive tasks, a profound concern centers
-          on how these tools affect how humans learn novel skills and maintain
-          cognitive independence.
-      </p>
+<introduction>
 
-      <p>
-          The core danger is that generative AI tools are highly optimized to
-          automate output, which frequently encourages a shift from active
-          learning to passive task completion. When a student uses AI to
-          bypass the underlying mental effort of an assignment, they
-          experience a form of
-          <term>cognitive surrender</term><idx><h>cognitive surrender</h></idx>,
-          the act of outsourcing one's critical thinking to an external source
-          and bypassing the mental work of learning. While the technology
-          allows users to navigate information quickly, relying on it to
-          generate immediate answers removes the necessary cognitive
-          investment required to build durable human expertise.
-      </p>
+    <p>
+        Generative AI has changed education faster than almost any technology in history. In just a few years, students have gained access to AI systems that can answer questions, explain difficult ideas, generate practice problems, summarize readings, and provide feedback in seconds. Whether you are writing an essay, studying for an exam, or learning a new skill, AI is becoming a common part of the learning experience.
+    </p>
+
+    <p>
+        Like any educational tool, however, generative AI can be used well or poorly. Used thoughtfully, it can help you understand new concepts, practice difficult material, and become a more independent learner. Used carelessly, it can tempt you to skip the very thinking that leads to lasting understanding. Learning how to use AI effectively is quickly becoming an essential academic skill.
+    </p>
+
+    <p>
+        This chapter explores how to make AI work <em>for</em> your learning rather than <em>instead of</em> your learning. Along the way, you will learn how AI can support your education, why productive struggle remains essential for learning, how to write effective prompts, how to recognize AI mistakes, and how to use AI responsibly and ethically.
+    </p>
+
     </introduction>
+
+    <section xml:id="sec-ai-as-a-learning-tool">
+    <title>AI as a Learning Tool</title>
+
+    <introduction>
+
+        <p>
+            Generative AI is changing education. Students now have access to tools that can explain difficult ideas, answer questions, generate practice problems, summarize information, and provide feedback almost instantly. These capabilities create exciting new opportunities for learning, but they also raise important questions. If AI can answer many of the questions students are asked in school, what role should it play in the learning process? More importantly, how can students use AI in ways that strengthen their understanding instead of replacing it?
+        </p>
+
+        <p>
+            The answer is not to avoid AI, nor is it to rely on AI for everything. Like calculators, search engines, and spell checkers before it, generative AI is a tool. Used thoughtfully, it can help students learn more effectively and efficiently. Used carelessly, it can bypass the very thinking that leads to genuine understanding. Learning to use AI well is becoming an important academic skill, just as learning to evaluate information on the Internet became an essential skill for previous generations.
+        </p>
+
+        <p>
+            This chapter explores both the opportunities and the challenges of learning with AI. You will learn why independent thinking still matters, how AI can become an effective study partner, how to write better prompts, and why it is important to verify AI-generated information instead of accepting it without question.
+        </p>
+
+    </introduction>
+
+    <subsection xml:id="ssec-new-opportunities-for-learning">
+        <title>New Opportunities for Learning</title>
+
+        <p>
+            Generative AI has the potential to make learning more personal and more interactive than ever before. Unlike a textbook, AI can adapt its explanations based on your questions, provide examples that match your interests, and continue explaining a concept until it makes sense. It can generate additional practice problems, quiz you on important ideas, and offer feedback while you are learning rather than after an assignment has been graded.
+        </p>
+
+        <p>
+            AI can also support creativity and problem solving. It can help you brainstorm ideas, organize information, explain unfamiliar concepts, and explore different approaches to solving a problem. When used as a learning partner instead of an answer machine, AI encourages curiosity and experimentation while giving you immediate access to explanations and examples whenever you need them.
+        </p>
+
+    </subsection>
+
+    <subsection xml:id="ssec-risks-of-overreliance">
+        <title>The Risks of Overreliance</title>
+
+        <p>
+            Although AI can be a powerful educational tool, learning requires more than producing correct answers. Students develop expertise by practicing, making mistakes, revising their thinking, and reflecting on what they have learned. If AI consistently performs these mental tasks instead of the student, learning may become faster in the short term but weaker in the long term.
+        </p>
+
+        <p>
+            AI systems are also imperfect. They sometimes produce incorrect information, misleading explanations, or fabricated citations that appear convincing. For this reason, effective AI users do not simply accept AI-generated responses. They question them, compare them with other sources, and use their own judgment to determine whether the information is accurate and appropriate.
+        </p>
+
+    </subsection>
+
+    <subsection xml:id="ssec-learning-new-skills-with-ai">
+        <title>Learning New Skills</title>
+
+        <p>
+            As AI becomes a common part of education and the workplace, students will need to develop new skills alongside traditional ones. These include writing clear prompts, evaluating AI-generated responses, recognizing mistakes, and deciding when AI assistance is helpful and when independent thinking is more valuable. These are not replacements for critical thinking; they are extensions of it.
+        </p>
+
+        <p>
+            Throughout this chapter, you will learn practical strategies for using AI responsibly and effectively. The goal is not to have AI do your learning for you. Instead, the goal is to use AI as a tool that helps you become a stronger learner, a better problem solver, and a more independent thinker.
+        </p>
+
+    </subsection>
+
+</section>
 
     <subsection xml:id="ssec-evidence-from-mathematics-learning">
         <title>Evidence from Mathematics Learning</title>
