@@ -283,74 +283,24 @@
     </p>
 </introduction>
 
-    <subsection xml:id="ssec-turing-test">
-        <title>The Turing Test</title>
+<subsection xml:id="ssec-turing-test">
+    <title>The Turing Test</title>
 
-        <p>
-            Because intelligence is difficult to define precisely, early AI
-            researchers looked for practical ways to evaluate it. In 1950,
-            British mathematician and computer scientist
-            <term>Alan Turing</term><idx>Turing, Alan</idx> proposed what later
-            became known as the
-            <term>Turing Test</term><idx>Turing Test</idx>. Rather than asking
-            <q>Can machines think?</q>, Turing suggested asking whether a
-            machine could successfully imitate a human during a conversation.
-        </p>
+    <p>Because intelligence is difficult to define precisely, early AI researchers looked for practical ways to evaluate it. In 1950, British mathematician and computer science pioneer <term>Alan Turing</term><idx>Turing, Alan</idx> posed a provocative question: Can machines think? Rather than diving into philosophical definitions, Turing reframed the question in practical terms with his now-famous <term>Turing Test</term><idx>Turing Test</idx>, introduced in his paper <q>Computing Machinery and Intelligence.</q></p>
 
-        <p>
-            In the classic version of the Turing Test, three participants are
-            involved: a human interrogator, another human participant, and a
-            computer program. The interrogator communicates with both the human
-            and the computer through text messages, without knowing which is
-            which. After the conversation, the interrogator attempts to
-            identify the computer. If the computer consistently convinces
-            interrogators that it is the human participant, it is said to have
-            passed the Turing Test.
-        </p>
+    <p>The concept is straightforward: a human judge engages in a text-based conversation with both a human and a machine, without knowing which is which. If the judge cannot reliably distinguish the machine from the human, the machine is said to have passed the test—demonstrating behavior indistinguishable from human intelligence. Turing's approach shifted the focus from the elusive concept of <q>thinking</q> to observable interaction.</p>
 
-        <assemblage xml:id="asm-look-closer-turing">
-            <title>Look Closer...</title>
+    <assemblage xml:id="asm-look-closer-turing-versions">
+        <title>Look Closer...</title>
+        <p><em>Turing actually presented three versions of this imitation game. The 1950 version is the most well-known: a human interrogator has simultaneous text conversations with both a computer and another human, and must judge which is which. The game is unrestricted, meaning the interrogator can communicate on <q>almost any</q> subject. Turing said that if a computer does well in this game, it can be considered to be thinking.</em></p>
+    </assemblage>
 
-            <p>
-                <em>
-                    Turing never claimed that passing the Turing Test proved a
-                    machine was truly intelligent or conscious. Instead, he
-                    proposed it as a practical way to evaluate whether a
-                    computer could produce conversational behavior that was
-                    indistinguishable from that of a human.
-                </em>
-            </p>
-        </assemblage>
+    <p>However, it is important to understand what the test does and does not claim. For Turing, doing well in the game is a sufficient condition for thinking—meaning a machine that passes can be said to think—but it is not a necessary condition. A machine that fails the test might still be intelligent. Turing also did not intend the test as a strict definition of thinking. In fact, he stated: <q>I don't want to give a definition of thinking.</q></p>
 
-        <p>
-            Passing the Turing Test does not prove that a computer thinks,
-            understands language, or is conscious. Instead, it evaluates
-            whether a machine can produce behavior that is indistinguishable
-            from that of a human during conversation. Although modern AI
-            systems have become remarkably good at generating human-like text,
-            researchers continue to debate whether the Turing Test is an
-            adequate measure of intelligence.
-        </p>
+    <p>The test has several key features. It assesses a machine's ability at open-domain conversation, rather than in narrow, specialized fields. It is qualitative, allowing for natural dialogue, and it does not rely on the tricky, adversarial questions that programmers often use to try and expose chatbots. Significantly, the test is also architecture-independent, meaning it does not dictate what kind of machine or technology must be used—it could be a neural network, a DNA computer, or any other system.</p>
 
-        <p>
-            Today, AI systems excel at some tasks that humans find difficult,
-            such as analyzing enormous amounts of data or recognizing subtle
-            patterns. At the same time, they often struggle with tasks that
-            people find effortless, such as applying common sense,
-            understanding the broader context of a situation, or reasoning
-            reliably about unfamiliar problems. As we explore AI throughout
-            this book, we will return to an important question:
-            <q>What does it really mean to be intelligent?</q>
-        </p>
-
-        <p>
-            For decades, the Turing Test shaped how many people thought about
-            artificial intelligence. Today, however, AI systems perform many
-            impressive tasks that have little to do with carrying on a
-            conversation. As a result, researchers now evaluate AI in many
-            different ways depending on the problems they are trying to solve.
-        </p>
-    </subsection>
+    <p>For decades, the Turing Test shaped how many people thought about artificial intelligence. Today, however, AI systems perform many impressive tasks that have little to do with carrying on a conversation. As a result, researchers now evaluate AI in many different ways depending on the problems they are trying to solve.</p>
+</subsection>
 
   <subsection xml:id="ssec-the-evolution-of-automation">
     <title>The Evolution of Automation</title>
