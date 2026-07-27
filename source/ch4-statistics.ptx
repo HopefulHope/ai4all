@@ -503,9 +503,9 @@
       <figure xml:id="fig-43-wife-husband-age">
         <caption>Scatter plot showing wife’s age as a function of husband’s age.</caption>
         <image source="4.3-wife-husband-age.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot displaying a strong, positive linear relationship between a husband's age and his wife's age.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot showing a strong positive association between the ages of husbands and wives. The horizontal axis, labeled "Husband's Age," ranges from 30 to 80. The vertical axis, labeled "Wife's Age," also ranges from 30 to 85. The plot contains hundreds of data points in a light blue color. The points cluster very tightly along an upward-sloping diagonal line, indicating that as the husband's age increases, the wife's age increases at a nearly identical rate. While most points follow the diagonal trend, there is a slight tendency for points to sit just below the diagonal for older age groups, reflecting that husbands are sometimes slightly older than their wives.</p>
           </description>
         </image>
       </figure>
@@ -538,9 +538,9 @@
       <figure xml:id="fig-43-grip-arm-strength">
         <caption>Scatter plot of Grip Strength and Arm Strength.</caption>
         <image source="4.3-grip-arm-strength.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot illustrating a moderate positive correlation between individuals' grip strength and their arm strength.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot showing the relationship between physical strength measurements. The horizontal axis, labeled "Grip Strength," ranges from 20 to 200. The vertical axis, labeled "Arm Strength," ranges from 10 to 140. The plot displays a large collection of dark blue data points representing individuals. There is a clear positive association visible; as grip strength increases, arm strength generally increases as well. However, the points are spread out in a wide, diffuse cloud around the diagonal trend, showing much more variability than the spousal age graph. This spread indicates a moderate positive linear relationship, rather than a perfect or tight fit.</p>
           </description>
         </image>
       </figure>
@@ -555,9 +555,9 @@
       <figure xml:id="fig-43-dis-t-rel-h">
         <caption>Galileo's data showing a non-linear relationship.</caption>
         <image source="4.3-dis-t-rel-h.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot displaying a curved, non-linear relationship between the release height of a ball and the distance it travels.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot illustrating Galileo's data on projectile motion, showing a distinct non-linear trend. The horizontal axis, labeled "Release Height," ranges from 0 to 1250. The vertical axis, labeled "Distance Traveled," ranges from 200 to 600. The plot contains only seven distinct data points plotted as light blue dots. The points follow a clear upward curve. Because the slope of the trend becomes shallower as the release height increases, the data creates a convex, parabolic shape. A straight line drawn through the data would leave the middle points sitting far above it, demonstrating that the relationship between release height and distance traveled is not linear.</p>
           </description>
         </image>
       </figure>
@@ -605,9 +605,9 @@
       <figure xml:id="fig-43-per-pos-lin-rel">
         <caption>A perfect linear relationship, <m>r = 1</m>.</caption>
         <image source="4.3-per-pos-lin-rel.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot showing a perfect positive linear relationship, where points fall exactly on a straight line sloping upward.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot demonstrating a perfect positive linear correlation. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -6 to 4. The plot contains a series of light blue data points that fall precisely and exactly on a straight diagonal line moving from the bottom left to the top right. There is no scatter or deviation from this line, meaning that for every unit increase in x, y increases by a perfectly consistent amount. This visual represents a correlation coefficient of exactly r = 1.</p>
           </description>
         </image>
       </figure>
@@ -625,9 +625,9 @@
       <figure xml:id="fig-43-per-neg-lin-rel">
         <caption>A perfect negative linear relationship, <m>r = -1</m>.</caption>
         <image source="4.3-per-neg-lin-rel.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot showing a perfect negative linear relationship, where points fall exactly on a straight line sloping downward.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot demonstrating a perfect negative linear correlation. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -6 to 8. The plot consists of light blue data points that lie perfectly and exactly on a straight diagonal line moving from the top left to the bottom right. There is no scatter or deviation from this line, meaning that for every unit increase in x, y decreases by a perfectly consistent amount. This visual represents a correlation coefficient of exactly r = -1.</p>
           </description>
         </image>
       </figure>
@@ -645,9 +645,9 @@
       <figure xml:id="fig-43-r-0">
         <caption>A scatter plot for which <m>r = 0</m>.</caption>
         <image source="4.3-r-0.png">
-          <shortdescription>short description here</shortdescription>
+          <shortdescription>A scatter plot displaying no apparent linear relationship, where points form a random, scattered cloud.</shortdescription>
           <description>
-            <p>description here</p>
+            <p>A scatter plot illustrating a dataset with no linear relationship. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -3 to 4. The data is plotted using dark blue diamond-shaped points. Instead of following a line, the points are distributed randomly and widely across the entire plotting area. While there are two distinct vertical clusters of points around x = -0.5 and x = 2, the points within these columns are scattered vertically with no clear upward or downward trend. This random, directionless scatter represents a correlation coefficient of approximately r = 0.</p>
           </description>
         </image>
       </figure>
