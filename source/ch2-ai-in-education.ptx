@@ -3,22 +3,6 @@
 <chapter xml:id="ai-in-education" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>AI in Education</title>
 
-<introduction>
-
-    <p>
-        Generative AI has changed education faster than almost any technology in history. In just a few years, students have gained access to AI systems that can answer questions, explain difficult ideas, generate practice problems, summarize readings, and provide feedback in seconds. Whether you are writing an essay, studying for an exam, or learning a new skill, AI is becoming a common part of the learning experience.
-    </p>
-
-    <p>
-        Like any educational tool, however, generative AI can be used well or poorly. Used thoughtfully, it can help you understand new concepts, practice difficult material, and become a more independent learner. Used carelessly, it can tempt you to skip the very thinking that leads to lasting understanding. Learning how to use AI effectively is quickly becoming an essential academic skill.
-    </p>
-
-    <p>
-        This chapter explores how to make AI work <em>for your learning</em> rather than <em>instead of your learning</em>. In this chapter, you will learn how AI can support your education, why productive struggle remains essential for learning, how to write effective prompts, how to recognize AI hallucination and other errors, and how to use AI responsibly and ethically as a learner.
-    </p>
-
-</introduction>
-
   <section xml:id="sec-the-dangers-of-ai-as-a-learner">
     <title>The Dangers of AI as a Learner</title>
 
