@@ -447,7 +447,345 @@
 
   <section xml:id="sec-the-power-of-correlation">
     <title>The Power of Correlation</title>
-    <p>Content for the section.</p>
+
+    <p>
+      Measures of central tendency, variability, and spread summarize a single variable by providing important information about its distribution. Often, more than one variable is collected on each individual. For example, in large health studies of populations, it is common to obtain variables such as age, sex, height, weight, blood pressure, and total cholesterol on each individual. In this section, we consider <idx><h>bivariate data</h></idx><term>bivariate data</term>, which consists of two quantitative variables for each individual. Our primary interest is in summarizing such data in a way that preserves the underlying relationship between the two variables.
+    </p>
+
+    <subsection xml:id="subsec-spotting-trends-scatter-plots">
+      <title>Spotting Trends with Scatter Plots</title>
+      <p>
+        To illustrate bivariate data, consider something familiar: age. Do people tend to marry other people of about the same age? Looking at a sample of spousal ages for 10 White American couples (<xref ref="tab-spousal-ages" />), we see that husbands and wives tend to be of about the same age, with men having a tendency to be slightly older than their wives:
+      </p>
+
+      <table xml:id="tab-spousal-ages">
+        <title>Sample of spousal ages for 10 couples</title>
+        <tabular>
+          <row horizontal="minor">
+            <cell>Husband</cell>
+            <cell>36</cell>
+            <cell>72</cell>
+            <cell>37</cell>
+            <cell>36</cell>
+            <cell>51</cell>
+            <cell>50</cell>
+            <cell>47</cell>
+            <cell>50</cell>
+            <cell>37</cell>
+            <cell>41</cell>
+          </row>
+          <row horizontal="major">
+            <cell>Wife</cell>
+            <cell>35</cell>
+            <cell>67</cell>
+            <cell>33</cell>
+            <cell>35</cell>
+            <cell>50</cell>
+            <cell>46</cell>
+            <cell>47</cell>
+            <cell>42</cell>
+            <cell>36</cell>
+            <cell>41</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        In a larger dataset consisting of 282 pairs of spousal ages, summarizing each variable separately using histograms or summary statistics (such as the mean and standard deviation) causes critical information to be lost. For this sample, the mean age for husbands is 49 (standard deviation = 11) and for wives is 47 (standard deviation = 11), with both distributions being fairly skewed with a long right tail.
+      </p>
+      <p>
+        However, not all husbands are older than their wives. This fact is lost when we separate the variables. Even though summary statistics are provided on each variable, the pairing within couples is lost. Based on the means alone, we cannot say what percentage of couples has younger husbands than wives; we have to count across pairs. Only by maintaining the pairing can meaningful answers be found about couples per se, such as finding the average age of husbands with 45-year-old wives or identifying the overall relationship between a husband's age and a wife's age.
+      </p>
+      <p>
+        We can learn much more by displaying bivariate data in a graphical form that maintains the pairing: a <idx><h>scatter plot</h></idx><term>scatter plot</term>. In a scatter plot, each pair is plotted as a point defined by its horizontal (<m>x</m>) and vertical (<m>y</m>) coordinates (<xref ref="fig-43-wife-husband-age" />).
+      </p>
+
+      <figure xml:id="fig-43-wife-husband-age">
+        <caption>Scatter plot showing wife’s age as a function of husband’s age.</caption>
+        <image source="4.3-wife-husband-age.png">
+          <shortdescription>A scatter plot displaying a strong, positive linear relationship between a husband's age and his wife's age.</shortdescription>
+          <description>
+            <p>A scatter plot showing a strong positive association between the ages of husbands and wives. The horizontal axis, labeled "Husband's Age," ranges from 30 to 80. The vertical axis, labeled "Wife's Age," also ranges from 30 to 85. The plot contains hundreds of data points in a light blue color. The points cluster very tightly along an upward-sloping diagonal line, indicating that as the husband's age increases, the wife's age increases at a nearly identical rate. While most points follow the diagonal trend, there is a slight tendency for points to sit just below the diagonal for older age groups, reflecting that husbands are sometimes slightly older than their wives.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        A scatter plot reveals key characteristics of bivariate data:
+      </p>
+      <p>
+        <ul>
+          <li>
+            <p>
+              <idx><h>association</h><h>positive</h></idx>
+              <idx><h>association</h><h>negative</h></idx>
+              <term>Positive vs. Negative Association:</term> When one variable (<m>y</m>) increases with the second variable (<m>x</m>), <m>x</m> and <m>y</m> have a positive association. In the spousal age plot, the older the husband, the older the wife. Conversely, when <m>y</m> decreases as <m>x</m> increases, they have a negative association.
+            </p>
+          </li>
+          <li>
+            <p>
+              <idx><h>linear relationship</h></idx>
+              <term>Linear vs. Nonlinear Relationships:</term> When points cluster along a straight line, the relationship is called a linear relationship.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        Another example of a linear relationship is shown in a study of 149 individuals working in physically demanding jobs (such as electricians, construction and maintenance workers, and auto mechanics), shown in <xref ref="fig-43-grip-arm-strength" />.
+      </p>
+
+      <figure xml:id="fig-43-grip-arm-strength">
+        <caption>Scatter plot of Grip Strength and Arm Strength.</caption>
+        <image source="4.3-grip-arm-strength.png">
+          <shortdescription>A scatter plot illustrating a moderate positive correlation between individuals' grip strength and their arm strength.</shortdescription>
+          <description>
+            <p>A scatter plot showing the relationship between physical strength measurements. The horizontal axis, labeled "Grip Strength," ranges from 20 to 200. The vertical axis, labeled "Arm Strength," ranges from 10 to 140. The plot displays a large collection of dark blue data points representing individuals. There is a clear positive association visible; as grip strength increases, arm strength generally increases as well. However, the points are spread out in a wide, diffuse cloud around the diagonal trend, showing much more variability than the spousal age graph. This spread indicates a moderate positive linear relationship, rather than a perfect or tight fit.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        As expected, the stronger someone's grip, the stronger their arm tends to be, showing a positive association. Although the points cluster along a line, they are not clustered quite as closely as they are for spousal age.
+      </p>
+      <p>
+        Not all scatter plots show linear relationships. Consider Galileo's experiment on projectile motion (<xref ref="fig-43-dis-t-rel-h" />), where he rolled balls down an incline and measured how far they traveled as a function of release height.
+      </p>
+
+      <figure xml:id="fig-43-dis-t-rel-h">
+        <caption>Galileo's data showing a non-linear relationship.</caption>
+        <image source="4.3-dis-t-rel-h.png">
+          <shortdescription>A scatter plot displaying a curved, non-linear relationship between the release height of a ball and the distance it travels.</shortdescription>
+          <description>
+            <p>A scatter plot illustrating Galileo's data on projectile motion, showing a distinct non-linear trend. The horizontal axis, labeled "Release Height," ranges from 0 to 1250. The vertical axis, labeled "Distance Traveled," ranges from 200 to 600. The plot contains only seven distinct data points plotted as light blue dots. The points follow a clear upward curve. Because the slope of the trend becomes shallower as the release height increases, the data creates a convex, parabolic shape. A straight line drawn through the data would leave the middle points sitting far above it, demonstrating that the relationship between release height and distance traveled is not linear.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        The relationship between <q>Release Height</q> and <q>Distance Traveled</q> is not described well by a straight line: if you drew a line connecting the lowest point and highest point, all remaining points would sit above the line. These data are better fit by a parabola (<idx><h>nonlinear relationship</h></idx>nonlinear relationship).
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsec-values-pearsons-correlation">
+      <title>Values of Pearson’s Correlation</title>
+      <p>
+        Scatter plots that show linear relationships can differ in their slope and in how tightly points cluster around the line. A statistical measure of the strength of the linear relationship between two quantitative variables is the <idx><h>Pearson product-moment correlation coefficient</h></idx><idx><h>correlation coefficient</h><h>Pearson's r</h></idx><term>Pearson product-moment correlation coefficient</term> (referred to as Pearson's correlation or simply the correlation coefficient).
+      </p>
+      <p>
+        If the relationship between variables is not linear, the correlation coefficient does not adequately represent the strength of the relationship.
+      </p>
+      <p>
+        <ul>
+          <li>
+            <p>
+              <term>Symbols:</term> The symbol for Pearson's correlation in a population is <m>\rho</m> (rho), and in a sample it is <m>r</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Range:</term> Pearson's <m>r</m> ranges from <m>-1</m> to <m>1</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        The values of <m>r</m> represent specific linear patterns:
+      </p>
+      <p>
+        <ul>
+          <li>
+            <p>
+              <term>Perfect Positive Linear Relationship (<m>r = 1</m>):</term> Indicates a perfect positive linear relationship where all points fall exactly on an upward straight line (<xref ref="fig-43-per-pos-lin-rel" />).
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <figure xml:id="fig-43-per-pos-lin-rel">
+        <caption>A perfect linear relationship, <m>r = 1</m>.</caption>
+        <image source="4.3-per-pos-lin-rel.png">
+          <shortdescription>A scatter plot showing a perfect positive linear relationship, where points fall exactly on a straight line sloping upward.</shortdescription>
+          <description>
+            <p>A scatter plot demonstrating a perfect positive linear correlation. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -6 to 4. The plot contains a series of light blue data points that fall precisely and exactly on a straight diagonal line moving from the bottom left to the top right. There is no scatter or deviation from this line, meaning that for every unit increase in x, y increases by a perfectly consistent amount. This visual represents a correlation coefficient of exactly r = 1.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        <ul>
+          <li>
+            <p>
+              <term>Perfect Negative Linear Relationship (<m>r = -1</m>):</term> Indicates a perfect negative linear relationship where points fall on a downward straight line (<xref ref="fig-43-per-neg-lin-rel" />).
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <figure xml:id="fig-43-per-neg-lin-rel">
+        <caption>A perfect negative linear relationship, <m>r = -1</m>.</caption>
+        <image source="4.3-per-neg-lin-rel.png">
+          <shortdescription>A scatter plot showing a perfect negative linear relationship, where points fall exactly on a straight line sloping downward.</shortdescription>
+          <description>
+            <p>A scatter plot demonstrating a perfect negative linear correlation. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -6 to 8. The plot consists of light blue data points that lie perfectly and exactly on a straight diagonal line moving from the top left to the bottom right. There is no scatter or deviation from this line, meaning that for every unit increase in x, y decreases by a perfectly consistent amount. This visual represents a correlation coefficient of exactly r = -1.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        <ul>
+          <li>
+            <p>
+              <term>No Linear Relationship (<m>r = 0</m>):</term> Indicates no linear relationship between variables <m>x</m> and <m>y</m> (<xref ref="fig-43-r-0" />).
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <figure xml:id="fig-43-r-0">
+        <caption>A scatter plot for which <m>r = 0</m>.</caption>
+        <image source="4.3-r-0.png">
+          <shortdescription>A scatter plot displaying no apparent linear relationship, where points form a random, scattered cloud.</shortdescription>
+          <description>
+            <p>A scatter plot illustrating a dataset with no linear relationship. The horizontal axis is labeled "x" and ranges from -3 to 3. The vertical axis is labeled "y" and ranges from -3 to 4. The data is plotted using dark blue diamond-shaped points. Instead of following a line, the points are distributed randomly and widely across the entire plotting area. While there are two distinct vertical clusters of points around x = -0.5 and x = 2, the points within these columns are scattered vertically with no clear upward or downward trend. This random, directionless scatter represents a correlation coefficient of approximately r = 0.</p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        With real-world data, values of <m>r</m> are rarely exactly <m>-1</m>, <m>0</m>, or <m>1</m>:
+      </p>
+      <p>
+        <ul>
+          <li>
+            <p>
+              The data for spousal ages has an <m>r</m> of <m>0.97</m> (<xref ref="fig-43-wife-husband-age" />), showing a very tight clustering along a line.
+            </p>
+          </li>
+          <li>
+            <p>
+              The data for grip strength and arm strength has an <m>r</m> of <m>0.63</m> (<xref ref="fig-43-grip-arm-strength" />), reflecting a moderate positive linear relationship.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsec-core-mathematical-properties">
+      <title>Core Mathematical Properties of <m>r</m></title>
+      <p>
+        Pearson’s <m>r</m> obeys three fundamental mathematical rules that dictate how it behaves in any dataset:
+      </p>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <term>Strict Bounds (<m>-1</m> to <m>+1</m>):</term> The value of <m>r</m> always stays between <m>-1</m> and <m>+1</m>. The sign indicates direction (positive or negative), while the absolute magnitude reflects strength.
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Symmetry:</term> Correlation works identically in both directions. The correlation of <m>x</m> with <m>y</m> is the exact same as <m>y</m> with <m>x</m>—measuring weight versus height yields the same value as height versus weight.
+            </p>
+          </li>
+          <li>
+            <p>
+              <idx><h>scale invariance</h></idx>
+              <term>Invariance to Scale Changes:</term> Pearson’s <m>r</m> is completely unaffected by linear transformations (adding, subtracting, multiplying, or dividing by a constant). For instance, the correlation between height and weight remains identical whether height is measured in inches, feet, or meters. Similarly, adding five bonus points to every student's test score will not alter how those scores correlate with GPA.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsec-interpreting-r-real-world">
+      <title>Interpreting <m>r</m> in Real-World Contexts</title>
+      <p>
+        Beyond its mathematical definitions, two practical factors heavily influence how a correlation coefficient should be interpreted in practice:
+      </p>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <idx><h>coefficient of determination</h></idx>
+              <idx><h>variance explained</h></idx>
+              <term>Variance Explained (<m>r^2</m>):</term> Squaring the correlation coefficient (<m>r^2</m>) gives the <term>coefficient of determination</term>, which measures the proportion of variance in one variable that is predictable from the other:
+            </p>
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    <term>High Shared Variance:</term> In the spousal age dataset (<m>r = 0.97</m>), <m>r^2 = 0.94</m>, meaning 94% of the variance in wives' ages is accounted for by their husbands' ages.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <term>Moderate Shared Variance:</term> For arm and grip strength (<m>r = 0.63</m>), <m>r^2 \approx 0.40</m>, leaving 60% of the variance unexplained by grip strength alone.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              <idx><h>restriction of range</h></idx>
+              <term>Restriction of Range:</term> Truncating or limiting data to a narrow range of values can artificially deflate the calculated correlation.
+            </p>
+            <p>
+              <example xml:id="ex-restriction-of-range">
+                <p>
+                  Across the general high school population, standardized admissions test scores and academic performance share a strong positive correlation. However, if an analysis focuses solely on students admitted to an elite university—where test scores fall within a restricted, highly competitive band—the observed correlation between test scores and college GPA drops significantly, hiding the true strength of the broader relationship.
+                </p>
+              </example>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsec-correlation-vs-causation">
+      <title>Correlation vs. Causation</title>
+      <p>
+        When two variables consistently move together, it is natural to assume that one must be driving the other. In everyday thinking, we tend to link strong patterns directly to cause-and-effect relationships: if <m>x</m> and <m>y</m> always change together, <m>x</m> seems like the obvious cause of <m>y</m>. However, this instinct can be misleading. A strong correlation between two variables does not mean that a causal relationship exists between them. The primary pitfall in inferring causation from observational data is known as the <idx><h>third-variable problem</h></idx><idx><h>confounding variable</h></idx><term>third-variable problem</term>, which occurs when an unmeasured third factor is actually responsible for the observed connection between the two main variables.
+      </p>
+      <p>
+        An excellent example comes from a study in Taiwan in the 1970s that found a strong positive correlation between the use of contraception and the number of electric appliances in a person's house. Of course, using contraception does not induce someone to buy electrical appliances, nor does buying appliances cause people to use contraception. Instead, a third variable—education level (or socioeconomic status)—affects both factors independently.
+      </p>
+      <p>
+        Does the possibility of a third-variable problem make it impossible to draw causal inferences without doing an experiment? One approach is to simply assume that you do not have a third-variable problem. This approach, although common, is not very satisfactory. However, be aware that the assumption of no third-variable problem may be hidden behind a complex causal model that contains sophisticated and elegant mathematics.
+      </p>
+      <p>
+        A better, though admittedly more difficult, approach is to find converging evidence. This was the approach taken to conclude that smoking causes cancer. The analysis included converging evidence from retrospective studies, prospective studies, lab studies with animals, and theoretical understandings of cancer causes.
+      </p>
+      <p>
+        A second major obstacle in non-experimental data is determining the <idx><h>directionality problem</h></idx>direction of causality. A correlation between two variables does not indicate which variable is causing which. For example, Reinhart and Rogoff (2010) found a strong correlation between public debt and GDP growth. Although some argued that high public debt slows economic growth, most evidence supports the alternative direction: slow GDP growth increases public debt.
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsec-establishing-causation-experiments">
+      <title>Establishing Causation in Experiments</title>
+      <p>
+        Because non-experimental correlations are vulnerable to the third-variable problem and directionality issues, establishing a clear causal connection often requires a controlled experiment.
+      </p>
+      <p>
+        Consider a simple experiment where people are chosen at random from a population and assigned randomly to either an experimental group or a control group. To make this concrete, imagine the experimental group receives a drug for insomnia, the control group receives a placebo, and researchers measure how many minutes each person sleeps that night. If the experimental group sleeps significantly longer on average than the control group, does that prove the drug caused the difference?
+      </p>
+      <p>
+        An obvious obstacle to drawing a causal conclusion is that many unmeasured variables affect sleep: stress levels, genetics, caffeine intake, or sleep quality from the night before. Could differences in these background factors be the real reason one group slept longer?
+      </p>
+      <p>
+        At first glance, it might seem that <idx><h>random assignment</h></idx><term>random assignment</term> eliminates these outside factors. However, random assignment only ensures that differences in unmeasured variables are chance differences—it does not remove them entirely. By pure luck, more subjects in the control group might happen to be under high stress. That stress could prevent them from sleeping, creating a difference between the two groups that has nothing to do with the drug.
+      </p>
+      <p>
+        This seems like a huge problem: how can you account for variables you never measured?
+      </p>
+      <p>
+        While researchers cannot measure every individual background factor, they can measure the combined effect of all unmeasured variables. Because everyone within the same group receives the exact same treatment, any differences in sleep duration among people in that same group must be caused by these unmeasured individual differences.
+      </p>
+      <p>
+        By calculating the overall spread (or variance) of scores within each group, researchers can estimate how much natural noise exists in the data. Inferential statistics uses this background noise to calculate a simple probability: How likely is it that chance alone produced a difference this big between the two groups? If that probability is very low, researchers infer that the treatment had a genuine causal effect rather than a lucky fluke. Because that probability is never strictly zero, total certainty is never possible—but it gives us a reliable way to separate real cause-and-effect from pure chance.
+      </p>
+    </subsection>
   </section>
 
   <section xml:id="sec-the-data-split">
