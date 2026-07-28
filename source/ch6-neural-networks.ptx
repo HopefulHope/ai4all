@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="whatisai" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>What is AI and How has it Changed?</title>
+<chapter xml:id="neural-networks" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Neural Networks</title>
 
   <section xml:id="sec-artificial-neurons">
     <title>Artificial Neurons</title>
