@@ -139,10 +139,74 @@
     <p>Content for the section.</p>
   </section>
 
-  <section xml:id="sec-deepfakes-and-disinformation">
-    <title>Deepfakes and Disinformation</title>
-    <p>Content for the section.</p>
-  </section>
+<section xml:id="sec-deepfakes-and-disinformation">
+  <title>Deepfakes and Disinformation</title>
+
+  <introduction xml:id="intro-deepfakes">
+    <p>
+      Harmful lies are nothing new. But the ability to distort reality has
+      taken an exponential leap forward with deepfake technology. This
+      capability makes it possible to create audio and video of real people
+      saying and doing things they never said or did. Machine learning
+      techniques are escalating the technology's sophistication, making
+      deepfakes ever more realistic and increasingly resistant to detection.
+      Deepfake technology has characteristics that enable rapid and widespread
+      diffusion, putting it into the hands of both sophisticated and
+      unsophisticated actors.
+    </p>
+
+    <p>
+      Consequently, while deepfake technology will bring certain benefits, it
+      will also introduce many harms. The marketplace of ideas already suffers
+      from truth decay as our networked information environment interacts in
+      toxic ways with our cognitive biases. Deepfakes will exacerbate this
+      problem significantly. Individuals and businesses will face novel forms
+      of exploitation, intimidation, and personal sabotage. The risks to our
+      democracy and to national security are profound as well.
+    </p>
+  </introduction>
+
+  <subsection xml:id="ssec-navigating-synthetic-media">
+    <title>How to Navigate in a World of Synthetic Media</title>
+
+    <p>
+      To address these growing threats, responding to the diffusion of
+      generative falsifications requires coordinated measures across multiple
+      sectors. As surveyed by researchers, these include the role of
+      technological solutions; criminal penalties, civil liability, and
+      regulatory action; military and covert-action responses; economic
+      sanctions; and market developments. In practice, navigating this
+      ecosystem effectively requires four foundational pillars:
+    </p>
+
+    <p>
+      <term>Technical Solutions</term><idx>technical solutions</idx>:
+      Implementing cryptographic authentication trails and provenance tracking
+      to verify content origins.
+    </p>
+
+    <p>
+      <term>Legal &amp; Regulatory Action</term><idx>legal and regulatory action</idx>:
+      Updating civil liability and criminal penalties to prosecute malicious
+      impersonation and fraud.
+    </p>
+
+    <p>
+      <term>Platform Governance</term><idx>platform governance</idx>:
+      Enforcing clear detection protocols and labeling mechanisms across
+      digital sharing platforms.
+    </p>
+
+    <p>
+      <term>Educational Literacy</term><idx>educational literacy</idx>:
+      Developing critical evaluation skills, such as learning to always verify
+      facts and citations provided by AI, treating AI as a collaborative tool
+      rather than a substitute for one's own reasoning, and understanding how
+      AI models can hallucinate or confidently generate false information based
+      on patterns rather than truth.
+    </p>
+  </subsection>
+</section>
 
 <section xml:id="sec-copyright-intellectual-property-and-the-creative-economy">
   <title>Copyright, Intellectual Property, and the Creative Economy</title>
