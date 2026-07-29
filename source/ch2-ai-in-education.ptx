@@ -512,7 +512,7 @@
 
     <introduction>
         <p>
-            A crucial aspect of AI literacy is learning how to fact-check and verify AI output—because simply put: <strong>AI makes things up!</strong> In computer science, this phenomenon is known as a 
+            A crucial aspect of AI literacy is learning how to fact-check and verify AI output—because simply put: <alert>AI makes things up!</alert> In computer science, this phenomenon is known as a 
             <term>hallucination</term><idx><h>hallucination</h></idx>, where a Large Language Model (LLM) generates information that sounds completely plausible and authoritative, yet is factually incorrect
             or entirely fabricated. As students increasingly rely on generative AI tools for research and coursework, hallucinations pose a growing threat to learning, critical thinking, and academic integrity. 
             To navigate these tools safely and effectively, AI literacy must expand beyond simple prompt engineering to teach users how to spot, investigate, and respond to fabricated output before accepting it as truth.
@@ -523,7 +523,7 @@
         <title>Why AI Fabricates Information</title>
 
         <p>
-            Large language models (LLMs) such as ChatGPT or Google Gemini are built around fundamental generation mechanics:
+            In particular, <term>large language models</term> (<term>LLMs</term>)<idx><h>large language model</h></idx><idx><h>LLM</h></idx> such as ChatGPT or Google Gemini are built around fundamental generation mechanics:
         </p>
 
         <p>
@@ -577,22 +577,22 @@
             <ul>
                 <li>
                     <p>
-                        <strong>Direct Source Requests:</strong> If AI makes a claim, ask it directly to cite the sources it is using for that claim.
+                        <term>Direct Source Requests</term>: If AI makes a claim, ask it directly to cite the sources it is using for that claim.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <strong>Citation Verification:</strong> When AI provides sources or citations, verify that they actually exist.
+                        <term>Citation Verification</term>: When AI provides sources or citations, verify that they actually exist.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <strong>Independent Cross-Checking:</strong> Make sure you can find the sources and citations outside of the AI tool you are using.
+                        <term>Independent Cross-Checking</term>: Make sure you can find the sources and citations outside of the AI tool you are using.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <strong>Source Evaluation:</strong> If sources and citations are real, check for bias and reliability as you would with any traditional source.
+                        <term>Source Evaluation</term>: If sources and citations are real, check for bias and reliability as you would with any traditional source.
                     </p>
                 </li>
             </ul>
