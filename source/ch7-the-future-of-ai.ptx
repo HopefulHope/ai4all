@@ -144,10 +144,122 @@
     <p>Content for the section.</p>
   </section>
 
-  <section xml:id="sec-copyright-intellectual-property-and-the-creative-economy">
-    <title>Copyright, Intellectual Property, and the Creative Economy</title>
-    <p>Content for the section.</p>
-  </section> 
+<section xml:id="sec-copyright-intellectual-property-and-the-creative-economy">
+  <title>Copyright, Intellectual Property, and the Creative Economy</title>
+
+  <introduction xml:id="intro-copyright-ip">
+    <p>
+      As generative AI systems become more powerful and widely used, questions
+      about copyright, intellectual property, and the creative economy have
+      become increasingly urgent. The data used to train these models, the
+      outputs they produce, and the impact on human creators all raise complex
+      legal and ethical questions that society is only beginning to address.
+    </p>
+  </introduction>
+
+  <subsection xml:id="ssec-nonconsensual-training">
+    <title>Non-Consensual Training and Data Extraction</title>
+
+    <p>
+      The source text data used for training is an issue. Typically, foundation
+      models use self-supervised (i.e., unsupervised and unlabeled)
+      pre-training from a good portion of the Internet. A proportion of that
+      data will be intellectual property, perhaps even carrying copyright
+      notices. Other parts may be private—names, addresses, etc.—and an LLM
+      will have the ability to collate such information. Furthermore, a
+      nefarious user, using the right sequence of prompts, may be able to get
+      the LLM to collate information across disparate sources.
+    </p>
+  </subsection>
+
+  <subsection xml:id="ssec-ethics-ai-art">
+    <title>Ethics of AI Art Generation and Creative Labor</title>
+
+    <p>
+      Beyond the ethical concerns of data collection, the creative labor of
+      human artists is also under threat. The image generators DALL-E and
+      Stable Diffusion can produce images in the style of well-known artists or
+      video game illustrators. The images are not copies of images, but the
+      style can be a copy of a style. This might be a problem. Illustrators may
+      have an identity in part established by their style (and sometimes make a
+      good living through their identity). LLMs seemingly can allow bad actors
+      to steal a professional identity from others.
+    </p>
+
+    <p>
+      For example, there are now hundreds of thousands of images on the web
+      that look as though they had been created by Greg Rutkowski (many
+      produced by the LLM Stable Diffusion). Then the question arises: why
+      would any company or creator pay Greg Rutkowski for an image, for use in
+      a video game, when they can produce one for themselves essentially free?
+    </p>
+
+    <p>
+      Moreover, LLMs can give completely wrong or inappropriate responses. They
+      will have learned enough grammar and vocabulary to ensure that what they
+      generate will be entirely well-formed and well-written language. That may
+      be good enough in one sense for fiction or poetry (although those
+      literary forms may have additional desirable qualities which an LLM may
+      or may not be able to provide). But non-fiction is another realm. The
+      LLMs are working with probabilities.
+    </p>
+
+    <assemblage xml:id="asm-look-closer-galactica">
+      <title>Look Closer...</title>
+
+      <p>
+        <em>
+          An example of this is a fundamental problem with Galactica: it is not
+          able to distinguish truth from falsehood, a basic requirement for a
+          language model designed to generate scientific text. People found
+          that it made up fake papers (sometimes attributing them to real
+          authors), and generated wiki articles about the history of bears in
+          space as readily as ones about protein complexes and the speed of
+          light.
+        </em>
+      </p>
+    </assemblage>
+
+    <p>
+      In addition, LLMs can create fake content and deepfakes—not by accident,
+      as it were, but because the user was trying to do exactly that. A
+      <term>deepfake</term><idx>deepfake</idx> is an image, a video, or a voice
+      recording intended to simulate or portray an individual.
+    </p>
+  </subsection>
+
+  <subsection xml:id="ssec-copyright-ownership">
+    <title>Copyright and Ownership of AI-Generated Work</title>
+
+    <p>
+      Turning to the legal dimension, as librarians license access to content
+      from vendors, we need to ensure that contracts do not preclude our users
+      from conducting text and data-mining research, algorithmically based
+      research, and machine learning.
+    </p>
+
+    <p>
+      A foundational principle here is that copyright concerns the expression
+      of ideas, not the ideas themselves. So, when Einstein wrote the theory of
+      relativity, his actual words might have had some copyright protections
+      but the theory of relativity itself did not. As a result, when NLP
+      abstracts, or paraphrases, or summarizes, or text-data-mines documents or
+      collections in its own words, it might be that there would be no
+      copyright concerns. In contrast, extractive abstracts or summaries, or
+      quotation of passages verbatim, etc., might be problematic.
+    </p>
+
+    <p>
+      Additionally, many copyright laws have exceptions for <q>fair use</q>
+      which might include use for research, teaching, and non-commercial uses.
+      When the authors of the resources license their work with Creative
+      Commons licenses, the resources become Open Educational Resources and the
+      teacher can reuse, transform, remix, and redistribute them freely. The
+      only obligation, usually, is to quote the original author correctly.
+      Therefore, it is important to identify when a resource is open or not.
+    </p>
+  </subsection>
+</section> 
 
   <section xml:id="sec-ai-as-a-disruptor-in-the-workforce">
     <title>AI as a Disruptor in the Workforce</title>
