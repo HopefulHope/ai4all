@@ -149,9 +149,84 @@
     <p>Content for the section.</p>
   </section> 
 
-  <section xml:id="sec-ai-as-a-disruptor-in-the-workforce">
-    <title>AI as a Disruptor in the Workforce</title>
-    <p>Content for the section.</p>
-  </section>
+<section xml:id="sec-ai-as-a-disruptor-in-the-workforce">
+  <title>AI as a Disruptor in the Workforce</title>
+
+  <introduction xml:id="intro-workforce-disruption">
+    <p>
+      While the race for AI supremacy between corporations and governments
+      continues, one thing is clear: job displacement because of automation
+      is increasing by the minute. As researchers examine the potential
+      increase of AI in the job market, a trend becomes increasingly clear:
+      while job displacement in some industries seems inevitable, the
+      potential for new career opportunities in other industries with the
+      help of AI seems real. A report by Goldman Sachs suggests that AI could
+      replace the equivalent of 300 million full-time jobs.
+    </p>
+  </introduction>
+
+  <subsection xml:id="ssec-new-jobs-ai-rise">
+    <title>New Jobs with the Rise of AI</title>
+
+    <p>
+      It is important to recognize that while AI may displace some jobs, it
+      will also create new ones, such as AI developers, data scientists, and
+      AI ethicists. With AI's help, people can train themselves and create
+      their own qualifications, rather than depending on institutions that
+      often involve bureaucracy and paperwork. This shift will put the labor
+      market more under the control of the workers themselves. They will be
+      able to get and identify the qualifications they need, determine wage
+      rates, set working hours, and define time frames, among other aspects.
+    </p>
+
+    <p>
+      Ultimately, this newfound control can lead to a more efficient,
+      responsive, and equitable labor market, tailored to the needs and
+      capabilities of the workforce. Looking at specific sectors, artificial intelligence is transforming
+      the retail industry across its value chain. On the demand side,
+      businesses are shifting from traditional in-store channels to
+      e-commerce channels, especially digital platforms, to anticipate demand
+      and personalize the customer experience. On the supply side, AI is
+      being applied to improve inventory forecasts, optimize merchandising
+      and product assortment, and automate warehousing and store operations.
+      Overall employment in retail is likely to continue to decline, but the
+      demand for humans in routine and nonroutine cognitive tasks in such
+      areas as customer service, management, and technology deployment and
+      maintenance is likely to increase.
+    </p>
+
+    <p>
+      In the health care sector, job growth is likely to remain strong.
+      Indeed, both pre- and post-COVID, the health sector has topped the list
+      of projected job growth in the advanced economies. Health care jobs
+      cover a broad range of skills and incomes, from low-skill, low-wage
+      jobs like orderlies and home care assistants through middle-skill,
+      middle-wage jobs like lab technicians and paramedics to high-skill jobs
+      like nurses, dentists, radiology technologists, and physicians. All of
+      these job categories are projected to grow to keep pace with rising
+      demand for health care services.
+    </p>
+
+    <assemblage xml:id="asm-look-closer-healthcare-ai">
+      <title>Look Closer...</title>
+
+      <p>
+        <em>
+          Within health care, AI is likely to complement the demand for
+          high-wage workers performing nonroutine tasks requiring specialized
+          skills and education while substituting for workers performing
+          routine tasks. In particular, AI applications are likely to
+          substitute for humans in data-dependent cognitive tasks in
+          administrative and office support activities and patient
+          relationship management while increasing the demand for humans in
+          work performed by health professionals like nurses, doctors,
+          physical therapists, and dentists whose responsibilities require
+          high-level cognitive and/or highly skilled physical and social
+          interaction tasks.
+        </em>
+      </p>
+    </assemblage>
+  </subsection>
+</section>
 
 </chapter>
