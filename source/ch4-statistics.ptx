@@ -830,13 +830,37 @@
         <title>Testing on Unseen Data</title>
 
         <p>
-            After the final model is selected, its performance on the test data is reported. The test data is intentionally kept unseen before this step to ensure that the model's evaluated performance reflects how it will generalize to new, real-world data.
+            After the final model is chosen, the performance of the model on the test data is reported. The test data is not used before this step, 
+            to ensure that the model’s performance is a true representation of how it performs on unseen data. Aside from the test data, other available 
+            data sets—also called benchmark data sets—may be used to demonstrate model robustness or to enable comparison to other existing methods. 
+            The particular performance metric(s) used during evaluation are chosen based on the task and data characteristics.
         </p>
 
         <assemblage xml:id="asm-loan-testing-example">
         <title>Example</title>
             <p>
-                Here, the model developed in the previous step would be evaluated by its performance on the test set. There might be several performance metrics to consider—for example, applicants might be concerned with <term>false negatives</term> (i.e., being denied a loan when they actually are deserving), while lenders might care more about <term>false positives</term> (i.e., recommending loans to people who don't pay them back). In addition, the model might be evaluated on existing data sets used for similar tasks (e.g., the data set from the U.S. Small Business Association described by Min Li and collaborators).
+                Here, the model developed in the previous step would be evaluated by its performance on the test set. There might be several performance metrics to 
+                consider—for example, applicants might be concerned with <term>false negatives</term> (i.e., being denied a loan when they actually are deserving), while 
+                lenders might care more about <term>false positives</term> (i.e., recommending loans to people who don't pay them back). In addition, the model might be 
+                evaluated on existing data sets used for similar tasks (e.g., the data set from the U.S. Small Business Association described by Min Li and collaborators).
+            </p>
+        </assemblage>
+    </subsection>
+
+    <subsection xml:id="ssec-model-postprocessing">
+        <title>Model Postprocessing</title>
+
+        <p>
+            Once a model has been trained, there are various postprocessing steps that may be needed. For example, if the output of a model performing 
+            <idx><h>binary classification</h></idx><term>binary classification</term> is a probability, but the desired output to display to users is a 
+            categorical answer, there remains a choice of what threshold(s) to use to round the probability to a hard classification.
+        </p>
+
+        <assemblage xml:id="asm-model-postprocessing-example">
+            <title>Example</title>
+            <p>
+                The resulting model for predicting loan approval likely outputs a continuous score between 0 and 1. The team might choose to transform this score 
+                into discrete buckets (e.g., low risk of defaulting, unsure, high risk of defaulting) or a binary recommendation (e.g., should/should not receive a loan).
             </p>
         </assemblage>
     </subsection>
