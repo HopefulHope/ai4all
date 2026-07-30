@@ -868,4 +868,99 @@
     </subsection>
   </section>
 
+<section xml:id="sec-mythbusting-ch6">
+    <title>Mythbusting</title>
+
+    <introduction>
+        <p>Now that you have a better understanding of how neural networks
+        actually function—from artificial neurons and activation functions to
+        the backpropagation algorithm—let's officially dispel some myths about
+        whether AI works like a brain, what it truly is, and how it processes
+        information.</p>
+    </introduction>
+
+    <assemblage xml:id="asm-myth-ai-methods-work-similar-to-human-brain">
+        <title>Misconception: AI methods work similar to the human brain</title>
+        <p><em>Reality:</em> This is not true. Even though the most popular
+        methods of AI are called neural networks and are inspired by biological
+        brains, they do not present physiological neural models. Neither the
+        model of a neuron nor the connectivity between the neurons in neural
+        networks is biologically plausible or realistic. The connectivity
+        structure of convolutional neural networks, deep feedforward neural
+        networks, or other deep learning architectures are not biologically
+        realistic. In contrast, a physiological model of a biological neuron is
+        the Hodgkin-Huxley model or the FitzHugh-Nagumo model, and the
+        large-scale connectivity of the brain is to date largely unknown. AI
+        systems have different environments and action spaces and do not need
+        to engage in human activities such as sleeping, eating, or maintaining
+        physical bodies.</p>
+        <p><em>Why it matters:</em> Describing AI as working like the brain
+        gives it an aura of magic and leads to hype. People claim things that
+        are not true, which has contributed to AI winters in the past when
+        promised capabilities were not delivered. Understanding that AI is a
+        mathematical and statistical tool rather than a replica of human
+        cognition helps set realistic expectations and prevents the attribution
+        of human-like characteristics or capabilities to systems that do not
+        possess them.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-is-a-technology">
+        <title>Misconception: AI is a technology</title>
+        <p><em>Reality:</em> AI is a methodology. The methods behind AI are
+        mathematical learning algorithms that adjust the parameters of methods
+        via learning rules. When implementing AI methods, certain problems may
+        require optimization of the method in combination with computer
+        hardware, such as using a GPU, to improve computation time. This
+        combination may give the impression that AI is a technology, but by
+        downscaling a problem, one can always reduce the hardware requirements,
+        demonstrating the principle workings of a method. The intellectual
+        component of AI is not the computer itself but the software
+        implementing learning rules.</p>
+        <p><em>Why it matters:</em> Viewing AI as a methodology rather than a
+        technology emphasizes that it is the algorithms and mathematical
+        principles that matter, not just the hardware. This understanding is
+        crucial for educators, policymakers, and the public to recognize that
+        AI is about how we process and learn from data rather than simply about
+        computing power.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-is-all-algorithms">
+        <title>Misconception: AI is all algorithms</title>
+        <p><em>Reality:</em> Algorithms are step-by-step procedures for solving
+        problems. They are fundamental components of AI systems, but reducing
+        AI to just algorithms is overly simplistic. AI is a multidisciplinary
+        field in which the quality and quantity of data are at least equally
+        important. Many products that involve AI also require the design of
+        appropriate user interfaces. The field of AI research intersects with
+        many other fields and their techniques, including neuroscience.
+        Data-centric AI postulates that improvements in data and label quality
+        are more important for performance than adjustments to learning
+        algorithms.</p>
+        <p><em>Why it matters:</em> Focusing only on algorithms neglects the
+        crucial roles that data quality, user experience, and interdisciplinary
+        collaboration play in successful AI development. This misconception can
+        lead to poor investments in AI projects that emphasize algorithm
+        development while neglecting data quality. Understanding the full scope
+        of what AI entails helps in creating more effective and responsible AI
+        systems.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-automatically-accounts-for-common-sense">
+        <title>Misconception: AI automatically accounts for pre-established facts and common sense</title>
+        <p><em>Reality:</em> AI systems do not automatically comprehend things
+        that seem obvious to humans. They may have trouble with contextual and
+        causal understanding, common sense, and the laws of physics. Generally,
+        they may have difficulty recognizing or inferring <q>obvious</q>
+        information that goes beyond the inherent knowledge of their training
+        data. To mitigate this limitation, AI systems need to be trained with
+        suitable algorithms and relevant data.</p>
+        <p><em>Why it matters:</em> AI lacks the common-sense reasoning that
+        humans take for granted. This means AI systems can make errors that
+        seem nonsensical to humans, such as misinterpreting basic physical
+        principles or social contexts. When deploying AI in real-world
+        situations, we must be aware that it cannot automatically understand
+        the world the way humans do and requires careful design and oversight
+        to handle novel situations appropriately.</p>
+    </assemblage>
+</section>
 </chapter>
