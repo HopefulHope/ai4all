@@ -330,11 +330,123 @@
         In later chapters, we will examine how generative AI systems learn from data, why they sometimes make mistakes, and how they are changing the way people learn, work, and solve problems.
     </p>
 </subsection>
+</section>
 
-  <subsection xml:id="sec-common-myths">
-    <title>Common Myths</title>
-    <p>Content for the section.</p>
-  </subsection>
+<section xml:id="sec-mythbusting-ch1">
+    <title>Mythbusting</title>
+
+    <introduction>
+        <p>Now that you have a better understanding of what AI actually is—from
+        its historical roots to the various ways we define and measure
+        intelligence—let's officially dispel some of the most persistent myths
+        that have followed this field like a shadow since its inception at
+        Dartmouth in 1956.</p>
+    </introduction>
+
+    <assemblage xml:id="asm-myth-ai-conscious">
+        <title>Misconception: AI is conscious</title>
+        <p><em>Reality:</em> AI replicates patterns in data rather than
+        possessing any form of subjective awareness, emotions, or
+        self-consciousness. When an AI generates a poem or offers comforting
+        words, it is not feeling anything. It is statistically predicting which
+        words are most likely to follow previous ones based on its training
+        data. While AI can produce outputs that appear thoughtful or even
+        emotional, these are statistical associations, not genuine
+        consciousness.</p>
+        <p><em>Why it matters:</em> The concept of AI raises fascinating
+        philosophical questions about whether a machine could ever truly be
+        conscious, what it would mean for a non-human entity to have rights,
+        and how we should treat an artificial system that appears to think and
+        feel. These are important debates, but they remain speculative for now.
+        Humans are hard-wired to empathize with what appears similar to us,
+        which can make us feel that systems which mimic speech or emotion
+        actually possess these characteristics. However, treating AI as
+        sentient distracts from the real, concrete issues of bias, privacy, and
+        labor exploitation that demand our attention today.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-outsmart-humans">
+        <title>Misconception: AI will outsmart humans</title>
+        <p><em>Reality:</em> Increased computing speed and memory capacity
+        simply allow AI to process more data faster. They do not make AI more
+        intelligent or capable of understanding in the way humans do. Speed
+        does not give computers the ability to understand things the way humans
+        do, or to be more flexible and less failure-prone. Besides, improvement
+        in cognitive capabilities is curtailed by the physical limits on how
+        much speed we can engineer. Robots rely on electricity and consume lots
+        of it. Their capacity to evolve into sentient beings is dependent on
+        their very limited electric capacities.</p>
+        <p><em>Why it matters:</em> The concept of a
+        <term><idx>singularity</idx>singularity</term>, which is a tipping
+        point when computers become more intelligent than humans, ignores
+        fundamental differences between computational processing and human
+        cognition. Although AI's computational capabilities may surpass human
+        intelligence in specific, narrow tasks, it is not equipped to outsmart
+        human ingenuity, critical thinking, creativity, and the ability to
+        understand the broader picture. How robots are often presented in the
+        press is way out of step with their actual or likely capabilities.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-think">
+        <title>Misconception: AI makes computers think</title>
+        <p><em>Reality:</em> From a scientific point of view, no. Similar to
+        the problems of defining <q>intelligence,</q> there is currently no
+        definition of <q>thinking.</q> Thinking is generally associated with
+        humans who are biological beings rather than artificial machines.
+        Today's most advanced AI systems fall short of human-like understanding
+        and most likely lack consciousness. Current AI systems do not possess
+        the intrinsic motivations, intentions, or subjective experiences
+        associated with human thought. They operate through complex mathematical
+        models and algorithms designed to recognize statistical correlations,
+        rather than engaging in true comprehension or independent thought.</p>
+        <p><em>Why it matters:</em> Believing that computers think leads to
+        unrealistic expectations and misplaced fears about AI's capabilities.
+        It can cause people to overestimate what AI can do and underestimate
+        the need for human oversight and judgment. The goal of AI is not to
+        create human replicas but to leverage technology to solve complex
+        challenges and enhance human potential. Recognizing this distinction
+        helps focus on the practical, beneficial applications of AI rather than
+        speculative concerns about machine consciousness.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-human-behavior">
+        <title>Misconception: Making machines behave like humans is optimal</title>
+        <p><em>Reality:</em> This does not make sense because most people do not
+        perform optimally, regardless of what task we consider. What it
+        actually means is to make a computer perform like the best performing
+        human. For one task this may mimic the behavior of one human, but for
+        several tasks this will correspond to the behavior of a different human
+        for every task. Such a super human does not exist. If a machine can
+        solve more than one task, it does not make sense to compare it to one
+        human because such a person does not exist. The goal is to make
+        machines behave like an ideal super human, not like an average
+        person.</p>
+        <p><em>Why it matters:</em> This misconception leads to setting
+        inappropriate benchmarks for AI performance. Comparing AI to human
+        performance in a general sense is misleading because AI excels in
+        specific, narrow tasks while lacking the broad, flexible intelligence
+        of humans. Understanding this helps evaluate AI systems appropriately
+        for their intended purposes rather than expecting them to replicate all
+        aspects of human behavior.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-person">
+        <title>Misconception: AI is a person</title>
+        <p><em>Reality:</em> People often refer to <q>an AI</q> as if talking
+        about a person-like entity with greater-than-human intelligence and
+        maybe even sentience. In practice, AI is a set of many different pieces
+        of algorithmic software similar to smartphone apps. Some AI systems are
+        combined into robots that are designed to look, sound, and behave in
+        ways similar to humans to make them more user-friendly. However, to
+        claim that AI applications communicate as humans do is misleading. AI
+        is not a person as it lacks self-awareness, consciousness, emotional
+        intelligence, and the ability to understand complex human contexts.</p>
+        <p><em>Why it matters:</em> Treating AI as a person leads to
+        anthropomorphism and unrealistic expectations about its capabilities.
+        It can also lead to ethical confusion about the rights and
+        responsibilities of AI systems. Understanding that AI is a tool, not a
+        person, helps maintain appropriate human control and accountability.</p>
+    </assemblage>
 </section>
 
 </chapter>
