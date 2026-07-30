@@ -787,41 +787,110 @@
   <section xml:id="sec-the-data-split">
     <title>The Data Split</title>
 
-    <introduction>
+    <subsection xml:id="ssec-data-collection">
+        <title>Data Collection and Sampling</title>
+
         <p>
-            Before any analysis or learning happens, data must first be collected. Compiling a data set involves identifying a target population (of people or things), as well as defining and measuring features and labels from it. Typically, it is not feasible to include the entire target population, and instead, features and labels are sampled from a subset of it. Often, machine learning practitioners use existing data sets rather than going through the data collection process.
+            Before any analysis or learning can take place, data must first be collected. Compiling a dataset involves identifying a <idx><h>target population</h></idx><term>target population</term>—the entire group of individuals, objects, or events about which conclusions are to be drawn—as well as defining and measuring relevant <idx><h>features</h></idx><term>features</term> and <idx><h>labels</h></idx><term>labels</term>.
+        </p>
+        <p>
+            Because it is rarely feasible to collect data from an entire target population, practitioners rely on <idx><h>sampling</h></idx><term>sampling</term> to collect a representative subset. In practice, machine learning teams frequently utilize existing, pre-compiled datasets rather than conducting new data collection from scratch. However, if the sampled data does not accurately reflect the broader population, the model risks inheriting significant <idx><h>representation bias</h></idx><term>representation bias</term>.
         </p>
 
-        <assemblage xml:id="asm-loan-population-example">
-        <title>Example</title>
+        <assemblage xml:id="asm-loan-collection-example">
+            <title>Example</title>
             <p>
                 For a loan-approval system, the target population could be people who live in the state in which the system will be used, have previously applied for loans, own credit cards, and so on. The particular sample that ends up in the data set will be a subset of this target population, heavily depending on the sampling method used (e.g., sourcing information from public records or surveying people). There is also the question of which features to measure, such as debt history, number of credit cards, income, and occupation. Some of these things will be chosen to serve as labels: for example, information about whether the person received or paid back a loan in the past.
             </p>
         </assemblage>
+    </subsection>
+
+    <subsection xml:id="ssec-data-preprocessing">
+        <title>Data Preprocessing and Data Splitting</title>
 
         <p>
-            Depending on the data modality and task, various preprocessing techniques or data cleaning may be applied to the data set before it is fed into a model. Data sets are usually split into <term>training data</term><idx><h>training data</h></idx> used during model development, and <term>test data</term><idx><h>test data</h></idx> used during model evaluation. A portion of the training data is also frequently set aside as <term>validation data</term><idx><h>validation data</h></idx>.
+            Depending on the data modality (e.g., text, images, tabular data) and the specific learning task, raw datasets undergo <idx><h>data preprocessing</h></idx><term>data preprocessing</term> and <idx><h>data cleaning</h></idx><term>data cleaning</term> before being fed into a model. Common preprocessing steps include handling missing values, normalizing feature scales, encoding categorical variables, and removing noisy or corrupted records.
+        </p>
+        <p>
+            Once cleaned, datasets are partitioned to support the model lifecycle. The data is divided into <idx><h>training data</h></idx><term>training data</term> used during model optimization, <idx><h>validation data</h></idx><term>validation data</term> set aside for hyperparameter tuning and model selection, and <idx><h>test data</h></idx><term>test data</term> reserved exclusively for final evaluation.
         </p>
 
         <assemblage xml:id="asm-loan-preprocessing-example">
-        <title>Example</title>
+            <title>Example</title>
             <p>
-                For the loan-approval system, preprocessing might involve addressing missing data (e.g., imputing missing credit history values via interpolation), simplifying the feature space (e.g., grouping occupations in broader categories like <q>physician</q> rather than encoding detailed specialties), or normalizing continuous measurements (e.g., scaling income so it lies on a 0-to-1 scale). If a resulting data set included 1,000 examples (e.g., data collected from 1,000 people), 600 might be allocated for training, 100 as a validation set during training, and 300 for postdevelopment testing.
+                For the loan-approval system, preprocessing might involve addressing missing data (e.g., imputing missing credit history values via interpolation), simplifying the feature space (e.g., grouping occupations in broader categories like “physician” rather than encoding detailed specialties), or normalizing continuous measurements (e.g., scaling income so it lies on a 0-to-1 scale). If a resulting data set included 1,000 examples (e.g., data collected from 1,000 people), 600 might be allocated for training, 100 as a validation set during training, and 300 for postdevelopment testing.
             </p>
         </assemblage>
-    </introduction>
+    </subsection>
 
-    <subsection xml:id="ssec-model-building-and-validation">
-        <title>Model Building and Validation</title>
+    <subsection xml:id="ssec-data-splitting-strategies">
+        <title>Data Splitting Strategies</title>
 
         <p>
-            Models are built using the training data. Typically, models are trained to optimize a specified objective, such as minimizing the mean squared error between its predictions and the actual labels. A number of different model types, hyperparameters, and optimization methods may be tested at this point; usually these different configurations are compared based on their performance on the validation data, and the best one chosen.
+            Deciding how to split data into training and validation sets is a crucial step. It ensures the model gets enough varied examples to learn from, while leaving aside enough fair, unbiased data to accurately measure its performance. Different strategies balance randomness, fairness, and coverage in different ways:
         </p>
 
-        <assemblage xml:id="asm-loan-optimization-example">
-        <title>Example</title>
+        <p>
+            <ul>
+                <li>
+                    <p>
+                        <idx><h>cross-validation</h></idx><term>Cross-Validation (CV):</term> Imagine dividing your dataset into equal groups (called <em>folds</em>). The model trains on all groups except one, tests its accuracy on the remaining group, and repeats this process until every single group has had a turn acting as the test set. A special variation where every individual data point gets its own turn as a test set is called <idx><h>leave-one-out cross-validation</h></idx><term>leave-one-out cross-validation (LOO-CV)</term>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <idx><h>bootstrap resampling</h></idx><term>Bootstrap and Monte-Carlo Cross-Validation (MCCV):</term> These methods work like drawing names out of a hat. In <term>Bootstrap</term>, after a data point's name is drawn for the training set, it is placed back into the hat, meaning the same example can be chosen multiple times (typically resulting in roughly 63% of the data used for training and 37% for validation). <term>Monte-Carlo Cross-Validation</term> works similarly, but names are drawn without putting them back, ensuring each data point is only picked once per round.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <idx><h>bootstrapped latin partition</h></idx><term>Bootstrapped Latin Partition (BLP):</term> This approach combines randomness with careful organization. It shuffles data within specific categories so that every category is evenly represented in both training and testing, while guaranteeing every sample gets tested exactly once.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <idx><h>Kennard-Stone algorithm</h></idx><term>Kennard-Stone (K-S) and SPXY Algorithms:</term> Instead of picking samples randomly, these smart selection methods measure the "distance" between data points to deliberately pick the most diverse, wide-ranging examples for training. This ensures the model learns from a well-rounded dataset rather than accidentally missing important edge cases.
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </subsection>
+
+    <subsection xml:id="ssec-model-building-and-training">
+        <title>Model Building and Training</title>
+
+        <p>
+            When performing sample classification across complex datasets, most classification models possess one or more model parameters that control the overall complexity of the model. While higher model complexity provides greater discriminating power, it also increases the risk of <idx><h>over-fitting</h></idx><term>over-fitting</term>.
+        </p>
+        <p>
+            Over-fitting occurs when a trained model performs extremely well on the specific samples used during training but performs poorly on new, unknown samples—meaning the model fails to generalize effectively. To find an optimal set of parameters that achieves a balance between model complexity and generalizability, it is essential to partition the available data into distinct training and validation sets.
+        </p>
+
+        <assemblage xml:id="asm-loan-training-example">
+            <title>Example</title>
             <p>
-              The development team would first need to instantiate a specific model architecture and define its objective function. During the optimization process, the model attempts to learn a function that goes from the inputs (e.g., income, occupation, etc.) to the output (e.g., whether the person paid back a previous loan). They might also train a number of different models (e.g., with varying architectures or training procedures) and choose the one that performs best on the validation set.
+                The development team would first instantiate a specific model architecture and define its objective function. During the optimization process, the model attempts to learn a function that maps inputs (e.g., income, occupation, credit history) to the target output (e.g., whether the applicant paid back a previous loan).
+            </p>
+        </assemblage>
+    </subsection>
+
+    <subsection xml:id="ssec-model-validation-and-data-splitting">
+        <title>Model Validation and Data Splitting</title>
+
+        <p>
+            The <idx><h>training set</h></idx><term>training set</term> is used to build the model across multiple parameter settings, after which each trained model configuration is evaluated against the <idx><h>validation set</h></idx><term>validation set</term>. The validation set contains samples with known ground truth, but these labels are withheld from the model during testing. Predictions on the validation set allow developers to assess model accuracy and select optimal parameters based on the lowest validation error—a procedure known as <idx><h>model selection</h></idx><term>model selection</term>.
+        </p>
+        <p>
+            Historically, it was assumed that performance measured on a validation set served as an unbiased estimator of general performance. However, recent studies demonstrate that validation performance—including estimates derived from <idx><h>cross-validation</h></idx><term>cross-validation</term> or single train-test splits—can often yield over-optimistic or erroneous estimates of model accuracy.
+        </p>
+        <p>
+            Furthermore, validation procedures are susceptible to <idx><h>evaluation bias</h></idx><term>evaluation bias</term>. This occurs when the validation dataset or chosen benchmark metrics fail to accurately represent the target population or do not adequately capture performance disparities across sensitive demographic subgroups.
+        </p>
+
+        <assemblage xml:id="asm-loan-validation-example">
+            <title>Example</title>
+            <p>
+                The team might train a number of candidate models with varying hyperparameter settings or architectures (e.g., decision trees vs. neural networks). They evaluate these models based on validation error to choose the best configuration, reserving a completely separate test set for final performance reporting.
             </p>
         </assemblage>
     </subsection>
@@ -830,19 +899,25 @@
         <title>Testing on Unseen Data</title>
 
         <p>
-            After the final model is chosen, the performance of the model on the test data is reported. The test data is not used before this step, 
-            to ensure that the model’s performance is a true representation of how it performs on unseen data. Aside from the test data, other available 
-            data sets—also called benchmark data sets—may be used to demonstrate model robustness or to enable comparison to other existing methods. 
-            The particular performance metric(s) used during evaluation are chosen based on the task and data characteristics.
+            After the optimal model is selected and tuned, its true generalization capability must be evaluated using an independent, blind <idx><h>test set</h></idx><term>test set</term> (often called a holdout set). Crucially, the test data is strictly isolated and never touched during the feature selection, model training, or hyperparameter optimization phases. Using test data prior to this final evaluation risks <idx><h>data leakage</h></idx><term>data leakage</term>, which leads to over-optimistic performance claims that fail when deployed in real-world environments.
+        </p>
+        <p>
+            To ensure a model works reliably beyond the specific environment where it was built, researchers often evaluate models against external <idx><h>benchmark datasets</h></idx><term>benchmark datasets</term>—standardized datasets used across the field to test and compare different algorithms under identical conditions.
+        </p>
+        <p>
+            This process, known as <idx><h>external validation</h></idx><term>external validation</term>, allows direct comparison against existing methods in the literature and verifies whether the model’s predictive power holds across different collection environments, instruments, or demographic groups.
+        </p>
+        <p>
+            However, even when evaluating on a blind test set, it remains impossible to know with complete mathematical certainty how well the measured test performance matches the true underlying distribution of the entire real-world population. In real-world applications, the true population distribution is inherently unknown. Operators must rely on the statistical assumption that the blind test set serves as an unbiased, accurate estimator of model performance for all future, unseen samples drawn from that same distribution.
+        </p>
+        <p>
+            While sampling an entire population is impossible in practice, proper <idx><h>resampling strategies</h></idx><term>resampling strategies</term> and sufficient sample sizes help approximate the <idx><h>central limit theorem</h></idx><term>central limit theorem</term>, giving confidence that the observed test performance reflects underlying reality rather than random chance. Ultimately, the estimated test performance depends heavily on the chosen metrics (e.g., accuracy, precision, recall, or root-mean-square error), the degree of overlap between datasets, and how effectively the original data was partitioned.
         </p>
 
         <assemblage xml:id="asm-loan-testing-example">
-        <title>Example</title>
+            <title>Example</title>
             <p>
-                Here, the model developed in the previous step would be evaluated by its performance on the test set. There might be several performance metrics to 
-                consider—for example, applicants might be concerned with <term>false negatives</term> (i.e., being denied a loan when they actually are deserving), while 
-                lenders might care more about <term>false positives</term> (i.e., recommending loans to people who don't pay them back). In addition, the model might be 
-                evaluated on existing data sets used for similar tasks (e.g., the data set from the U.S. Small Business Association described by Min Li and collaborators).
+                In the loan approval model, the development team reserves a final 15% holdout set of loan applications that was completely hidden during training and hyperparameter tuning. Evaluating the finalized model on this blind test set provides an unbiased estimate of how accurately and fairly the system will evaluate real-world applicants once live.
             </p>
         </assemblage>
     </subsection>
@@ -851,9 +926,8 @@
         <title>Model Postprocessing</title>
 
         <p>
-            Once a model has been trained, there are various postprocessing steps that may be needed. For example, if the output of a model performing 
-            <idx><h>binary classification</h></idx><term>binary classification</term> is a probability, but the desired output to display to users is a 
-            categorical answer, there remains a choice of what threshold(s) to use to round the probability to a hard classification.
+            Once a model has been trained, various model <idx><h>postprocessing</h></idx><term>postprocessing</term> steps that may be needed before its predictions can be used in real-world applications. For example, if a model performing 
+            <idx><h>binary classification</h></idx><term>binary classification</term> outputs a raw probability score, but the system requires a discrete categorical answer, developers must select appropriate <idx><h>classification threshold</h></idx><term>classification thresholds</term> to convert continuous outputs into hard decisions.
         </p>
 
         <assemblage xml:id="asm-model-postprocessing-example">
