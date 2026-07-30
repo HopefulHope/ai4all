@@ -405,4 +405,194 @@
   </subsection>
 </section>
 
+<section xml:id="sec-mythbusting-ch7">
+    <title>Mythbusting</title>
+
+    <introduction>
+        <p>Now that you have a better understanding of the societal implications
+        of AI—from algorithmic bias and environmental impacts to workforce
+        disruption and creative labor—let's officially dispel some myths about
+        AI's objectivity, its role in our lives, and how we should think about
+        its development and regulation.</p>
+    </introduction>
+
+    <assemblage xml:id="asm-myth-ai-objective-and-infallible">
+        <title>Misconception: AI is objective and infallible</title>
+        <p><em>Reality:</em> AI reflects and amplifies the biases present in
+        its training data. Rather than being objective, AI systems absorb all
+        the biases and flaws of the data they are trained on. Additionally,
+        many AI systems are optimized to produce plausible-sounding outputs
+        rather than verified ones. This is a phenomenon known as
+        <q><term><idx>hallucination</idx>hallucination</term></q>, where the
+        system generates confident but factually incorrect information because
+        it has been trained to prioritize coherence and completion over
+        accuracy. Studies have shown that AI still struggles with generating
+        sexist, homophobic, racist, or xenophobic content. Algorithms developed
+        for AI systems are criticized not only for the biased content embedded
+        in their training data, but also for exploiting this data without
+        proper consent.</p>
+        <p><em>Why it matters:</em> AI is a tool that should be evaluated
+        critically, not trusted blindly. When we assume AI is objective, we
+        risk automating and scaling discrimination in areas like hiring,
+        lending, and criminal justice. The
+        <term><idx>automation bias</idx>automation bias</term>, which is the
+        tendency to trust computer-generated outputs, can lead us to accept
+        false or biased information simply because a machine produced it. These
+        practices have extensive social impacts, from reinforcing systemic
+        discrimination in hiring and lending to eroding public trust in digital
+        information.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-will-take-our-jobs">
+        <title>Misconception: AI will take our jobs</title>
+        <p><em>Reality:</em> There is a widely-held and understandable fear
+        that AI will destroy a significant portion of current jobs over the
+        coming years, with the concern that replacements will mostly be
+        lower-paying, routine tasks. However, we tend to vastly overestimate
+        AI's capabilities and underestimate the flexibility and judgement
+        needed in many manual or cognitive jobs. Historically, technological
+        shifts have often disrupted specific occupations while creating new
+        ones. The Industrial Revolution displaced agricultural and craft
+        workers but gave rise to factory and office jobs. More recently, the
+        rise of personal computers eliminated many secretarial and typist roles
+        while creating entirely new industries in software development, IT
+        support, and digital design.</p>
+        <p><em>Why it matters:</em> Whether AI will follow this same pattern or
+        represent a fundamentally different kind of disruption remains an open
+        question. However, the fear of AI taking over all human jobs is an
+        overstated concern which obscures the vast networks of human labor
+        which underpin the systems we see and shape their outcomes and actions.
+        Much of the seemingly automated work delegated to AI is based on
+        invisible labor delegated to an underpaid workforce, either offshored
+        or at precarious career stages, such as the workers who label data,
+        moderate content, or perform micro-tasks on platforms like Amazon
+        Mechanical Turk.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-is-capable-of-autonomous-actions">
+        <title>Misconception: AI is capable of autonomous actions</title>
+        <p><em>Reality:</em> We are frequently shown footage of robots that
+        makes them appear much more successful than they actually are. In
+        reality, most of these videos are staged to one degree or another. Some
+        robots are remotely controlled, while others might show one successful
+        run out of a hundred. Scientists still do not possess the necessary
+        knowledge to allow AI to combine skills of perception, analysis, and
+        reaction in the way living creatures can. Even humble lifeforms like
+        slugs have surprisingly complex and nuanced cognition. Overconfidence
+        in designing intelligent systems may have disastrous consequences.
+        Driverless cars have caused fatal accidents when they meet unexpected
+        situations.</p>
+        <p><em>Why it matters:</em> Our understanding of how cognition works is
+        patchy and shallow. Scientists still do not fully understand how human
+        cognition integrates perception, memory, reasoning, and action in real
+        time. We lack comprehensive models of how the brain processes context,
+        handles ambiguity, or generalizes knowledge from one situation to
+        another. All of these are essential capabilities that AI systems have
+        not yet mastered. AI programs are very specialized, matching some human
+        capabilities only in very specific, well-understood environments such
+        as playing chess, translating text, or recognizing objects in clear
+        photographs. They fail when placed within new contexts, such as a
+        self-driving car trained in sunny California struggling with
+        snow-covered roads.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-is-immaterial">
+        <title>Misconception: AI is immaterial</title>
+        <p><em>Reality:</em> While popular conception often characterizes AI
+        and other computing technologies as intangible entities, AI's
+        functioning primarily relies on concrete, physical infrastructures
+        including data centers filled with servers, fiber-optic cables,
+        electricity grids, and myriad electronic devices. Training a single
+        large language model can consume as much electricity as hundreds of
+        homes use in a year, and the cooling systems required to prevent
+        servers from overheating demand vast amounts of water. The physical
+        location of these data centers also matters. They are often built near
+        cheap energy sources or in cooler climates to reduce costs, meaning
+        AI's environmental footprint is unevenly distributed across the
+        globe.</p>
+        <p><em>Why it matters:</em> AI is deeply interwoven with physical
+        realities around the globe. Without this physical backbone, including
+        the cold, secure, and electricity-rich environments in which it
+        operates, the advanced software capabilities of AI would be unable to
+        function. A growing amount of research is focusing on the environmental
+        impact of AI, its carbon and water footprint required to train its
+        algorithms, as well as the high mineral cost to produce its supporting
+        hardware. These costs have engendered conflicts, forced labor and
+        displacement within local communities. Such realities are often
+        obscured by the hype about solving climate change and addressing social
+        issues by applying AI systems.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-is-inherently-good-or-bad">
+        <title>Misconception: AI is inherently good (or bad)</title>
+        <p><em>Reality:</em> AI technology comprises a landscape of tools. As
+        such, it is neutral and has no inherent ethical or moral value. It is
+        the way in which AI is used by humans that can be considered good or
+        bad. For example, facial recognition technology can be used for
+        security and law enforcement purposes, but it also enables mass
+        surveillance in undesirable contexts. Autonomous cars can save lives by
+        reducing human error, but they can also cause accidents due to
+        programming errors.</p>
+        <p><em>Why it matters:</em> Treating AI as inherently good or bad
+        distracts from the real issues of how it is developed and deployed. It
+        is the responsibility of developers, users, and policymakers to ensure
+        AI is used ethically and beneficially. This misconception can lead to
+        either uncritical adoption or blanket rejection of AI, neither of which
+        is productive. A nuanced understanding acknowledges that AI is a tool
+        whose impact depends on human choices.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-will-only-affect-routine-and-manual-jobs">
+        <title>Misconception: AI will only affect routine and manual jobs</title>
+        <p><em>Reality:</em> It is true that AI technology has the potential to
+        automate repetitive and simple tasks traditionally performed by humans.
+        However, it reaches far beyond simple automation. Advancements in
+        machine learning have already affected white-collar jobs such as legal
+        document review, medical diagnostics, financial analysis, and
+        journalism. AI can now produce content, analyze complex data, and
+        assist in decision-making across many professional fields. No sector is
+        immune to AI's impact.</p>
+        <p><em>Why it matters:</em> Believing that AI only affects routine jobs
+        can leave professionals in cognitive or creative fields unprepared for
+        the changes AI brings. It can also lead to a false sense of security
+        among those in white-collar professions. Understanding the broad reach
+        of AI helps individuals and organizations prepare for workforce
+        transformations and identify opportunities for human-AI collaboration
+        rather than competition.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-will-destroy-our-privacy">
+        <title>Misconception: AI will destroy our privacy</title>
+        <p><em>Reality:</em> While AI systems certainly have the ability and
+        need to collect and analyze more information, the threat to privacy is
+        little greater than the non-AI systems of today. Many organizations
+        already collect personally identifiable data. The rules that govern
+        data use and protect privacy today will also cover data analyzed by AI.
+        Privacy issues will be with us regardless of whether AI progresses or
+        not. In fact, AI approaches are already used to improve network
+        security, where systems adapt to attacks and malware.</p>
+        <p><em>Why it matters:</em> While privacy concerns about AI are valid,
+        they should not be used to halt AI development. Instead, the focus
+        should be on establishing reasonable boundaries and regulations for how
+        AI systems collect and use data. The impact of AI on privacy depends on
+        how it is used, and with proper safeguards, AI can enhance privacy
+        protection as well as potentially threaten it.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-cannot-be-or-should-not-be-regulated">
+        <title>Misconception: AI cannot be or should not be regulated</title>
+        <p><em>Reality:</em> Despite the potential benefits of AI, it can
+        affect us in unintended ways. Major risks associated with AI stem from
+        malicious uses, military and corporate AI races, and AI agents that
+        autonomously pursue dangerous goals. AI should not be developed without
+        constraints if it can undermine human rights or be otherwise dangerous.
+        Because not all technological progress is desirable, reasonable
+        regulation can help prevent harmful outcomes while fostering beneficial
+        progress. The impact on society depends on the users and controllers of
+        an AI system, their intentions, and the way people are affected, all of
+        which lend themselves as targets for regulation.</p>
+        <p><em>Why it matters:</em> The belief that AI cannot be regulated
+        leads to a lack of oversight and potentially harmful outcomes.
+        Effective regulation, such as that used in the aviation industry,
+        proves that even complex technologies
 </chapter>
