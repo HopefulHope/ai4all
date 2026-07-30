@@ -784,7 +784,7 @@
         potential to replace human educators.</p>
     </introduction>
 
-    <assemblage xml:id="asm-myth-ai-complex-educators-ch2">
+    <assemblage xml:id="asm-myth-ai-complex-educators">
         <title>Misconception: AI is too complex for educators</title>
         <p><em>Reality:</em> AI is not inherently complex for educators to use.
         User-friendly AI tools are accessible and educators can learn to
@@ -801,7 +801,7 @@
         education.</p>
     </assemblage>
 
-    <assemblage xml:id="asm-myth-ai-expensive-ch2">
+    <assemblage xml:id="asm-myth-ai-expensive">
         <title>Misconception: AI is expensive</title>
         <p><em>Reality:</em> Various affordable or free AI resources are
         accessible to educators, debunking the notion of AI exclusivity due to
@@ -818,7 +818,7 @@
         distribution of AI's advantages.</p>
     </assemblage>
 
-    <assemblage xml:id="asm-myth-ai-threat-schools-ch2">
+    <assemblage xml:id="asm-myth-ai-threat-schools">
         <title>Misconception: AI is a threat to schools</title>
         <p><em>Reality:</em> AI enhances efficiency but requires ethical
         implementation and oversight. It complements but does not replace the
@@ -836,7 +836,7 @@
         experience.</p>
     </assemblage>
 
-    <assemblage xml:id="asm-myth-ai-solve-all-ch2">
+    <assemblage xml:id="asm-myth-ai-solve-all-educational-problems">
         <title>Misconception: AI can solve all educational problems</title>
         <p><em>Reality:</em> Even with effective AI integration, AI cannot
         address multifaceted issues such as socioeconomic disparities or
@@ -854,7 +854,7 @@
         relying on technological fixes.</p>
     </assemblage>
 
-    <assemblage xml:id="asm-myth-ai-only-stem-ch2">
+    <assemblage xml:id="asm-myth-ai-only-for-stem-subjects">
         <title>Misconception: AI is only for STEM subjects</title>
         <p><em>Reality:</em> While AI is highly applicable in STEM, its
         influence extends far beyond. AI fosters social-emotional skills among

@@ -750,4 +750,134 @@
     </subsection>
   </section>
 
+<section xml:id="sec-mythbusting-ch5">
+    <title>Mythbusting</title>
+
+    <introduction>
+        <p>Now that you have a better understanding of how machines actually
+        learn—from supervised and unsupervised learning to reinforcement
+        learning—let's officially dispel some myths about how AI learns,
+        whether it truly learns like humans, and what it actually takes to
+        build these systems.</p>
+    </introduction>
+
+    <assemblage xml:id="asm-myth-ai-learns-like-humans">
+        <title>Misconception: AI learns like humans</title>
+        <p><em>Reality:</em> While there are superficial similarities in the
+        learning processes of humans and AI, AI systems have no understanding
+        of meaning, context, or cause and effect. They are fundamentally making
+        statistical associations based on patterns in their training data. What
+        they learn depends entirely on what data they are given. For example,
+        face analysis systems trained on data with too few people of color
+        cannot accurately process faces with dark skin. A medical system might
+        miss significant patient background information, and a robot judge
+        might suggest that someone is guilty because of previous convictions or
+        the neighborhood they live in.</p>
+        <p><em>Why it matters:</em> AI can find patterns that a human might
+        miss due to the sheer size of the datasets they learn from, but this
+        pattern recognition is fundamentally different from human
+        comprehension. Unlike humans, AI does not learn from embodied
+        experience and social interaction. It primarily relies on datasets,
+        algorithms, and computing power. This means AI cannot develop true
+        understanding or common sense, and its outputs are only as good as the
+        data it was trained on.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-autonomous-learning">
+        <title>Misconception: AI systems learn autonomously and without human programming</title>
+        <p><em>Reality:</em> AI systems do not somehow learn by themselves if
+        only their goal is specified. Training AI systems typically involves
+        humans who select and prepare data, AI model architectures, and
+        training algorithms. Dedicated human effort puts machine-learning
+        algorithms in the right place where they can be most effective in
+        extracting patterns and insights from data. The selection of the model
+        is done on the basis of the experience and more or less subjective
+        impression of the researcher, who decides what models should be
+        explored, how they should be deployed, and how they should be
+        evaluated.</p>
+        <p><em>Why it matters:</em> Believing that AI learns autonomously
+        underestimates the significant human effort involved in developing and
+        maintaining AI systems. It also creates the false impression that AI is
+        self-sufficient and requires less oversight than it actually does.
+        Understanding the role of human expertise in AI development is crucial
+        for proper governance, accountability, and realistic expectations about
+        what AI can achieve.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-systems-are-easy-to-build-and-anyone-can-do-it">
+        <title>Misconception: AI systems are easy to build and anyone can do it</title>
+        <p><em>Reality:</em> Building sophisticated AI systems requires a
+        significant investment of time, skill, and resources. It is not a
+        solitary task but requires a collaborative effort of various experts,
+        including data scientists, engineers, and domain specialists. This has
+        not changed even though AI tools and frameworks have become more
+        accessible and user-friendly. It is still necessary to understand the
+        underlying principles. Insufficient awareness and careless use may lead
+        to untrustworthy applications and ethical problems.</p>
+        <p><em>Why it matters:</em> The misconception that anyone can easily
+        build AI systems leads to unrealistic expectations, poor-quality
+        applications, and potential harm from systems that are not properly
+        designed or tested. This is particularly concerning in educational and
+        business contexts where people may assume they can implement AI without
+        adequate expertise. Recognizing the complexity of AI development helps
+        promote responsible practices and appropriate allocation of
+        resources.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-more-data-is-always-better">
+        <title>Misconception: To improve an AI system, just add more data</title>
+        <p><em>Reality:</em> Data quantity is fundamental for training AI
+        models, but improving overall performance requires a holistic approach
+        beyond simply increasing data volume. Ensuring high data quality,
+        modifying the AI model architecture, and adjusting training methods are
+        also essential strategies. Adding more data to an AI system without
+        focusing on quality is akin to throwing more ingredients into a pastry
+        bowl trying to adjust a poorly crafted recipe.</p>
+        <p><em>Why it matters:</em> The belief that more data always makes AI
+        better leads to wasted resources and unrealistic expectations.
+        Poor-quality data can actively harm AI performance, producing
+        unreliable and untrustworthy results. Emphasizing data quality over
+        quantity helps build more effective AI systems and prevents the spread
+        of biases and errors through poorly curated datasets.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-systems-operate-without-human-intervention">
+        <title>Misconception: AI systems operate without human intervention</title>
+        <p><em>Reality:</em> During its operational phase, an AI system usually
+        still requires human oversight and maintenance to ensure that it keeps
+        working as intended. Humans can play a central role in correcting
+        errors, handling unforeseen circumstances, and updating the AI system.
+        Humans can also review critical decisions in areas such as healthcare,
+        law enforcement, or hiring. Many AI systems are designed to enhance and
+        support human decision-making, rather than replace it.</p>
+        <p><em>Why it matters:</em> Believing that AI systems operate without
+        human intervention overlooks the ongoing human effort required to
+        maintain and oversee AI systems. This misconception can lead to
+        overreliance on AI and insufficient preparation for failures or
+        unexpected outcomes. Understanding the need for human oversight helps
+        ensure that AI is used responsibly and that human expertise is valued
+        in AI deployment.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-addresses-complex-questions">
+        <title>Misconception: The current most successful AI methods address complex questions</title>
+        <p><em>Reality:</em> The current most successful AI methods, namely
+        <term><idx>neural networks</idx>neural networks</term>, do not address
+        complex questions but simple ones such as classification or regression
+        for high-dimensional data. This goes counter to the tradition of AI
+        taking on novel and complex problems. These complex questions are
+        addressed reductionistically, dissecting the original problem into
+        smaller subproblems rather than addressing them as a whole. This may be
+        considered a maturing process of AI settling after a rebellious
+        adolescence against the limitations of existing fields like control
+        theory, signal processing, or statistics.</p>
+        <p><em>Why it matters:</em> Recognizing that AI currently excels at
+        solving simple, well-defined problems for high-dimensional data helps
+        set realistic expectations about what AI can achieve. It also
+        highlights that AI is not a magical solution to all problems but a tool
+        that works best when applied to appropriate tasks. This understanding
+        is crucial for businesses, researchers, and policymakers when deciding
+        where to invest in AI.</p>
+    </assemblage>
+</section>
 </chapter>
