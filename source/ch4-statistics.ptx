@@ -787,8 +787,7 @@
   <section xml:id="sec-the-data-split">
     <title>The Data Split</title>
 
-    <subsection xml:id="ssec-data-collection">
-        <title>Data Collection and Sampling</title>
+    <introduction>
 
         <p>
             Before any analysis or learning can take place, data must first be collected. Compiling a dataset involves identifying a <idx><h>target population</h></idx><term>target population</term>—the entire group of individuals, objects, or events about which conclusions are to be drawn—as well as defining and measuring relevant <idx><h>features</h></idx><term>features</term> and <idx><h>labels</h></idx><term>labels</term>.
@@ -803,7 +802,7 @@
                 For a loan-approval system, the target population could be people who live in the state in which the system will be used, have previously applied for loans, own credit cards, and so on. The particular sample that ends up in the data set will be a subset of this target population, heavily depending on the sampling method used (e.g., sourcing information from public records or surveying people). There is also the question of which features to measure, such as debt history, number of credit cards, income, and occupation. Some of these things will be chosen to serve as labels: for example, information about whether the person received or paid back a loan in the past.
             </p>
         </assemblage>
-    </subsection>
+    </introduction>
 
     <subsection xml:id="ssec-data-preprocessing">
         <title>Data Preprocessing and Data Splitting</title>
