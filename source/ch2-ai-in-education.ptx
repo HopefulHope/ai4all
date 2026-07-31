@@ -773,4 +773,103 @@
     </subsection>
   </section>
 
+<section xml:id="sec-mythbusting-ch2">
+    <title>Mythbusting</title>
+
+    <introduction>
+        <p>Now that you have a better understanding of how to use AI as a
+        learning tool—from crafting effective prompts to spotting
+        hallucinations and navigating academic integrity—let's officially
+        dispel some myths about AI's role in education, its complexity, and its
+        potential to replace human educators.</p>
+    </introduction>
+
+    <assemblage xml:id="asm-myth-ai-complex-educators">
+        <title>Misconception: AI is too complex for educators</title>
+        <p><em>Reality:</em> AI is not inherently complex for educators to use.
+        User-friendly AI tools are accessible and educators can learn to
+        utilize them effectively with support. Many AI-powered educational
+        tools, such as adaptive learning platforms and personalized learning
+        systems, can be integrated into lesson plans without demanding
+        intricate technical knowledge. Educators can effectively use AI tools
+        to enhance their teaching methodologies.</p>
+        <p><em>Why it matters:</em> Believing AI is too complex for educators
+        can prevent its beneficial integration into education. Educators who
+        feel capable of using AI are more likely to adopt it and help students
+        develop AI literacy. Providing educators with training and accessible
+        tools empowers them to harness AI's potential for improving
+        education.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-expensive">
+        <title>Misconception: AI is expensive</title>
+        <p><em>Reality:</em> Various affordable or free AI resources are
+        accessible to educators, debunking the notion of AI exclusivity due to
+        costs. OpenAI's offerings such as DALL-E 2 and ChatGPT, Bard, and
+        Google AI-infused apps provide free tools for various applications.
+        Quizizz, SaneBox, Decktopus, and Character AI offer accessible AI
+        functionalities for teachers. These diverse AI tools demonstrate that
+        AI resources are not exclusive to those with large budgets.</p>
+        <p><em>Why it matters:</em> The belief that AI is expensive limits its
+        adoption, particularly in resource-constrained educational settings.
+        Recognizing the availability of free and affordable AI tools enables
+        broader access and innovation. It also challenges the narrative that
+        only large corporations can benefit from AI, promoting more equitable
+        distribution of AI's advantages.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-threat-schools">
+        <title>Misconception: AI is a threat to schools</title>
+        <p><em>Reality:</em> AI enhances efficiency but requires ethical
+        implementation and oversight. It complements but does not replace the
+        fundamental role of educators in quality education. While AI can enrich
+        student learning, aid decision-making, and streamline processes, it
+        must be implemented ethically and monitored vigilantly. Schools must
+        maintain a human-centric approach and be vigilant against the dangers
+        of excessive reliance on technology.</p>
+        <p><em>Why it matters:</em> The belief that AI is a threat to schools
+        can prevent its beneficial integration into education. Understanding
+        that AI is a tool that can complement rather than replace educators
+        helps reduce unnecessary fear and encourages productive adoption. This
+        perspective supports a balanced approach where AI enhances educational
+        practices while human educators remain central to the learning
+        experience.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-solve-all-educational-problems">
+        <title>Misconception: AI can solve all educational problems</title>
+        <p><em>Reality:</em> Even with effective AI integration, AI cannot
+        address multifaceted issues such as socioeconomic disparities or
+        personalized learning needs without human intervention. Educational
+        challenges include unequal access to quality education, providing
+        mental health support for students, fostering critical thinking skills,
+        and teaching ethics, moral values, and social responsibility. These
+        require nuanced human qualities like subjective interpretation and
+        moral reasoning that are beyond AI's capacity.</p>
+        <p><em>Why it matters:</em> Overestimating AI's ability to solve
+        educational problems leads to neglect of the human elements essential
+        to education. Understanding AI's limitations ensures that it is used as
+        a tool to support, not replace, educators and that investments in
+        education address the root causes of educational challenges rather than
+        relying on technological fixes.</p>
+    </assemblage>
+
+    <assemblage xml:id="asm-myth-ai-only-for-stem-subjects">
+        <title>Misconception: AI is only for STEM subjects</title>
+        <p><em>Reality:</em> While AI is highly applicable in STEM, its
+        influence extends far beyond. AI fosters social-emotional skills among
+        individuals with autism through virtual companions, revolutionizes
+        physical education, cultivates ethical thinking, promotes cooperative
+        problem-solving, transforms political science education, and enhances
+        music education. Studies have demonstrated AI's successful use across
+        diverse domains, from healthcare and education to arts and
+        humanities.</p>
+        <p><em>Why it matters:</em> The misconception that AI is only for STEM
+        limits its potential applications in other fields and discourages
+        non-STEM professionals from engaging with AI. Recognizing AI's broad
+        applicability helps democratize AI literacy and ensures that its
+        benefits reach all sectors of society. It also encourages
+        interdisciplinary approaches to problem-solving.</p>
+    </assemblage>
+</section>
 </chapter>
