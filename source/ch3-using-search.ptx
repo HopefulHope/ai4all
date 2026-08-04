@@ -285,7 +285,7 @@
           <title>Breadth-First Search (BFS)</title>
 
           <p>
-              <term>Breadth-first search</term><idx><h>breadth-first search</h></idx> (BFS) is one of the simplest search strategies. It explores all nodes at the current level before moving to the next level. In other words, BFS expands the <term>shallowest</term> (closest to the start) unexpanded node first.
+              <term>Breadth-first search</term><idx><h>breadth-first search</h></idx> (BFS) is one of the simplest search strategies. It explores all nodes at the current level before moving to the next level. In other words, BFS examines the <term>shallowest</term> (closest to the start) unexamined node first.
           </p>
 
           <p>
@@ -302,7 +302,7 @@
                   <li><p>Start with the initial node and place it in a <term>queue</term><idx><h>queue</h></idx> (think of a line at a store—first in, first out)</p></li>
                   <li><p>Remove the first node from the queue</p></li>
                   <li><p>If this node is the goal, you're done!</p></li>
-                  <li><p>Otherwise, expand the node by generating all its children and add them to the back of the queue</p></li>
+                  <li><p>Otherwise, expand the queue by generating all its children and add them to the back of the queue</p></li>
                   <li><p>Repeat until the queue is empty or the goal is found</p></li>
               </ol>
           </p>
@@ -483,7 +483,7 @@
                   </row>
                   <row>
                       <cell><term>Optimal</term></cell>
-                      <cell>No</cell>
+                      <cell>Only if the solution is within the depth limit</cell>
                   </row>
                   <row>
                       <cell><term>Time</term></cell>
