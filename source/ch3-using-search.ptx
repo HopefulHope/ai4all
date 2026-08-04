@@ -4,9 +4,284 @@
   <title>Solving Problems Using Search</title>
 
   <!-- include sections -->
-  <section xml:id="sec-trees-and-nodes">
-    <title>Trees and Nodes</title>
-    <p>Content for the section.</p>
+  <section xml:id="sec-trees-and-graphs">
+    <title>Trees and Graphs</title>
+
+    <introduction>
+        <p>The search methods we will be dealing with in this chapter are defined
+        on trees and graphs, so we must first go over what trees are and how
+        they work. Throughout this section, we will use the following tree as a
+        guiding example for visualizing the definitions.</p>
+
+        <figure xml:id="fig-sample-tree">
+            <caption>Sample tree for visualizing definitions</caption>
+            <image source="sample-tree.png">
+                <shortdescription>Example tree structure with a root node and child nodes</shortdescription>
+                <description>
+                    <p>A tree diagram showing a root node at the top with branches
+                    extending downward to child nodes, illustrating the hierarchical
+                    structure of a tree.</p>
+                </description>
+            </image>
+        </figure>
+    </introduction>
+
+    <subsection xml:id="ssec-tree-definitions">
+        <title>Tree Definitions</title>
+
+        <definition xml:id="def-node">
+            <title>Node</title>
+            <statement>
+                <p>The general term for a structure which contains an item, such
+                as a character or even another data structure.</p>
+            </statement>
+        </definition>
+
+        <definition xml:id="def-edge">
+            <title>Edge</title>
+            <statement>
+                <p>The connection between two nodes. In a tree, the edge will be
+                pointing in a downward direction.</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-tree-edges-nodes">
+            <caption>Tree with five edges and six nodes</caption>
+            <image source="tree-edges-nodes.png">
+                <shortdescription>Tree diagram showing five edges connecting six nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with six nodes connected by five edges, illustrating
+                    the relationship between nodes and edges in a tree structure.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>This tree has five edges and six nodes. There is no limit to the number
+        of nodes in a tree. The only stipulation is that the tree is fully
+        connected. This means that there cannot be disjoint portions of the
+        tree.</p>
+
+        <definition xml:id="def-parent">
+            <title>Parent</title>
+            <statement>
+                <p>A node that is a direct predecessor to one or more nodes.</p>
+            </statement>
+        </definition>
+
+        <definition xml:id="def-child">
+            <title>Child</title>
+            <statement>
+                <p>A node that is a direct successor of another node. In a general
+                tree, the children of a node are an unordered set. There is not a
+                fixed or defined order for generic trees. Child nodes must have
+                exactly one parent node. However, there is no limit to the number
+                of child nodes a parent node can have, but to be a parent node,
+                the node must have at least one child node.</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-parent-child-1">
+            <caption>Parent-child relationship in a tree (example 1)</caption>
+            <image source="parent-child-1.png">
+                <shortdescription>Tree diagram highlighting a parent node and its child</shortdescription>
+                <description>
+                    <p>A tree diagram with one node highlighted as a parent and
+                    its connected child nodes highlighted, showing the direct
+                    predecessor-successor relationship.</p>
+                </description>
+            </image>
+        </figure>
+
+        <figure xml:id="fig-parent-child-2">
+            <caption>Parent-child relationship in a tree (example 2)</caption>
+            <image source="parent-child-2.png">
+                <shortdescription>Tree diagram showing a different parent-child relationship</shortdescription>
+                <description>
+                    <p>A tree diagram with a different parent node and its children
+                    highlighted, demonstrating that parent-child relationships
+                    exist throughout the tree structure.</p>
+                </description>
+            </image>
+        </figure>
+
+        <definition xml:id="def-root">
+            <title>Root</title>
+            <statement>
+                <p>The topmost node of the tree that has no parent. To be a tree,
+                there MUST be only one root. Also, a tree consisting of only a
+                single node is still considered a tree and that single node would
+                be the root.</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-root">
+            <caption>Root node of a tree</caption>
+            <image source="root-node.png">
+                <shortdescription>Tree diagram highlighting the root node</shortdescription>
+                <description>
+                    <p>A tree diagram with the topmost node highlighted as the
+                    root, showing that it has no parent and all other nodes
+                    descend from it.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>A rule of thumb for discerning trees is this: if you imagine holding
+        the tree up by the root and gravity took effect, then all edges must be
+        pointing downward.</p>
+
+        <definition xml:id="def-siblings">
+            <title>Siblings</title>
+            <statement>
+                <p>Nodes with the same parent.</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-siblings">
+            <caption>Sibling nodes in a tree</caption>
+            <image source="siblings.png">
+                <shortdescription>Tree diagram highlighting sibling nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with two nodes at the same level sharing
+                    the same parent, highlighted to show sibling relationships.</p>
+                </description>
+            </image>
+        </figure>
+
+        <definition xml:id="def-leaf">
+            <title>Leaf</title>
+            <statement>
+                <p>A node with no children. This tree has four leaves. There is
+                no limit to how many leaves can be in a tree.</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-leaves">
+            <caption>Leaf nodes in a tree</caption>
+            <image source="leaves.png">
+                <shortdescription>Tree diagram highlighting leaf nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with all nodes that have no children
+                    highlighted, showing the leaf nodes of the tree structure.</p>
+                </description>
+            </image>
+        </figure>
+    </subsection>
+
+    <subsection xml:id="ssec-tree-applications">
+        <title>Real World Application of Tree Structure</title>
+
+        <p>Many operating systems use a tree structure to organize your
+        directories, folders, and files. Some of you may have a folder, within a
+        folder, within a folder, that leads to your assignments files. The files
+        you reach from a folder would be considered the leaf nodes while the
+        folder(s) that got you to those files would be the nodes. Here is a
+        visual of how the files and folders may look as a tree.</p>
+
+        <figure xml:id="fig-file-system-tree">
+            <caption>File system organized as a tree</caption>
+            <image source="file-system-tree.png">
+                <shortdescription>Tree structure showing folders and files in an operating system</shortdescription>
+                <description>
+                    <p>A tree diagram representing a file system hierarchy, with
+                    folders as internal nodes and files as leaf nodes, showing
+                    how directories and files are organized in a tree structure.</p>
+                </description>
+            </image>
+        </figure>
+    </subsection>
+
+    <subsection xml:id="ssec-graphs">
+        <title>Graphs</title>
+
+        <definition xml:id="def-graph">
+            <title>Graph</title>
+            <statement>
+                <p>A set of nodes connected by edges. The difference between
+                trees and graphs is that trees are fully connected, and all nodes
+                in a tree have to descend from the root in a perfect hierarchy
+                where each node only has one parent. This also means that trees
+                are a subset of graphs (all trees are graphs).</p>
+            </statement>
+        </definition>
+
+        <figure xml:id="fig-non-tree-graph">
+            <caption>Graph that cannot be a tree</caption>
+            <image source="non-tree-graph.png">
+                <shortdescription>Graph showing a node with two parents</shortdescription>
+                <description>
+                    <p>A graph diagram where one node has two parent nodes,
+                    violating the tree property that each node must have exactly
+                    one parent. This graph cannot be considered a tree.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>Here is a graph that cannot be a tree because one node has two
+        parents.</p>
+
+        <subsection xml:id="ssec-disconnected-graphs">
+            <title>Disconnected Graphs</title>
+
+            <p>A graph where not all nodes are connected by edges.</p>
+
+            <figure xml:id="fig-disconnected-graph">
+                <caption>Disconnected graph with two separate components</caption>
+                <image source="disconnected-graph.png">
+                    <shortdescription>Graph with two disconnected components</shortdescription>
+                    <description>
+                        <p>A graph diagram showing two separate pieces that are
+                        not connected by any edge, illustrating a disconnected
+                        graph.</p>
+                    </description>
+                </image>
+            </figure>
+
+            <p>This graph has two separate pieces that are not connected by an
+            edge, making it disconnected.</p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="ssec-real-world-graphs">
+        <title>Real World Examples of Graphs</title>
+
+        <p>Graphs are used to model relationships in many real-world domains.
+        Here are some common examples:</p>
+
+        <paragraphs xml:id="par-social-networks">
+            <title>Social Networks</title>
+            <p><term>Nodes:</term> Users</p>
+            <p><term>Edges:</term> Friendships, follows, or connections</p>
+            <p><term>Example:</term> Facebook's friend graph or LinkedIn's
+            professional network.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-transportation-networks">
+            <title>Transportation Networks</title>
+            <p><term>Nodes:</term> Locations (cities, stations, airports)</p>
+            <p><term>Edges:</term> Roads, railways, or flight routes</p>
+            <p><term>Example:</term> Airline route maps where edges may have
+            weights like distance or cost.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-web-linking">
+            <title>Web Page Linking (Internet Graph)</title>
+            <p><term>Nodes:</term> Web pages</p>
+            <p><term>Edges:</term> Hyperlinks between pages</p>
+            <p><term>Example:</term> Google's PageRank algorithm models the web
+            as a directed graph.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-supply-chain">
+            <title>Supply Chain and Logistics</title>
+            <p><term>Nodes:</term> Warehouses, suppliers, distribution
+            centers</p>
+            <p><term>Edges:</term> Shipping routes or supply relationships</p>
+            <p><term>Example:</term> Optimizing delivery paths for
+            e-commerce.</p>
+        </paragraphs>
+    </subsection>
+
   </section>
 
   <section xml:id="sec-introduction-to-state-spaces">
