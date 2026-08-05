@@ -29,21 +29,16 @@
     <subsection xml:id="ssec-tree-definitions">
         <title>Tree Definitions</title>
 
-        <definition xml:id="def-node">
-            <title>Node</title>
-            <statement>
-                <p>The general term for a structure which contains an item, such
-                as a character or even another data structure.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>node</idx>Node</term> — the general term for a structure
+            which contains an item, such as a character or even another data
+            structure.
+        </p>
 
-        <definition xml:id="def-edge">
-            <title>Edge</title>
-            <statement>
-                <p>The connection between two nodes. In a tree, the edge will be
-                pointing in a downward direction.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>edge</idx>Edge</term> — the connection between two nodes.
+            In a tree, the edge will be pointing in a downward direction.
+        </p>
 
         <figure xml:id="fig-tree-edges-nodes">
             <caption>Tree with five edges and six nodes</caption>
@@ -61,24 +56,19 @@
         connected. This means that there cannot be disjoint portions of the
         tree.</p>
 
-        <definition xml:id="def-parent">
-            <title>Parent</title>
-            <statement>
-                <p>A node that is a direct predecessor to one or more nodes.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>parent</idx>Parent</term> — a node that is a direct
+            predecessor to one or more nodes.
+        </p>
 
-        <definition xml:id="def-child">
-            <title>Child</title>
-            <statement>
-                <p>A node that is a direct successor of another node. In a general
-                tree, the children of a node are an unordered set. There is not a
-                fixed or defined order for generic trees. Child nodes must have
-                exactly one parent node. However, there is no limit to the number
-                of child nodes a parent node can have, but to be a parent node,
-                the node must have at least one child node.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>child</idx>Child</term> — a node that is a direct successor
+            of another node. In a general tree, the children of a node are an
+            unordered set. There is not a fixed or defined order for generic
+            trees. Child nodes must have exactly one parent node. However, there
+            is no limit to the number of child nodes a parent node can have, but
+            to be a parent node, the node must have at least one child node.
+        </p>
 
         <figure xml:id="fig-parent-child-1">
             <caption>Parent-child relationship in a tree (example 1)</caption>
@@ -104,15 +94,12 @@
             </image>
         </figure>
 
-        <definition xml:id="def-root">
-            <title>Root</title>
-            <statement>
-                <p>The topmost node of the tree that has no parent. To be a tree,
-                there MUST be only one root. Also, a tree consisting of only a
-                single node is still considered a tree and that single node would
-                be the root.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>root</idx>Root</term> — the topmost node of the tree that
+            has no parent. To be a tree, there MUST be only one root. Also, a
+            tree consisting of only a single node is still considered a tree and
+            that single node would be the root.
+        </p>
 
         <figure xml:id="fig-root">
             <caption>Root node of a tree</caption>
@@ -130,12 +117,9 @@
         the tree up by the root and gravity took effect, then all edges must be
         pointing downward.</p>
 
-        <definition xml:id="def-siblings">
-            <title>Siblings</title>
-            <statement>
-                <p>Nodes with the same parent.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>siblings</idx>Siblings</term> — nodes with the same parent.
+        </p>
 
         <figure xml:id="fig-siblings">
             <caption>Sibling nodes in a tree</caption>
@@ -148,13 +132,10 @@
             </image>
         </figure>
 
-        <definition xml:id="def-leaf">
-            <title>Leaf</title>
-            <statement>
-                <p>A node with no children. This tree has four leaves. There is
-                no limit to how many leaves can be in a tree.</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>leaf</idx>Leaf</term> — a node with no children. This tree
+            has four leaves. There is no limit to how many leaves can be in a tree.
+        </p>
 
         <figure xml:id="fig-leaves">
             <caption>Leaf nodes in a tree</caption>
@@ -194,16 +175,13 @@
     <subsection xml:id="ssec-graphs">
         <title>Graphs</title>
 
-        <definition xml:id="def-graph">
-            <title>Graph</title>
-            <statement>
-                <p>A set of nodes connected by edges. The difference between
-                trees and graphs is that trees are fully connected, and all nodes
-                in a tree have to descend from the root in a perfect hierarchy
-                where each node only has one parent. This also means that trees
-                are a subset of graphs (all trees are graphs).</p>
-            </statement>
-        </definition>
+        <p>
+            <term><idx>graph</idx>Graph</term> — a set of nodes connected by edges.
+            The difference between trees and graphs is that trees are fully
+            connected, and all nodes in a tree have to descend from the root in a
+            perfect hierarchy where each node only has one parent. This also
+            means that trees are a subset of graphs (all trees are graphs).
+        </p>
 
         <figure xml:id="fig-non-tree-graph">
             <caption>Graph that cannot be a tree</caption>
@@ -248,16 +226,16 @@
         <p>Graphs are used to model relationships in many real-world domains.
         Here are some common examples:</p>
 
-        <paragraphs xml:id="par-social-networks">
-            <title>Social Networks</title>
+        <paragraphs xml:id="par-social-networks"> 
+            <title>Social Networks</title> <p></p>
             <p><term>Nodes:</term> Users</p>
             <p><term>Edges:</term> Friendships, follows, or connections</p>
             <p><term>Example:</term> Facebook's friend graph or LinkedIn's
             professional network.</p>
         </paragraphs>
 
-        <paragraphs xml:id="par-transportation-networks">
-            <title>Transportation Networks</title>
+        <paragraphs xml:id="par-transportation-networks"> 
+            <title>Transportation Networks</title> <p></p>
             <p><term>Nodes:</term> Locations (cities, stations, airports)</p>
             <p><term>Edges:</term> Roads, railways, or flight routes</p>
             <p><term>Example:</term> Airline route maps where edges may have
@@ -265,7 +243,7 @@
         </paragraphs>
 
         <paragraphs xml:id="par-web-linking">
-            <title>Web Page Linking (Internet Graph)</title>
+            <title>Web Page Linking (Internet Graph)</title> <p></p>
             <p><term>Nodes:</term> Web pages</p>
             <p><term>Edges:</term> Hyperlinks between pages</p>
             <p><term>Example:</term> Google's PageRank algorithm models the web
@@ -273,7 +251,7 @@
         </paragraphs>
 
         <paragraphs xml:id="par-supply-chain">
-            <title>Supply Chain and Logistics</title>
+            <title>Supply Chain and Logistics</title> <p></p>
             <p><term>Nodes:</term> Warehouses, suppliers, distribution
             centers</p>
             <p><term>Edges:</term> Shipping routes or supply relationships</p>
@@ -281,7 +259,6 @@
             e-commerce.</p>
         </paragraphs>
     </subsection>
-
   </section>
 
   <section xml:id="sec-introduction-to-state-spaces">
