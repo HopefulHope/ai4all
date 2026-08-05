@@ -305,7 +305,7 @@
         <title>Game State Spaces</title>
 
         <p>
-            The challenge in adversarial search is the size of the state space. For example, chess has approximately 10^47 possible states (that's a 1 with 47 zeros after it), making it impossible to explore completely. Games like Tic-Tac-Toe, however, have a small enough state space to explore completely.
+            The challenge in adversarial search is the size of the state space. For example, chess has an incredibly large state space, making it impossible to explore completely. Games like Tic-Tac-Toe, however, have a small enough state space to explore in its entirety.
         </p>
 
         <p>
