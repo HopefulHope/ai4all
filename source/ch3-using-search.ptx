@@ -309,7 +309,7 @@
         </p>
 
         <p>
-            Let's revisit Tic-Tac-Toe from Section 3.2. Using the minimax algorithm, the AI can examine all possible moves, evaluate each board position, and choose the move that maximizes its chances of winning—even against an optimal opponent. Because Tic-Tac-Toe has a relatively small state space, the AI can search the entire game tree and play perfectly.
+            Let's revisit Tic-Tac-Toe from <xref ref="sec-introduction-to-state-spaces"/>. Using the minimax algorithm, the AI can examine all possible moves, evaluate each board position, and choose the move that maximizes its chances of winning—even against an optimal opponent. Because Tic-Tac-Toe has a relatively small state space, the AI can search the entire game tree and play perfectly.
         </p>
 
         <p>
@@ -337,11 +337,6 @@
                 <row>
                     <cell><term>Chess</term></cell>
                     <cell>~10^47</cell>
-                    <cell>No (requires heuristics)</cell>
-                </row>
-                <row>
-                    <cell><term>Go</term></cell>
-                    <cell>~10^170</cell>
                     <cell>No (requires heuristics)</cell>
                 </row>
             </tabular>
@@ -380,19 +375,6 @@
 
         <p>
             <term>Result:</term> Alpha-beta pruning can reduce the search time by about half in the best case. This makes it possible to search twice as deep in the same amount of time!
-        </p>
-
-        <p>
-            <dl>
-                <li>
-                    <title>Without pruning:</title>
-                    <p>Must examine O(b^d) nodes, where b = branching factor and d = depth</p>
-                </li>
-                <li>
-                    <title>With alpha-beta pruning:</title>
-                    <p>Only examines about O(b^(d/2)) nodes in the best case</p>
-                </li>
-            </dl>
         </p>
     </subsection>
 
