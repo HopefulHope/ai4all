@@ -134,10 +134,384 @@
 
   </section>
 
-  <section xml:id="sec-environmental-impacts">
+<section xml:id="sec-environmental-impacts">
     <title>Environmental Impacts</title>
-    <p>Content for the section.</p>
-  </section>
+
+    <introduction>
+        <p>As we've seen throughout this book, artificial intelligence has the
+        power to transform nearly every aspect of our lives. But like all
+        powerful technologies, AI comes with significant environmental costs
+        that we need to understand and address. In this section, we'll explore
+        the environmental footprint of AI systems—from the energy they consume
+        to the water they use and the electronic waste they generate.</p>
+    </introduction>
+
+    <subsection xml:id="ssec-the-energy-demands-of-ai">
+        <title>The Energy Demands of AI</title>
+
+        <p>When you ask an AI chatbot a question or use an AI-powered feature on
+        your phone, you're tapping into a vast network of computers working
+        behind the scenes. These aren't the laptops or phones in your hands—they're
+        powerful servers located in massive facilities called data centers.</p>
+
+        <subsection xml:id="ssec-data-centers-the-engines-of-ai">
+            <title>Data Centers: The Engines of AI</title>
+
+            <p>Data centers are the physical infrastructure that makes modern AI
+            possible. These facilities house thousands of specialized computers
+            that train and run AI models. Think of them as giant warehouses
+            filled with computing power.</p>
+
+            <p>The energy consumption of data centers has grown dramatically as
+            AI has expanded:</p>
+
+            <ul>
+                <li>
+                    <p>In 2024, data centers worldwide consumed approximately
+                    415 terawatt-hours (TWh) of electricity—about 1.5% of all
+                    electricity used globally</p>
+                </li>
+                <li>
+                    <p>Data center electricity consumption has been growing at
+                    about 12% per year, which is more than four times faster than
+                    total global electricity growth</p>
+                </li>
+                <li>
+                    <p>By 2030, data center electricity consumption is projected
+                    to more than double to around 945 TWh</p>
+                </li>
+            </ul>
+
+            <p>To put this in perspective, a large AI-focused data center can
+            consume as much electricity as 100,000 households. The largest data
+            centers under construction today may consume 20 times that
+            amount.</p>
+        </subsection>
+
+        <subsection xml:id="ssec-training-vs-inference">
+            <title>Training vs. Inference</title>
+
+            <p>AI models consume energy in two main phases:</p>
+
+            <p>
+                <term>Training</term> is the process where an AI model learns
+                from data. This is incredibly energy-intensive. For example,
+                training GPT-4—one of the most powerful language models—required
+                approximately 42.4 GWh of electricity. That's enough to power
+                about 28,500 households for a day.
+            </p>
+
+            <p>
+                <term>Inference</term> happens when you actually use a trained
+                AI model. Each time you ask ChatGPT a question, the model
+                performs millions of calculations to generate a response. While
+                individual queries use less energy than training, the massive
+                scale of users means inference can dominate total energy
+                consumption over time.
+            </p>
+
+            <p>The energy cost varies widely depending on the task:</p>
+
+            <ul>
+                <li><p>A simple text response might use about 0.24 Wh of electricity</p></li>
+                <li><p>Generating a single image uses about 1.7 Wh</p></li>
+                <li>
+                    <p>Generating a short video can consume 115 Wh—equivalent to
+                    charging a laptop twice</p>
+                </li>
+            </ul>
+        </subsection>
+
+        <subsection xml:id="ssec-why-energy-efficiency-matters">
+            <title>Why Energy Efficiency Matters</title>
+
+            <p>You might be wondering: <q>If AI is so energy-hungry, why doesn't
+            efficiency keep pace?</q> The answer lies in what economists call the
+            <term>rebound effect</term>—when improvements in efficiency actually
+            lead to increased consumption. Here's how it works:</p>
+
+            <ol>
+                <li><p>AI models become more efficient (using less energy per calculation)</p></li>
+                <li><p>This makes them cheaper to run</p></li>
+                <li><p>Cheaper AI encourages more people to use it</p></li>
+                <li><p>More users mean more total energy consumption</p></li>
+            </ol>
+
+            <p>This pattern is similar to what happened with cars: as engines
+            became more fuel-efficient, people drove more, and total fuel
+            consumption didn't drop as much as expected.</p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="ssec-the-water-footprint-of-ai">
+        <title>The Water Footprint of AI</title>
+
+        <p>Energy isn't the only resource AI consumes. Data centers require
+        massive amounts of water for cooling.</p>
+
+        <subsection xml:id="ssec-water-for-cooling">
+            <title>Water for Cooling</title>
+
+            <p>The computers in data centers generate enormous amounts of heat.
+            If not cooled properly, they would overheat and fail. Many data
+            centers use water-based cooling systems that evaporate water to
+            remove heat.</p>
+
+            <p>A medium-sized data center (15 megawatts) uses as much water as
+            three average-sized hospitals or more than two 18-hole golf
+            courses.</p>
+
+            <p>For a typical AI text prompt (like asking Gemini or ChatGPT a
+            question), the water consumption is about 0.26 mL—roughly five drops
+            of water. While this seems tiny, consider that billions of prompts
+            are processed every day, adding up to significant water usage.</p>
+        </subsection>
+
+        <subsection xml:id="ssec-the-water-energy-connection">
+            <title>The Water-Energy Connection</title>
+
+            <p>There's also an indirect water cost: the water used to generate
+            the electricity that powers data centers. Electricity
+            generation—especially from coal, natural gas, and nuclear
+            power—requires water for cooling. When you factor this in, the water
+            footprint of AI grows even larger.</p>
+        </subsection>
+
+        <subsection xml:id="ssec-geographic-concentration-and-water-stress">
+            <title>Geographic Concentration and Water Stress</title>
+
+            <p>Data centers aren't spread evenly across the world. They tend to
+            cluster in specific regions—Northern Virginia, California, Texas in
+            the United States; Dublin in Ireland; and Singapore in Asia. Many of
+            these regions already face water stress.</p>
+
+            <p>About 20% of data center servers in the United States draw their
+            water from moderately to highly stressed watersheds. This means AI
+            infrastructure is competing with agriculture, municipal water
+            supplies, and ecosystems for limited water resources.</p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="ssec-electronic-waste-e-waste">
+        <title>Electronic Waste (E-Waste)</title>
+
+        <p>The hardware that powers AI has a limited lifespan—typically just 3 to
+        5 years. As AI models grow more powerful, the equipment that runs them
+        becomes obsolete quickly, generating a growing stream of electronic
+        waste.</p>
+
+        <subsection xml:id="ssec-the-scale-of-the-problem">
+            <title>The Scale of the Problem</title>
+
+            <p>
+                <term><idx>electronic waste</idx>Electronic waste</term>
+                (<term><idx>e-waste</idx>e-waste</term>) refers to discarded
+                electronic devices and components. Between 2020 and 2030, it's
+                estimated that AI-related servers will generate approximately
+                16 million tons of e-waste. This is about 11% of all global
+                e-waste during that period.
+            </p>
+
+            <p>To give you a sense of how fast this is growing:</p>
+
+            <ul>
+                <li><p>AI-related e-waste is growing at about 110% per year</p></li>
+                <li><p>Global conventional e-waste grows at about 2.8% per year</p></li>
+            </ul>
+        </subsection>
+
+        <subsection xml:id="ssec-whats-in-ai-e-waste">
+            <title>What's in AI E-Waste?</title>
+
+            <p>Server equipment contains valuable and hazardous materials:</p>
+
+            <p><term>Valuable metals</term> that can be recycled:</p>
+            <ul>
+                <li><p>Gold, silver, platinum, and palladium (used in circuit boards)</p></li>
+                <li><p>Copper, aluminum, nickel, and tin</p></li>
+            </ul>
+
+            <p><term>Toxic materials</term> that pose environmental risks:</p>
+            <ul>
+                <li><p>Lead and chromium (found in circuit boards)</p></li>
+                <li><p>Cadmium and mercury</p></li>
+            </ul>
+
+            <p>If properly recycled, the valuable materials in AI server e-waste
+            could be worth approximately 70 billion dollars. If improperly
+            disposed of, the toxic materials can contaminate soil and
+            groundwater, damaging ecosystems and public health.</p>
+        </subsection>
+
+        <subsection xml:id="ssec-the-geography-of-e-waste">
+            <title>The Geography of E-Waste</title>
+
+            <p>Most AI servers are concentrated in just a few regions:</p>
+
+            <ul>
+                <li><p>North America: 58%</p></li>
+                <li><p>East Asia: 25%</p></li>
+                <li><p>Europe: 14%</p></li>
+            </ul>
+
+            <p>This means the e-waste problem is also concentrated. However, the
+            supply chains that produce the hardware span the globe, with
+            semiconductor manufacturing concentrated in East Asia and mineral
+            extraction occurring worldwide.</p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="ssec-what-can-be-done">
+        <title>What Can Be Done?</title>
+
+        <p>Despite these environmental challenges, there are many promising
+        strategies to reduce AI's ecological footprint.</p>
+
+        <subsection xml:id="ssec-efficiency-improvements">
+            <title>Efficiency Improvements</title>
+
+            <p>Google, Microsoft, and other companies have made significant
+            progress in improving energy efficiency:</p>
+
+            <ul>
+                <li>
+                    <p>Google improved energy efficiency per AI inference by over
+                    30 times between 2023 and 2024 alone</p>
+                </li>
+                <li>
+                    <p>Modern data centers have Power Usage Effectiveness (PUE)
+                    ratings as low as 1.1, meaning only 10% of energy goes to
+                    non-computing functions like cooling</p>
+                </li>
+                <li>
+                    <p>Advanced cooling technologies like liquid immersion
+                    cooling can reduce energy and water use</p>
+                </li>
+            </ul>
+        </subsection>
+
+        <subsection xml:id="ssec-circular-economy-strategies">
+            <title>Circular Economy Strategies</title>
+
+            <p>The concept of a circular economy—where materials are reused
+            rather than discarded—can help address e-waste:</p>
+
+            <ol>
+                <li>
+                    <p><term>Lifespan Extension</term> — Extending the average
+                    lifespan of servers by just one year could reduce e-waste by
+                    about 58%.</p>
+                </li>
+                <li>
+                    <p><term>Module Reuse</term> — Reusing components like GPUs,
+                    CPUs, and memory modules from obsolete servers in other
+                    applications could reduce e-waste by about 21%.</p>
+                </li>
+                <li>
+                    <p><term>Material Recycling</term> — Properly recovering
+                    valuable metals from retired equipment reduces the need for
+                    new mining and provides economic value.</p>
+                </li>
+            </ol>
+        </subsection>
+
+        <subsection xml:id="ssec-strategic-location">
+            <title>Strategic Location</title>
+
+            <p>Where data centers are built matters tremendously. A data center's
+            environmental impact can vary by 50 times or more depending on its
+            location. Factors that matter:</p>
+
+            <ul>
+                <li>
+                    <p><term>Climate:</term> Cooler regions require less energy
+                    for cooling</p>
+                </li>
+                <li>
+                    <p><term>Grid mix:</term> Regions with more renewable energy
+                    produce fewer carbon emissions</p>
+                </li>
+                <li>
+                    <p><term>Water availability:</term> Regions with abundant
+                    water create less stress on local supplies</p>
+                </li>
+            </ul>
+        </subsection>
+
+        <subsection xml:id="ssec-clean-energy-procurement">
+            <title>Clean Energy Procurement</title>
+
+            <p>Major tech companies are increasingly powering their data centers
+            with renewable energy:</p>
+
+            <ul>
+                <li>
+                    <p>Google and Microsoft are leading in purchasing renewable
+                    energy</p>
+                </li>
+                <li>
+                    <p>Corporate power purchase agreements (PPAs) for renewable
+                    energy from data center operators account for over 30% of
+                    all corporate PPAs globally</p>
+                </li>
+            </ul>
+        </subsection>
+
+        <subsection xml:id="ssec-transparency-and-policy">
+            <title>Transparency and Policy</title>
+
+            <p>One of the biggest challenges is that much of the environmental
+            impact of AI is hidden from the public. Currently:</p>
+
+            <ul>
+                <li>
+                    <p>Less than a third of data center operators track water
+                    consumption</p>
+                </li>
+                <li>
+                    <p>Many companies treat water use as proprietary
+                    information</p>
+                </li>
+                <li>
+                    <p>Standardized environmental reporting for AI systems is
+                    just beginning to emerge</p>
+                </li>
+            </ul>
+
+            <p>Better transparency would allow:</p>
+
+            <ul>
+                <li><p>Consumers to make informed choices about AI services</p></li>
+                <li><p>Researchers to identify improvement opportunities</p></li>
+                <li><p>Policymakers to develop effective regulations</p></li>
+            </ul>
+        </subsection>
+    </subsection>
+
+    <conclusion>
+        <title>Balancing Progress and Sustainability</title>
+
+        <p>Artificial intelligence offers tremendous potential benefits—advances
+        in medicine, scientific discovery, climate modeling, and countless other
+        areas. But these benefits come with real environmental costs.</p>
+
+        <p>The key question isn't whether we should use AI, but how we can
+        develop and deploy it responsibly. This requires:</p>
+
+        <ol>
+            <li><p>Continuing efficiency improvements in both hardware and software</p></li>
+            <li><p>Transitioning to renewable energy for data centers</p></li>
+            <li><p>Developing circular economy approaches to hardware</p></li>
+            <li><p>Making environmental impacts transparent so we can track progress</p></li>
+            <li><p>Strategic planning about where to build new infrastructure</p></li>
+        </ol>
+
+        <p>As AI becomes increasingly integrated into our lives, understanding
+        its environmental impacts isn't just academic—it's essential for making
+        informed decisions about the kind of future we want to build.</p>
+    </conclusion>
+
+</section>
 
 <section xml:id="sec-deepfakes-and-disinformation">
   <title>Deepfakes and Disinformation</title>
