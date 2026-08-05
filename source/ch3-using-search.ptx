@@ -4,9 +4,261 @@
   <title>Solving Problems Using Search</title>
 
   <!-- include sections -->
-  <section xml:id="sec-trees-and-nodes">
-    <title>Trees and Nodes</title>
-    <p>Content for the section.</p>
+  <section xml:id="sec-trees-and-graphs">
+    <title>Trees and Graphs</title>
+
+    <introduction>
+        <p>The search methods we will be dealing with in this chapter are defined
+        on trees and graphs, so we must first go over what trees are and how
+        they work. Throughout this section, we will use the following tree as a
+        guiding example for visualizing the definitions.</p>
+
+        <figure xml:id="fig-sample-tree">
+            <caption>Sample tree for visualizing definitions</caption>
+            <image source="sample-tree.png">
+                <shortdescription>Example tree structure with a root node and child nodes</shortdescription>
+                <description>
+                    <p>A tree diagram showing a root node at the top with branches
+                    extending downward to child nodes, illustrating the hierarchical
+                    structure of a tree.</p>
+                </description>
+            </image>
+        </figure>
+    </introduction>
+
+    <subsection xml:id="ssec-tree-definitions">
+        <title>Tree Definitions</title>
+
+        <p>
+            <term><idx>node</idx>Node</term> — the general term for a structure
+            which contains an item, such as a character or even another data
+            structure.
+        </p>
+
+        <p>
+            <term><idx>edge</idx>Edge</term> — the connection between two nodes.
+            In a tree, the edge will be pointing in a downward direction.
+        </p>
+
+        <figure xml:id="fig-tree-edges-nodes">
+            <caption>Tree with five edges and six nodes</caption>
+            <image source="tree-edges-nodes.png">
+                <shortdescription>Tree diagram showing five edges connecting six nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with six nodes connected by five edges, illustrating
+                    the relationship between nodes and edges in a tree structure.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>This tree has five edges and six nodes. There is no limit to the number
+        of nodes in a tree. The only stipulation is that the tree is fully
+        connected. This means that there cannot be disjoint portions of the
+        tree.</p>
+
+        <p>
+            <term><idx>parent</idx>Parent</term> — a node that is a direct
+            predecessor to one or more nodes.
+        </p>
+
+        <p>
+            <term><idx>child</idx>Child</term> — a node that is a direct successor
+            of another node. In a general tree, the children of a node are an
+            unordered set. There is not a fixed or defined order for generic
+            trees. Child nodes must have exactly one parent node. However, there
+            is no limit to the number of child nodes a parent node can have, but
+            to be a parent node, the node must have at least one child node.
+        </p>
+
+        <figure xml:id="fig-parent-child-1">
+            <caption>Parent-child relationship in a tree (example 1)</caption>
+            <image source="parent-child-1.png">
+                <shortdescription>Tree diagram highlighting a parent node and its child</shortdescription>
+                <description>
+                    <p>A tree diagram with one node highlighted as a parent and
+                    its connected child nodes highlighted, showing the direct
+                    predecessor-successor relationship.</p>
+                </description>
+            </image>
+        </figure>
+
+        <figure xml:id="fig-parent-child-2">
+            <caption>Parent-child relationship in a tree (example 2)</caption>
+            <image source="parent-child-2.png">
+                <shortdescription>Tree diagram showing a different parent-child relationship</shortdescription>
+                <description>
+                    <p>A tree diagram with a different parent node and its children
+                    highlighted, demonstrating that parent-child relationships
+                    exist throughout the tree structure.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>
+            <term><idx>root</idx>Root</term> — the topmost node of the tree that
+            has no parent. To be a tree, there MUST be only one root. Also, a
+            tree consisting of only a single node is still considered a tree and
+            that single node would be the root.
+        </p>
+
+        <figure xml:id="fig-root">
+            <caption>Root node of a tree</caption>
+            <image source="root-node.png">
+                <shortdescription>Tree diagram highlighting the root node</shortdescription>
+                <description>
+                    <p>A tree diagram with the topmost node highlighted as the
+                    root, showing that it has no parent and all other nodes
+                    descend from it.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>A rule of thumb for discerning trees is this: if you imagine holding
+        the tree up by the root and gravity took effect, then all edges must be
+        pointing downward.</p>
+
+        <p>
+            <term><idx>siblings</idx>Siblings</term> — nodes with the same parent.
+        </p>
+
+        <figure xml:id="fig-siblings">
+            <caption>Sibling nodes in a tree</caption>
+            <image source="siblings.png">
+                <shortdescription>Tree diagram highlighting sibling nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with two nodes at the same level sharing
+                    the same parent, highlighted to show sibling relationships.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>
+            <term><idx>leaf</idx>Leaf</term> — a node with no children. This tree
+            has four leaves. There is no limit to how many leaves can be in a tree.
+        </p>
+
+        <figure xml:id="fig-leaves">
+            <caption>Leaf nodes in a tree</caption>
+            <image source="leaves.png">
+                <shortdescription>Tree diagram highlighting leaf nodes</shortdescription>
+                <description>
+                    <p>A tree diagram with all nodes that have no children
+                    highlighted, showing the leaf nodes of the tree structure.</p>
+                </description>
+            </image>
+        </figure>
+    </subsection>
+
+    <subsection xml:id="ssec-tree-applications">
+        <title>Real World Application of Tree Structure</title>
+
+        <p>Many operating systems use a tree structure to organize your
+        directories, folders, and files. Some of you may have a folder, within a
+        folder, within a folder, that leads to your assignments files. The files
+        you reach from a folder would be considered the leaf nodes while the
+        folder(s) that got you to those files would be the nodes. Here is a
+        visual of how the files and folders may look as a tree.</p>
+
+        <figure xml:id="fig-file-system-tree">
+            <caption>File system organized as a tree</caption>
+            <image source="file-system-tree.png">
+                <shortdescription>Tree structure showing folders and files in an operating system</shortdescription>
+                <description>
+                    <p>A tree diagram representing a file system hierarchy, with
+                    folders as internal nodes and files as leaf nodes, showing
+                    how directories and files are organized in a tree structure.</p>
+                </description>
+            </image>
+        </figure>
+    </subsection>
+
+    <subsection xml:id="ssec-graphs">
+        <title>Graphs</title>
+
+        <p>
+            <term><idx>graph</idx>Graph</term> — a set of nodes connected by edges.
+            The difference between trees and graphs is that trees are fully
+            connected, and all nodes in a tree have to descend from the root in a
+            perfect hierarchy where each node only has one parent. This also
+            means that trees are a subset of graphs (all trees are graphs).
+        </p>
+
+        <figure xml:id="fig-non-tree-graph">
+            <caption>Graph that cannot be a tree</caption>
+            <image source="non-tree-graph.png">
+                <shortdescription>Graph showing a node with two parents</shortdescription>
+                <description>
+                    <p>A graph diagram where one node has two parent nodes,
+                    violating the tree property that each node must have exactly
+                    one parent. This graph cannot be considered a tree.</p>
+                </description>
+            </image>
+        </figure>
+
+        <p>Here is a graph that cannot be a tree because one node has two
+        parents.</p>
+
+        <subsection xml:id="ssec-disconnected-graphs">
+            <title>Disconnected Graphs</title>
+
+            <p>A graph where not all nodes are connected by edges.</p>
+
+            <figure xml:id="fig-disconnected-graph">
+                <caption>Disconnected graph with two separate components</caption>
+                <image source="disconnected-graph.png">
+                    <shortdescription>Graph with two disconnected components</shortdescription>
+                    <description>
+                        <p>A graph diagram showing two separate pieces that are
+                        not connected by any edge, illustrating a disconnected
+                        graph.</p>
+                    </description>
+                </image>
+            </figure>
+
+            <p>This graph has two separate pieces that are not connected by an
+            edge, making it disconnected.</p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="ssec-real-world-graphs">
+        <title>Real World Examples of Graphs</title>
+
+        <p>Graphs are used to model relationships in many real-world domains.
+        Here are some common examples:</p>
+
+        <paragraphs xml:id="par-social-networks"> 
+            <title>Social Networks</title> <p></p>
+            <p><term>Nodes:</term> Users</p>
+            <p><term>Edges:</term> Friendships, follows, or connections</p>
+            <p><term>Example:</term> Facebook's friend graph or LinkedIn's
+            professional network.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-transportation-networks"> 
+            <title>Transportation Networks</title> <p></p>
+            <p><term>Nodes:</term> Locations (cities, stations, airports)</p>
+            <p><term>Edges:</term> Roads, railways, or flight routes</p>
+            <p><term>Example:</term> Airline route maps where edges may have
+            weights like distance or cost.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-web-linking">
+            <title>Web Page Linking (Internet Graph)</title> <p></p>
+            <p><term>Nodes:</term> Web pages</p>
+            <p><term>Edges:</term> Hyperlinks between pages</p>
+            <p><term>Example:</term> Google's PageRank algorithm models the web
+            as a directed graph.</p>
+        </paragraphs>
+
+        <paragraphs xml:id="par-supply-chain">
+            <title>Supply Chain and Logistics</title> <p></p>
+            <p><term>Nodes:</term> Warehouses, suppliers, distribution
+            centers</p>
+            <p><term>Edges:</term> Shipping routes or supply relationships</p>
+            <p><term>Example:</term> Optimizing delivery paths for
+            e-commerce.</p>
+        </paragraphs>
+    </subsection>
   </section>
 
   <section xml:id="sec-introduction-to-state-spaces">
@@ -576,14 +828,595 @@
       </subsection>
   </section>
 
-  <section xml:id="sec-informed-search">
+<section xml:id="sec-informed-search">
     <title>Informed Search</title>
-    <p>Content for the section.</p>
-  </section>    
 
-  <section xml:id="sec-adversarial-search">
+    <introduction xml:id="intro-informed-search">
+        <p>
+            In the previous section, you learned about uninformed search strategies, where the algorithm had no additional information about the problem beyond its basic definition. Uninformed search methods lack problem-specific knowledge and are too slow for most real-world problems. The good news is that in many situations, we can dramatically improve search speed by using knowledge about the problem itself. This is the core idea behind <term>informed search</term><idx><h>informed search</h></idx>, also known as <term>heuristic search</term><idx><h>heuristic search</h></idx>.
+        </p>
+
+        <p>
+            Informed search algorithms use problem-specific knowledge to find solutions more efficiently than uninformed methods. The key difference is that informed search uses a <term>heuristic</term><idx><h>heuristic</h></idx>—a rule of thumb that estimates how close a state is to the goal. This knowledge allows algorithms to prioritize promising directions and dramatically reduce the number of states explored.
+        </p>
+
+        <assemblage xml:id="asm-heuristic-analogy">
+            <title>Think of It This Way...</title>
+            <p><em>
+                Imagine you're trying to find a friend's house in an unfamiliar city. An uninformed search would be like walking down every street systematically until you happen to find the right house. An informed search is like having a GPS that gives you the straight-line distance to your destination—you still don't know every turn, but you at least know which direction is generally correct.
+            </em></p>
+        </assemblage>
+    </introduction>
+
+    <subsection xml:id="subsec-what-is-a-heuristic">
+        <title>What Is a Heuristic?</title>
+
+        <p>
+            A <term>heuristic</term><idx><h>heuristic</h></idx> is a rule of thumb, a guideline, or an educated guess that helps point the search in a promising direction. In everyday life, we use heuristics all the time:
+        </p>
+
+        <p>
+            <ul>
+                <li>
+                    <p>"If you're lost in a forest, follow a stream downhill—it will eventually lead to civilization."</p>
+                </li>
+                <li>
+                    <p>"When packing a suitcase, put heavy items at the bottom."</p>
+                </li>
+                <li>
+                    <p>"In a restaurant, choose the dish the waiter recommends—it's probably the freshest."</p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            In AI search, a heuristic estimates how far a given state is from the goal. It doesn't need to be perfect—it just needs to be useful. The better the heuristic, the faster the search will find a solution.
+        </p>
+
+        <p>
+            For example, in a route-finding problem, a good heuristic might be the straight-line distance to your destination. Even though you can't drive in a straight line, this estimate helps the search focus on cities that are generally in the right direction.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-best-first-search">
+        <title>Best-First Search</title>
+
+        <p>
+            <term>Best-first search</term><idx><h>best-first search</h></idx> is a general approach where the algorithm always chooses the most promising node to explore next. It uses an evaluation function to determine which node looks best. The algorithm always picks the node that seems closest to the goal—at least according to its heuristic.
+        </p>
+
+        <p>
+            However, the evaluation function may not be perfect. The node that appears to be the "best" might not actually be the best in reality. Different strategies use different ways of evaluating which node is "best."
+        </p>
+    </subsection>
+    <subsection xml:id="subsec-greedy-best-first">
+        <title>Greedy Best-First Search</title>
+
+        <p>
+            <term>Greedy best-first search</term><idx><h>greedy best-first search</h></idx> always expands the node that appears closest to the goal. It uses only the heuristic to make its decision, completely ignoring how much it has already cost to get there.
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title>How it works:</title>
+                    <p>At each step, pick the node with the lowest heuristic value—the one that seems closest to the goal.</p>
+                </li>
+                <li>
+                    <title>Strengths:</title>
+                    <p>Very fast—it heads straight for what looks like the goal.</p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>It can be fooled. A path that looks good at first might turn out to be a dead end, and by then you've already invested time exploring it.</p>
+                </li>
+            </dl>
+        </p>
+
+        <assemblage xml:id="asm-greedy-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're trying to find a friend's house in an unfamiliar city. You know the general direction, so you just keep heading that way, turning down any street that points toward your destination. You might get there quickly, or you might hit a dead end and have to backtrack.
+            </em></p>
+        </assemblage>
+
+        <p>
+            <term>Best for:</term> Situations where speed matters more than finding the absolute best path, and you have a reliable heuristic.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-uniform-cost">
+        <title>Uniform-Cost Search</title>
+
+        <p>
+            <term>Uniform-cost search</term><idx><h>uniform-cost search</h></idx> uses the cost of the path so far to determine which node to explore next. It expands the node with the lowest <term>path cost</term><idx><h>path cost</h></idx> (how expensive it has been to get there).
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title>How it works:</title>
+                    <p>At each step, pick the node that has cost the least to reach.</p>
+                </li>
+                <li>
+                    <title>Strengths:</title>
+                    <p>It always finds the cheapest path.</p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>It doesn't use any information about the goal, so it might wander around exploring cheap paths that lead nowhere.</p>
+                </li>
+            </dl>
+        </p>
+
+        <assemblage xml:id="asm-uniform-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're looking for the cheapest way to travel across the country. You always take the cheapest next leg of the trip, without considering whether it's actually taking you in the right direction. You might find a very cheap route—or you might end up in the wrong state entirely!
+            </em></p>
+        </assemblage>
+
+        <p>
+            <term>Important:</term> Uniform-cost search is actually considered an uninformed strategy because it doesn't use any goal information—it only looks backward at where you've been, not forward at where you're going.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-a-star-search">
+        <title>A* Search</title>
+
+        <p>
+            <term>A* search</term><idx><h>A* search</h></idx> (pronounced "A-star") combines the best of both worlds. It considers both how much it has cost to get to a node and how much it will cost to reach the goal from there. It was first published in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael, and remains one of the most widely used search algorithms more than fifty years later.
+        </p>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <p>
+            At each step, pick the node with the lowest value of:
+        </p>
+
+        <p>
+            <em>f(n) = cost so far + estimated cost to goal</em>
+        </p>
+
+        <p>
+            Where:
+            <ul>
+                <li>
+                    <p><term>cost so far (g)</term> = how expensive it has been to reach this node</p>
+                </li>
+                <li>
+                    <p><term>estimated cost to goal (h)</term> = how far this node appears to be from the goal</p>
+                </li>
+            </ul>
+        </p>
+
+        <assemblage xml:id="asm-a-star-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine planning a road trip. You consider both how far you've already driven and how far you still need to go. If one route has already taken you 100 miles but you're almost there, while another has only taken you 10 miles but you're still far away, A* will consider both factors to choose the better route.
+            </em></p>
+        </assemblage>
+
+        <p>
+            <dl>
+                <li>
+                    <title>Strengths:</title>
+                    <p>
+                        <ul>
+                            <li><p>It finds the optimal (best) solution—provided your heuristic is good</p></li>
+                            <li><p>It's much faster than uninformed search</p></li>
+                            <li><p>It balances exploring new areas with following promising paths</p></li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>
+                        <ul>
+                            <li><p>It uses a lot of memory—it must store all nodes it's considering</p></li>
+                            <li><p>It requires a good heuristic to work well</p></li>
+                            <li><p>For very large problems, even A* can be too slow</p></li>
+                        </ul>
+                    </p>
+                </li>
+            </dl>
+        </p>
+
+        <p>
+            <term>Best for:</term> Route planning, game pathfinding, robotics, and any problem where you need a guaranteed best path and have a good heuristic available.
+        </p>
+
+        <p>
+            <term>Properties of A*:</term>
+        </p>
+
+        <table xml:id="tbl-astar-properties">
+            <title>Properties of A* Search</title>
+            <tabular>
+                <row>
+                    <cell><term>Property</term></cell>
+                    <cell><term>What It Means</term></cell>
+                </row>
+                <row>
+                    <cell><term>Complete</term></cell>
+                    <cell>Yes—it will always find a solution if one exists</cell>
+                </row>
+                <row>
+                    <cell><term>Optimal</term></cell>
+                    <cell>Yes—but only if the heuristic is admissible</cell>
+                </row>
+                <row>
+                    <cell><term>Time</term></cell>
+                    <cell>Can be slow, but much faster than uninformed search with a good heuristic</cell>
+                </row>
+                <row>
+                    <cell><term>Space</term></cell>
+                    <cell>Uses a lot of memory—it stores many nodes at once</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+
+    <subsection xml:id="subsec-heuristic-functions">
+        <title>Heuristic Functions</title>
+
+        <p>
+            The quality of a heuristic is crucial. A good heuristic can make A* find a solution in milliseconds. A bad heuristic can make it barely better than blind exploration.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec-admissible-heuristics">
+        <title>Admissible Heuristics</title>
+
+        <p>
+            For A* to guarantee finding the best possible solution, the heuristic must be <term>admissible</term><idx><h>admissible heuristic</h></idx>. This is a fancy word that simply means: <term>the heuristic never overestimates the true cost</term>. In other words, it's always optimistic—it thinks you're at least as close to the goal as you actually are.
+        </p>
+
+        <p>
+            <term>Example:</term> In route planning, straight-line distance is admissible because a straight line is always the shortest possible distance. The actual driving distance will always be at least as long as the straight-line distance.
+        </p>
+
+        <p>
+            If a heuristic occasionally overestimates, the search might ignore the best path because it looks too expensive. It might then find a worse path and mistakenly think it's the best one.
+        </p>
+
+        <p>
+            <term>Examples of admissible heuristics:</term>
+            <ul>
+                <li><p>Straight-line distance in route-finding</p></li>
+                <li><p>Number of tiles in the wrong position in the 8-puzzle</p></li>
+                <li><p>Sum of distances of tiles from their goal position (called <term>Manhattan distance</term><idx><h>Manhattan distance</h></idx>) in the 8-puzzle</p></li>
+            </ul>
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-consistency">
+        <title>Consistency</title>
+
+        <p>
+            A heuristic is <term>consistent</term><idx><h>consistent heuristic</h></idx> if a simple rule holds: the estimated cost from a node to the goal should never exceed the cost of moving to a neighboring node plus the estimated cost from that neighbor to the goal.
+        </p>
+
+        <p>
+            Don't worry too much about the formal definition. What matters is this: most well-designed heuristics are consistent, and consistency guarantees that A* will find the best solution.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-informed-search-summary">
+        <title>Comparing Informed Search Strategies</title>
+
+        <table xml:id="tbl-informed-comparison">
+            <title>Comparison of informed search strategies</title>
+            <tabular>
+                <row>
+                    <cell><term>Algorithm</term></cell>
+                    <cell><term>Complete?</term></cell>
+                    <cell><term>Finds Best?</term></cell>
+                    <cell><term>Memory Use</term></cell>
+                    <cell><term>Best For</term></cell>
+                </row>
+                <row>
+                    <cell><term>Greedy BFS</term></cell>
+                    <cell>No</cell>
+                    <cell>No</cell>
+                    <cell>Moderate</cell>
+                    <cell>Speed over optimality</cell>
+                </row>
+                <row>
+                    <cell><term>Uniform-Cost</term></cell>
+                    <cell>Yes</cell>
+                    <cell>Yes</cell>
+                    <cell>High</cell>
+                    <cell>Cheapest path, no heuristic</cell>
+                </row>
+                <row>
+                    <cell><term>A*</term></cell>
+                    <cell>Yes</cell>
+                    <cell>Yes*</cell>
+                    <cell>High</cell>
+                    <cell>Optimal path with good heuristic</cell>
+                </row>
+            </tabular>
+        </table>
+        <p>*Finds the best solution only when the heuristic is admissible and consistent</p>
+    </subsection>
+
+    <subsection xml:id="subsec-when-to-use-informed">
+        <title>When to Use Informed Search</title>
+
+        <p>
+            Informed search is the right tool when:
+        </p>
+
+        <p>
+            <ol>
+                <li>
+                    <p><term>You have a good heuristic</term> — If you can define a reliable rule of thumb, informed search will be much faster than uninformed search.</p>
+                </li>
+                <li>
+                    <p><term>The problem is large</term> — For large state spaces, uninformed search is often too slow to be practical.</p>
+                </li>
+                <li>
+                    <p><term>You need optimality</term> — With an admissible heuristic, A* guarantees the best solution.</p>
+                </li>
+                <li>
+                    <p><term>Speed matters</term> — Even a simple heuristic can dramatically reduce search time compared to uninformed methods.</p>
+                </li>
+            </ol>
+        </p>
+
+        <assemblage xml:id="asm-informed-choice">
+            <title>Choosing Your Search Strategy</title>
+            <p><em>
+                Think of it like choosing a travel strategy: If you have a good map (heuristic), use it to plan your route (A*). If you're in a hurry and don't need the absolute best route, just head toward your destination (Greedy BFS). If you're on a tight budget and the map is unreliable, take the cheapest steps (Uniform-Cost).
+            </em></p>
+        </assemblage>
+    </subsection>
+</section>   
+
+<section xml:id="sec-adversarial-search">
     <title>Adversarial Search</title>
-    <p>Content for the section.</p>
-  </section>   
+
+    <introduction xml:id="intro-adversarial-search">
+        <p>
+            So far, we've looked at search problems where the environment simply follows the rules—there's no opponent actively working against you. But what happens when your AI has to face an adversary? This is the domain of <term>adversarial search</term><idx><h>adversarial search</h></idx>, and it's the foundation of game-playing AI.
+        </p>
+
+        <p>
+            In adversarial search, the AI agent faces an opponent with opposing goals. The AI must account for the actions of an adversary who is trying to win. This is the kind of search used in game-playing AI, where the AI must plan its moves while assuming the opponent will do everything possible to defeat it.
+        </p>
+
+        <figure xml:id="fig-adversarial-search-overview">
+            <caption>
+                Adversarial search involves an AI (MAX) competing against an opponent (MIN) with opposing goals.
+            </caption>
+            <image source="adversarial-search-overview.png">
+                <shortdescription>
+                    A diagram showing a game tree where two players alternate turns, with one player trying to maximize the outcome and the other trying to minimize it.
+                </shortdescription>
+                <description>
+                    <p>
+                        A game tree diagram with a root node labeled "MAX" at the top. Branching down from the root are nodes at depth 1 labeled "MIN." Below those are nodes at depth 2 labeled "MAX," and so on. The terminal nodes at the bottom have utility values (win, lose, draw). Arrows show how values propagate upward: MIN nodes take the minimum of their children, MAX nodes take the maximum of their children.
+                    </p>
+                </description>
+            </image>
+        </figure>
+
+        <assemblage xml:id="asm-adversarial-analogy">
+            <title>Think of It This Way...</title>
+            <p><em>
+                Imagine playing chess against a friend who's just as good as you. Before making a move, you think not just about what the board looks like now, but what your opponent could do in response, and what you could do after that, and so on. You choose the move that gives you the best result assuming your opponent will make the strongest possible counter-move. That's adversarial search in a nutshell!
+            </em></p>
+        </assemblage>
+    </introduction>
+
+    <subsection xml:id="subsec-minimax-algorithm">
+        <title>The Minimax Algorithm</title>
+
+        <p>
+            The fundamental algorithm for adversarial search is <term>Minimax</term><idx><h>Minimax</h></idx>. In games with two players, the AI evaluates all possible moves to guarantee optimal play. The algorithm assumes that both players play optimally: one player tries to maximize the outcome, while the other tries to minimize it.
+        </p>
+
+        <p>
+            Think of it like playing chess against a friend who's just as good as you. Before making a move, you consider not just what the board looks like now, but what your opponent could do in response, and what you could do after that, and so on. You choose the move that gives you the best result assuming your opponent will make the strongest possible counter-move.
+        </p>
+
+        <p>
+          <em>How it works:</em>
+        </p>
+
+        <p><ol>
+          <li><p>Explore the game tree to a certain depth</p></li>
+          <li><p>Evaluate the end states (win, lose, draw) using a scoring system</p></li>
+          <li><p>Work backwards up the tree:</p>
+            <p><ul>
+              <li><p>If it's your turn, take the <term>maximum</term> value among your options</p></li>
+              <li><p>If it's the opponent's turn, take the <term>minimum</term> value among their options</p></li>
+            </ul></p>
+          </li>
+        </ol></p>
+
+        <p>
+            This allows the AI to look ahead and choose moves that lead to winning positions while assuming the opponent will choose the move that is worst for the AI.
+        </p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-game-state-spaces">
+        <title>Game State Spaces</title>
+
+        <p>
+            The challenge in adversarial search is the size of the state space. For example, chess has an incredibly large state space, making it impossible to explore completely. Games like Tic-Tac-Toe, however, have a small enough state space to explore in its entirety.
+        </p>
+
+        <p>
+            Let's revisit Tic-Tac-Toe from <xref ref="sec-introduction-to-state-spaces"/>. Using the minimax algorithm, the AI can examine all possible moves, evaluate each board position, and choose the move that maximizes its chances of winning—even against an optimal opponent. Because Tic-Tac-Toe has a relatively small state space, the AI can search the entire game tree and play perfectly.
+        </p>
+
+        <p>
+            <term>Key insight:</term> With Tic-Tac-Toe, there are only 9 possible first moves, then 8 possible responses, then 7, and so on. The total number of possible games is about 255,168—small enough for a computer to examine all of them.
+        </p>
+
+        <table xml:id="tbl-game-state-sizes">
+            <title>State space sizes for common games</title>
+            <tabular>
+                <row>
+                    <cell><term>Game</term></cell>
+                    <cell><term>Approximate States</term></cell>
+                    <cell><term>Searchable?</term></cell>
+                </row>
+                <row>
+                    <cell><term>Tic-Tac-Toe</term></cell>
+                    <cell>~255,168</cell>
+                    <cell>Yes (fully searchable)</cell>
+                </row>
+                <row>
+                    <cell><term>Checkers</term></cell>
+                    <cell>~10^20</cell>
+                    <cell>Partially (with pruning)</cell>
+                </row>
+                <row>
+                    <cell><term>Chess</term></cell>
+                    <cell>~10^47</cell>
+                    <cell>No (requires heuristics)</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+
+    <subsection xml:id="subsec-alpha-beta-pruning">
+        <title>Alpha-Beta Pruning</title>
+
+        <p>
+            For larger games, the naive Minimax algorithm is too slow. <term>Alpha-Beta Pruning</term><idx><h>alpha-beta pruning</h></idx> is an optimization that dramatically speeds up Minimax by ignoring branches that cannot possibly affect the final decision.
+        </p>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <assemblage xml:id="asm-alpha-beta-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're looking for the best route to a destination. You've already found a route that takes 3 hours. While exploring another route, you realize it's already taken 3 hours and you're still far from the destination. You can stop exploring that route immediately—it's already worse than what you've found!
+            </em></p>
+        </assemblage>
+
+        <p>
+            Alpha-beta pruning works the same way. It maintains two values:
+            <ul>
+                <li><p><term>Alpha (α)</term>: The best value the AI can guarantee (the lower bound)</p></li>
+                <li><p><term>Beta (β)</term>: The best value the opponent can guarantee (the upper bound)</p></li>
+            </ul>
+        </p>
+
+        <p>
+            If at any point alpha is greater than or equal to beta, the remaining branches can be <term>pruned</term> (cut off) because they cannot improve the outcome.
+        </p>
+
+        <p>
+            <term>Result:</term> Alpha-beta pruning can reduce the search time by about half in the best case. This makes it possible to search twice as deep in the same amount of time!
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-heuristics-in-games">
+        <title>Why Larger Games Still Need Heuristics</title>
+
+        <p>
+            Even with alpha-beta pruning, games like chess (≈10^47 states) remain too large to search completely. This is why game-playing AI systems also use heuristics to evaluate board positions without searching all the way to the end.
+        </p>
+
+        <p>
+            Instead of searching all the way to a win or loss, the AI searches to a limited depth and then uses an <term>evaluation function</term><idx><h>evaluation function</h></idx> to estimate how favorable the current position is. For example, a chess AI might evaluate a position by:
+        </p>
+
+        <p>
+            <ul>
+                <li><p>Counting the value of pieces on the board (queens = 9, rooks = 5, bishops = 3, etc.)</p></li>
+                <li><p>Considering king safety and pawn structure</p></li>
+                <li><p>Evaluating control of the center of the board</p></li>
+                <li><p>Looking at mobility (how many possible moves a player has)</p></li>
+            </ul>
+        </p>
+
+        <assemblage xml:id="asm-game-heuristic">
+            <title>Think of It This Way...</title>
+            <p><em>
+                A good chess player doesn't need to see every possible move until checkmate. Instead, they evaluate a position using their experience and knowledge: "My pieces are well-developed, I control the center, and my king is safe." An AI evaluation function does the same thing—it uses a heuristic to estimate how good a position is without exploring every possible future move.
+            </em></p>
+        </assemblage>
+
+        <p>
+            This is how systems like <term>DeepBlue</term><idx><h>DeepBlue</h></idx> (the chess AI that beat world champion Garry Kasparov) and <term>AlphaGo</term><idx><h>AlphaGo</h></idx> (the Go AI that beat world champion Lee Sedol) achieved world-class performance—they combined deep search with sophisticated evaluation heuristics.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-adversarial-applications">
+        <title>Real-World Applications</title>
+
+        <p>
+            Adversarial search extends well beyond board games:
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title><term>Video Game AI</term></title>
+                    <p>Non-player characters (NPCs) that plan their actions against you in games like <em>Halo</em>, <em>StarCraft</em>, or <em>The Last of Us</em></p>
+                </li>
+                <li>
+                    <title><term>Robotics</term></title>
+                    <p>Planning in environments where other robots or people may interfere with your robot's goals</p>
+                </li>
+                <li>
+                    <title><term>Security</term></title>
+                    <p>Cybersecurity systems defending against attackers who are actively trying to break in</p>
+                </li>
+                <li>
+                    <title><term>Economics</term></title>
+                    <p>Strategic decision-making in competitive markets where other companies are trying to out-compete you</p>
+                </li>
+            </dl>
+        </p>
+
+        <assemblage xml:id="asm-adversarial-summary">
+            <title>Putting It All Together</title>
+            <p><em>
+                Adversarial search is everywhere—from the chess AI on your phone to the NPC enemies in your favorite video game. The key insight is that when you face an opponent, you need to plan not just for what you want to do, but for what your opponent will do in response. Minimax and alpha-beta pruning give AI systems the ability to think several steps ahead, anticipating and countering an opponent's best moves.
+            </em></p>
+        </assemblage>
+    </subsection>
+
+    <subsection xml:id="subsec-adversarial-search-summary">
+        <title>Summary: Key Concepts in Adversarial Search</title>
+
+        <table xml:id="tbl-adversarial-summary">
+            <title>Key concepts in adversarial search</title>
+            <tabular>
+                <row>
+                    <cell><term>Concept</term></cell>
+                    <cell><term>What It Does</term></cell>
+                    <cell><term>Best Used For</term></cell>
+                </row>
+                <row>
+                    <cell><term>Minimax</term></cell>
+                    <cell>Explores all possible moves assuming optimal play from both sides</cell>
+                    <cell>Small games that can be fully explored (Tic-Tac-Toe)</cell>
+                </row>
+                <row>
+                    <cell><term>Alpha-Beta Pruning</term></cell>
+                    <cell>Speeds up minimax by ignoring branches that can't affect the outcome</cell>
+                    <cell>Larger games where minimax alone is too slow</cell>
+                </row>
+                <row>
+                    <cell><term>Evaluation Function</term></cell>
+                    <cell>Estimates how good a position is without searching to the end</cell>
+                    <cell>Very large games like chess and Go</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+</section>
 
 </chapter>  
