@@ -917,7 +917,7 @@
         <assemblage xml:id="asm-informed-choice">
             <title>Choosing Your Search Strategy</title>
             <p><em>
-                Think of it like choosing a travel strategy: If you have a good map (heuristic), use it to plan your route (A*). If you're in a hurry and don't need the absolute best route, just head toward your destination (Greedy BFS). If you're on a tight budget and the map is unreliable, take the cheapest steps (Uniform-Cost). And if you're exploring with limited supplies, use IDA* to save memory while still finding the best path.
+                Think of it like choosing a travel strategy: If you have a good map (heuristic), use it to plan your route (A*). If you're in a hurry and don't need the absolute best route, just head toward your destination (Greedy BFS). If you're on a tight budget and the map is unreliable, take the cheapest steps (Uniform-Cost).
             </em></p>
         </assemblage>
     </subsection>
