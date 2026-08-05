@@ -224,9 +224,357 @@
   </section>
 
   <section xml:id="sec-uninformed-search">
-    <title>Uninformed Search</title>
-    <p>Content for the section.</p>
-  </section>  
+      <title>Uninformed Search</title>
+
+      <introduction xml:id="intro-uninformed-search">
+          <p>
+              Now that we understand trees, graphs, and state spaces, we can finally explore how AI systems actually search through these structures to find solutions. In this section, we'll look at <term>uninformed search</term><idx><h>uninformed search</h></idx>—sometimes called <term>blind search</term><idx><h>blind search</h></idx>—which is the most basic approach to searching through a state space.
+          </p>
+
+          <p>
+              An uninformed search strategy uses only the information that comes with the problem itself: where you start, what moves you can make, and how to recognize when you've reached the goal. The algorithm has no additional guidance about which paths are more promising or how close a state might be to the goal.
+          </p>
+
+          <p>
+              Think of it like exploring a maze with no map, no compass, and no sense of direction. You can only move step by step and explore systematically, but you have no "intuition" about which direction to head. You might try every path until you eventually find the exit—or get hopelessly lost.
+          </p>
+
+          <figure xml:id="fig-uninformed-search-overview">
+              <caption>
+                  Uninformed search explores all directions equally, without any guidance toward the goal.
+              </caption>
+              <image source="uninformed-search-overview.png">
+                  <shortdescription>
+                      A diagram showing a search tree expanding outward in all directions from the start node, with no bias toward the goal.
+                  </shortdescription>
+                  <description>
+                      <p>
+                          A search tree diagram with a start node at the top and branches expanding uniformly in all directions. The goal node is located in one branch, but the search has explored many other branches equally before reaching it. The diagram highlights the wasted effort in uninformed search.
+                      </p>
+                  </description>
+              </image>
+          </figure>
+
+          <p>
+              Because they lack guidance, uninformed search methods are generally <term>slower</term> than informed methods and take <term>more time</term> to find solutions. However, they are <term>guaranteed to find a solution</term> (if one exists) and, in some cases, <term>guaranteed to find the best one</term>. This makes them valuable tools when:
+          </p>
+
+          <p>
+              <ul>
+                  <li>
+                      <p>No helpful "rule of thumb" is available to guide the search</p>
+                  </li>
+                  <li>
+                      <p>The state space is small enough to explore completely</p>
+                  </li>
+                  <li>
+                      <p>You need a guaranteed best answer in a known problem domain</p>
+                  </li>
+              </ul>
+          </p>
+
+          <assemblage xml:id="asm-uninformed-analogy">
+              <title>Think of It This Way...</title>
+              <p><em>
+                  Uninformed search is like trying to find a book in a huge library without using the catalog. You have to walk down every aisle, check every shelf, and examine every book until you happen to find the one you're looking for. It will work eventually, but it's not very efficient!
+              </em></p>
+          </assemblage>
+      </introduction>
+
+      <subsection xml:id="subsec-breadth-first-search">
+          <title>Breadth-First Search (BFS)</title>
+
+          <p>
+              <term>Breadth-first search</term><idx><h>breadth-first search</h></idx> (BFS) is one of the simplest search strategies. It explores all nodes at the current level before moving to the next level. In other words, BFS examines the <term>shallowest</term> (closest to the start) unexamined node first.
+          </p>
+
+          <p>
+              <em>How it works:</em>
+          </p>
+
+          <p>
+              Imagine you're at the entrance of a maze. BFS is like exploring every path one step at a time: you take one step down every possible corridor, then two steps down every possible corridor, then three steps, and so on. You never go deeper down any single path until you've checked everything at your current distance from the start.
+          </p>
+
+          <p>
+              The algorithm works like this:
+              <ol>
+                  <li><p>Start with the initial node and place it in a <term>queue</term><idx><h>queue</h></idx> (think of a line at a store—first in, first out)</p></li>
+                  <li><p>Remove the first node from the queue</p></li>
+                  <li><p>If this node is the goal, you're done!</p></li>
+                  <li><p>Otherwise, expand the queue by generating all its children and add them to the back of the queue</p></li>
+                  <li><p>Repeat until the queue is empty or the goal is found</p></li>
+              </ol>
+          </p>
+
+          <figure xml:id="fig-bfs-tree">
+              <caption>
+                  Breadth-first search explores all nodes level by level before moving deeper.
+              </caption>
+              <image source="bfs-tree.png">
+                  <shortdescription>
+                      A tree showing BFS exploring nodes in level order: all nodes at depth 0, then depth 1, then depth 2.
+                  </shortdescription>
+                  <description>
+                      <p>
+                          A tree diagram with the root node at the top. The root is labeled "Start." Below it are three child nodes at depth 1. Below each of those are further child nodes at depth 2. Numbers next to each node indicate the order of exploration: the root is 1, all nodes at depth 1 are 2-4, and all nodes at depth 2 are 5-10. The goal node is at depth 2.
+                      </p>
+                  </description>
+              </image>
+          </figure>
+
+          <p>
+              <em>Properties of BFS:</em>
+          </p>
+
+          <table xml:id="tbl-bfs-properties">
+              <title>Properties of Breadth-First Search</title>
+              <tabular>
+                  <row>
+                      <cell><term>Property</term></cell>
+                      <cell><term>What It Means</term></cell>
+                  </row>
+                  <row>
+                      <cell><term>Complete</term></cell>
+                      <cell>Yes—it will always find a solution if one exists</cell>
+                  </row>
+                  <row>
+                      <cell><term>Optimal</term></cell>
+                      <cell>Yes—but only if all moves have the same cost</cell>
+                  </row>
+                  <row>
+                      <cell><term>Time</term></cell>
+                      <cell>Can be very slow—it may need to explore many nodes</cell>
+                  </row>
+                  <row>
+                      <cell><term>Space</term></cell>
+                      <cell>Can use a lot of memory—it stores many nodes at once</cell>
+                  </row>
+              </tabular>
+          </table>
+
+          <p>
+              <term>Best for:</term> Problems where the shortest path is the goal, the number of possible moves from each state is small, memory is not a concern, and all moves cost the same.
+          </p>
+
+          <p>
+              <term>Weakness:</term> BFS can use a huge amount of memory. For a problem where each state has 10 possible moves, BFS might need to store billions of states in memory before finding a solution!
+          </p>
+
+          <p>
+              <term>Example:</term> Finding the shortest route in a city where all roads take the same amount of time.
+          </p>
+      </subsection>
+
+      <subsection xml:id="subsec-depth-first-search">
+          <title>Depth-First Search (DFS)</title>
+
+          <p>
+              <term>Depth-first search</term><idx><h>depth-first search</h></idx> (DFS) takes the opposite approach. DFS explores as far as possible along each branch before turning back. It expands the <term>deepest</term> (farthest from the start) unexpanded node first.
+          </p>
+
+          <p>
+              <em>How it works:</em>
+          </p>
+
+          <p>
+              Imagine you're exploring a maze by walking down one corridor as far as it goes. When you hit a dead end, you turn back to the last fork and try the next corridor. You keep doing this until you find the exit.
+          </p>
+
+          <p>
+              The algorithm works like this:
+              <ol>
+                  <li><p>Start with the initial node and place it on a <term>stack</term><idx><h>stack</h></idx> (think of a stack of plates—last in, first out)</p></li>
+                  <li><p>Remove the top node from the stack</p></li>
+                  <li><p>If this node is the goal, you're done!</p></li>
+                  <li><p>Otherwise, expand the node by generating all its children and push them onto the stack</p></li>
+                  <li><p>Repeat until the stack is empty or the goal is found</p></li>
+              </ol>
+          </p>
+
+          <figure xml:id="fig-dfs-tree">
+              <caption>
+                  Depth-first search explores one branch completely before backtracking to explore others.
+              </caption>
+              <image source="dfs-tree.png">
+                  <shortdescription>
+                      A tree showing DFS exploring all the way down one branch before exploring the next branch.
+                  </shortdescription>
+                  <description>
+                      <p>
+                          A tree diagram with the root node at the top. Numbers next to each node indicate the order of exploration: the root is 1, the algorithm goes down the leftmost branch to depth 3 (nodes 2, 3, 4), backtracks to explore the next branch (nodes 5, 6), and continues in this depth-first pattern. The goal node is found on the first branch.
+                      </p>
+                  </description>
+              </image>
+          </figure>
+
+          <p>
+              <em>Properties of DFS:</em>
+          </p>
+
+          <table xml:id="tbl-dfs-properties">
+              <title>Properties of Depth-First Search</title>
+              <tabular>
+                  <row>
+                      <cell><term>Property</term></cell>
+                      <cell><term>What It Means</term></cell>
+                  </row>
+                  <row>
+                      <cell><term>Complete</term></cell>
+                      <cell>No—it can get stuck going in circles forever</cell>
+                  </row>
+                  <row>
+                      <cell><term>Optimal</term></cell>
+                      <cell>No—it may find a long, winding path instead of a short one</cell>
+                  </row>
+                  <row>
+                      <cell><term>Time</term></cell>
+                      <cell>Can be very slow—it may explore very deep paths</cell>
+                  </row>
+                  <row>
+                      <cell><term>Space</term></cell>
+                      <cell>Very efficient—it only stores the current path</cell>
+                  </row>
+              </tabular>
+          </table>
+
+          <p>
+              <term>Best for:</term> Problems where the solution is deep in the tree, memory is limited, or you need to explore all possible solutions.
+          </p>
+
+          <p>
+              <term>Weakness:</term> DFS can get stuck in infinite loops if the state space has cycles. It also might find a solution that is not the best one.
+          </p>
+
+          <p>
+              <term>Example:</term> Solving a puzzle where the goal is far from the start, and you want to explore all possibilities without using too much memory.
+          </p>
+      </subsection>
+
+      <subsection xml:id="subsec-depth-limited-search">
+          <title>Depth-Limited Search (DLS)</title>
+
+          <p>
+              <term>Depth-limited search</term><idx><h>depth-limited search</h></idx> (DLS) is a version of DFS that avoids the infinite-loop problem by setting a maximum depth limit. The algorithm stops exploring any branch once it reaches this limit.
+          </p>
+
+          <p>
+              <em>How it works:</em>
+          </p>
+
+          <p>
+              It works exactly like DFS, but with a rule: "Don't go deeper than depth L." If you reach depth L without finding the goal, simply stop exploring that branch and turn back.
+          </p>
+
+          <p>
+              <em>Properties of DLS:</em>
+          </p>
+
+          <table xml:id="tbl-dls-properties">
+              <title>Properties of Depth-Limited Search</title>
+              <tabular>
+                  <row>
+                      <cell><term>Property</term></cell>
+                      <cell><term>What It Means</term></cell>
+                  </row>
+                  <row>
+                      <cell><term>Complete</term></cell>
+                      <cell>No—if your limit is too shallow, you'll miss the solution</cell>
+                  </row>
+                  <row>
+                      <cell><term>Optimal</term></cell>
+                      <cell>Only if the solution is within the depth limit</cell>
+                  </row>
+                  <row>
+                      <cell><term>Time</term></cell>
+                      <cell>Depends on your chosen limit</cell>
+                  </row>
+                  <row>
+                      <cell><term>Space</term></cell>
+                      <cell>Very efficient—it only stores the current path and the limit value</cell>
+                  </row>
+              </tabular>
+          </table>
+
+          <p>
+              <term>Best for:</term> Problems where you know how deep the solution is, or you want to avoid infinite loops.
+          </p>
+
+          <p>
+              <term>Weakness:</term> If you set the limit too low, you might not find the solution. If you set it too high, the search becomes as slow as regular DFS.
+          </p>
+      </subsection>
+
+      <subsection xml:id="subsec-comparing-uninformed">
+          <title>Comparing Uninformed Search Strategies</title>
+
+          <table xml:id="tbl-uninformed-comparison">
+              <title>Comparison of all uninformed search strategies</title>
+              <tabular>
+                  <row>
+                      <cell><term>Algorithm</term></cell>
+                      <cell><term>Complete?</term></cell>
+                      <cell><term>Finds Best?</term></cell>
+                      <cell><term>Memory Use</term></cell>
+                      <cell><term>Best For</term></cell>
+                  </row>
+                  <row>
+                      <cell><term>BFS</term></cell>
+                      <cell>Yes</cell>
+                      <cell>Yes*</cell>
+                      <cell>High</cell>
+                      <cell>Shortest path, all moves equal</cell>
+                  </row>
+                  <row>
+                      <cell><term>DFS</term></cell>
+                      <cell>No</cell>
+                      <cell>No</cell>
+                      <cell>Low</cell>
+                      <cell>Deep solutions, memory-limited</cell>
+                  </row>
+                  <row>
+                      <cell><term>DLS</term></cell>
+                      <cell>No</cell>
+                      <cell>No</cell>
+                      <cell>Low</cell>
+                      <cell>Known depth limit</cell>
+                  </row>
+              </tabular>
+          </table>
+          <p>*Finds the best solution only when all moves have the same cost</p>
+      </subsection>
+
+      <subsection xml:id="subsec-when-to-use-uninformed">
+          <title>When to Use Uninformed Search</title>
+
+          <p>
+              Uninformed search is the right tool when:
+          </p>
+
+          <p>
+              <ol>
+                  <li>
+                      <p><term>You have no helpful hints</term> — If you can't define a "rule of thumb" to guide the search, uninformed search may be your only option.</p>
+                  </li>
+                  <li>
+                      <p><term>The problem is small</term> — For small state spaces (like Tic-Tac-Toe), the extra work of designing a clever strategy isn't worth it.</p>
+                  </li>
+                  <li>
+                      <p><term>You need guaranteed results</term> — Uninformed search provides mathematical guarantees that informed methods might not offer.</p>
+                  </li>
+              </ol>
+          </p>
+          <p><term>You're building a foundation</term> — Understanding uninformed search is a prerequisite for understanding informed search, just as learning basic arithmetic comes before algebra.</p>
+
+
+          <assemblage xml:id="asm-uninformed-choice">
+              <title>Choosing Your Uninformed Search Strategy</title>
+              <p><em>
+                  Think of it like searching for a lost item in a building: If you want to check every room on each floor before moving up, use BFS. If you want to search the same room on every floor (101, 201, 301) before moving to the next, use DFS.
+              </em></p>
+          </assemblage>
+      </subsection>
+  </section>
 
   <section xml:id="sec-informed-search">
     <title>Informed Search</title>
