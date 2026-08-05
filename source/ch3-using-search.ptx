@@ -382,7 +382,7 @@
         <title>Why Larger Games Still Need Heuristics</title>
 
         <p>
-            Even with alpha-beta pruning, games like chess (≈10^47 states) or Go remain too large to search completely. This is why game-playing AI systems also use heuristics to evaluate board positions without searching all the way to the end.
+            Even with alpha-beta pruning, games like chess (≈10^47 states) remain too large to search completely. This is why game-playing AI systems also use heuristics to evaluate board positions without searching all the way to the end.
         </p>
 
         <p>
@@ -471,11 +471,6 @@
                     <cell><term>Evaluation Function</term></cell>
                     <cell>Estimates how good a position is without searching to the end</cell>
                     <cell>Very large games like chess and Go</cell>
-                </row>
-                <row>
-                    <cell><term>Depth Limiting</term></cell>
-                    <cell>Searches only a certain number of moves ahead</cell>
-                    <cell>Real-time games where you need a decision quickly</cell>
                 </row>
             </tabular>
         </table>
