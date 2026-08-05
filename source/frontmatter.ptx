@@ -86,7 +86,7 @@ Undergrads</em>. Any opinions, findings, and conclusions or recommendations expr
 
   <p><xref ref="sec-introduction-to-state-spaces"/> license info here </p>
 
-  <p><xref ref="sec-trees-and-nodes"/> license info here </p>
+  <p><xref ref="sec-trees-and-graphs"/> license info here </p>
 
   <p><xref ref="sec-uninformed-search"/>, <xref ref="sec-informed-search"/>, and  <xref ref="sec-adversarial-search"/> were developed using several openly licensed  educational resources. These sections draw upon foundational concepts from  <url href="https://mlsysbook.ai">Machine Learning Systems</url>,  by Vijay Janapa Reddi (CC BY-NC-SA 4.0); <url href="https://dcai.csail.mit.edu">MIT Data-Centric AI Course Materials</url>  (CC BY-NC-SA 4.0); <url href="https://www.ai4t.eu/textbook/">AI for Teachers: an Open Textbook</url>, by Colin de la Higuera and Jotsna Iyer (CC BY 4.0); and <url href="https://neuroai.neuromatch.io">NeuroAI Course</url> (CC BY 4.0). All underlying works permit adaptation with attribution. The material incorporated into this chapter has been revised, reorganized, and expanded to fit its learning objectives, terminology, and style. The original sources remain under their respective licenses, while the original text written for this textbook is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.</p>
 
