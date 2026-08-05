@@ -304,78 +304,77 @@
         <p>
             However, the evaluation function may not be perfect. The node that appears to be the "best" might not actually be the best in reality. Different strategies use different ways of evaluating which node is "best."
         </p>
+    </subsection>
+    <subsection xml:id="subsec-greedy-best-first">
+        <title>Greedy Best-First Search</title>
 
-        <subsection xml:id="subsec-greedy-best-first">
-            <title>Greedy Best-First Search</title>
+        <p>
+            <term>Greedy best-first search</term><idx><h>greedy best-first search</h></idx> always expands the node that appears closest to the goal. It uses only the heuristic to make its decision, completely ignoring how much it has already cost to get there.
+        </p>
 
-            <p>
-                <term>Greedy best-first search</term><idx><h>greedy best-first search</h></idx> always expands the node that appears closest to the goal. It uses only the heuristic to make its decision, completely ignoring how much it has already cost to get there.
-            </p>
+        <p>
+            <dl>
+                <li>
+                    <title>How it works:</title>
+                    <p>At each step, pick the node with the lowest heuristic value—the one that seems closest to the goal.</p>
+                </li>
+                <li>
+                    <title>Strengths:</title>
+                    <p>Very fast—it heads straight for what looks like the goal.</p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>It can be fooled. A path that looks good at first might turn out to be a dead end, and by then you've already invested time exploring it.</p>
+                </li>
+            </dl>
+        </p>
 
-            <p>
-                <dl>
-                    <li>
-                        <title>How it works:</title>
-                        <p>At each step, pick the node with the lowest heuristic value—the one that seems closest to the goal.</p>
-                    </li>
-                    <li>
-                        <title>Strengths:</title>
-                        <p>Very fast—it heads straight for what looks like the goal.</p>
-                    </li>
-                    <li>
-                        <title>Weaknesses:</title>
-                        <p>It can be fooled. A path that looks good at first might turn out to be a dead end, and by then you've already invested time exploring it.</p>
-                    </li>
-                </dl>
-            </p>
+        <assemblage xml:id="asm-greedy-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're trying to find a friend's house in an unfamiliar city. You know the general direction, so you just keep heading that way, turning down any street that points toward your destination. You might get there quickly, or you might hit a dead end and have to backtrack.
+            </em></p>
+        </assemblage>
 
-            <assemblage xml:id="asm-greedy-analogy">
-                <title>Analogy:</title>
-                <p><em>
-                    Imagine you're trying to find a friend's house in an unfamiliar city. You know the general direction, so you just keep heading that way, turning down any street that points toward your destination. You might get there quickly, or you might hit a dead end and have to backtrack.
-                </em></p>
-            </assemblage>
+        <p>
+            <term>Best for:</term> Situations where speed matters more than finding the absolute best path, and you have a reliable heuristic.
+        </p>
+    </subsection>
 
-            <p>
-                <term>Best for:</term> Situations where speed matters more than finding the absolute best path, and you have a reliable heuristic.
-            </p>
-        </subsection>
+    <subsection xml:id="subsec-uniform-cost">
+        <title>Uniform-Cost Search</title>
 
-        <subsection xml:id="subsec-uniform-cost">
-            <title>Uniform-Cost Search</title>
+        <p>
+            <term>Uniform-cost search</term><idx><h>uniform-cost search</h></idx> uses the cost of the path so far to determine which node to explore next. It expands the node with the lowest <term>path cost</term><idx><h>path cost</h></idx> (how expensive it has been to get there).
+        </p>
 
-            <p>
-                <term>Uniform-cost search</term><idx><h>uniform-cost search</h></idx> uses the cost of the path so far to determine which node to explore next. It expands the node with the lowest <term>path cost</term><idx><h>path cost</h></idx> (how expensive it has been to get there).
-            </p>
+        <p>
+            <dl>
+                <li>
+                    <title>How it works:</title>
+                    <p>At each step, pick the node that has cost the least to reach.</p>
+                </li>
+                <li>
+                    <title>Strengths:</title>
+                    <p>It always finds the cheapest path.</p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>It doesn't use any information about the goal, so it might wander around exploring cheap paths that lead nowhere.</p>
+                </li>
+            </dl>
+        </p>
 
-            <p>
-                <dl>
-                    <li>
-                        <title>How it works:</title>
-                        <p>At each step, pick the node that has cost the least to reach.</p>
-                    </li>
-                    <li>
-                        <title>Strengths:</title>
-                        <p>It always finds the cheapest path.</p>
-                    </li>
-                    <li>
-                        <title>Weaknesses:</title>
-                        <p>It doesn't use any information about the goal, so it might wander around exploring cheap paths that lead nowhere.</p>
-                    </li>
-                </dl>
-            </p>
+        <assemblage xml:id="asm-uniform-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're looking for the cheapest way to travel across the country. You always take the cheapest next leg of the trip, without considering whether it's actually taking you in the right direction. You might find a very cheap route—or you might end up in the wrong state entirely!
+            </em></p>
+        </assemblage>
 
-            <assemblage xml:id="asm-uniform-analogy">
-                <title>Analogy:</title>
-                <p><em>
-                    Imagine you're looking for the cheapest way to travel across the country. You always take the cheapest next leg of the trip, without considering whether it's actually taking you in the right direction. You might find a very cheap route—or you might end up in the wrong state entirely!
-                </em></p>
-            </assemblage>
-
-            <p>
-                <term>Important:</term> Uniform-cost search is actually considered an uninformed strategy because it doesn't use any goal information—it only looks backward at where you've been, not forward at where you're going.
-            </p>
-        </subsection>
+        <p>
+            <term>Important:</term> Uniform-cost search is actually considered an uninformed strategy because it doesn't use any goal information—it only looks backward at where you've been, not forward at where you're going.
+        </p>
     </subsection>
 
     <subsection xml:id="subsec-a-star-search">
@@ -475,7 +474,7 @@
         </p>
 
         <table xml:id="tbl-astar-properties">
-            <caption>Properties of A* Search</caption>
+            <title>Properties of A* Search</title>
             <tabular>
                 <row>
                     <cell><term>Property</term></cell>
@@ -507,83 +506,82 @@
         <p>
             The quality of a heuristic is crucial. A good heuristic can make A* find a solution in milliseconds. A bad heuristic can make it barely better than blind exploration.
         </p>
+    </subsection>
+    <subsection xml:id="subsec-admissible-heuristics">
+        <title>Admissible Heuristics</title>
 
-        <subsection xml:id="subsec-admissible-heuristics">
-            <title>Admissible Heuristics</title>
+        <p>
+            For A* to guarantee finding the best possible solution, the heuristic must be <term>admissible</term><idx><h>admissible heuristic</h></idx>. This is a fancy word that simply means: <term>the heuristic never overestimates the true cost</term>. In other words, it's always optimistic—it thinks you're at least as close to the goal as you actually are.
+        </p>
 
-            <p>
-                For A* to guarantee finding the best possible solution, the heuristic must be <term>admissible</term><idx><h>admissible heuristic</h></idx>. This is a fancy word that simply means: <term>the heuristic never overestimates the true cost</term>. In other words, it's always optimistic—it thinks you're at least as close to the goal as you actually are.
-            </p>
+        <p>
+            <term>Example:</term> In route planning, straight-line distance is admissible because a straight line is always the shortest possible distance. The actual driving distance will always be at least as long as the straight-line distance.
+        </p>
 
-            <p>
-                <term>Example:</term> In route planning, straight-line distance is admissible because a straight line is always the shortest possible distance. The actual driving distance will always be at least as long as the straight-line distance.
-            </p>
+        <p>
+            If a heuristic occasionally overestimates, the search might ignore the best path because it looks too expensive. It might then find a worse path and mistakenly think it's the best one.
+        </p>
 
-            <p>
-                If a heuristic occasionally overestimates, the search might ignore the best path because it looks too expensive. It might then find a worse path and mistakenly think it's the best one.
-            </p>
+        <p>
+            <term>Examples of admissible heuristics:</term>
+            <ul>
+                <li><p>Straight-line distance in route-finding</p></li>
+                <li><p>Number of tiles in the wrong position in the 8-puzzle</p></li>
+                <li><p>Sum of distances of tiles from their goal position (called <term>Manhattan distance</term><idx><h>Manhattan distance</h></idx>) in the 8-puzzle</p></li>
+            </ul>
+        </p>
+    </subsection>
 
-            <p>
-                <term>Examples of admissible heuristics:</term>
-                <ul>
-                    <li><p>Straight-line distance in route-finding</p></li>
-                    <li><p>Number of tiles in the wrong position in the 8-puzzle</p></li>
-                    <li><p>Sum of distances of tiles from their goal position (called <term>Manhattan distance</term><idx><h>Manhattan distance</h></idx>) in the 8-puzzle</p></li>
-                </ul>
-            </p>
-        </subsection>
+    <subsection xml:id="subsec-consistency">
+        <title>Consistency</title>
 
-        <subsection xml:id="subsec-consistency">
-            <title>Consistency</title>
+        <p>
+            A heuristic is <term>consistent</term><idx><h>consistent heuristic</h></idx> if a simple rule holds: the estimated cost from a node to the goal should never exceed the cost of moving to a neighboring node plus the estimated cost from that neighbor to the goal.
+        </p>
 
-            <p>
-                A heuristic is <term>consistent</term><idx><h>consistent heuristic</h></idx> if a simple rule holds: the estimated cost from a node to the goal should never exceed the cost of moving to a neighboring node plus the estimated cost from that neighbor to the goal.
-            </p>
+        <p>
+            Don't worry too much about the formal definition. What matters is this: most well-designed heuristics are consistent, and consistency guarantees that A* will find the best solution.
+        </p>
+    </subsection>
 
-            <p>
-                Don't worry too much about the formal definition. What matters is this: most well-designed heuristics are consistent, and consistency guarantees that A* will find the best solution.
-            </p>
-        </subsection>
+    <subsection xml:id="subsec-common-heuristics">
+        <title>Common Heuristics for Different Problems</title>
 
-        <subsection xml:id="subsec-common-heuristics">
-            <title>Common Heuristics for Different Problems</title>
+        <p>
+            <term>Grid pathfinding:</term>
+            <ul>
+                <li><p><term>Manhattan distance</term><idx><h>Manhattan distance</h></idx> for moving only up, down, left, and right (like moving on city streets)</p></li>
+                <li><p><term>Euclidean distance</term><idx><h>Euclidean distance</h></idx> for free movement in any direction (like flying)</p></li>
+                <li><p><term>Chebyshev distance</term><idx><h>Chebyshev distance</h></idx> for moving in any of eight directions, including diagonals</p></li>
+            </ul>
+        </p>
 
-            <p>
-                <term>Grid pathfinding:</term>
-                <ul>
-                    <li><p><term>Manhattan distance</term><idx><h>Manhattan distance</h></idx> for moving only up, down, left, and right (like moving on city streets)</p></li>
-                    <li><p><term>Euclidean distance</term><idx><h>Euclidean distance</h></idx> for free movement in any direction (like flying)</p></li>
-                    <li><p><term>Chebyshev distance</term><idx><h>Chebyshev distance</h></idx> for moving in any of eight directions, including diagonals</p></li>
-                </ul>
-            </p>
+        <p>
+            <term>Puzzle solving:</term>
+            <ul>
+                <li><p><term>Number of misplaced tiles</term> (simple but weak)</p></li>
+                <li><p><term>Sum of distances of each tile from its goal position</term> (more helpful—it's called Manhattan distance)</p></li>
+            </ul>
+        </p>
 
-            <p>
-                <term>Puzzle solving:</term>
-                <ul>
-                    <li><p><term>Number of misplaced tiles</term> (simple but weak)</p></li>
-                    <li><p><term>Sum of distances of each tile from its goal position</term> (more helpful—it's called Manhattan distance)</p></li>
-                </ul>
-            </p>
+        <p>
+            <term>Route planning:</term>
+            <ul>
+                <li><p><term>Straight-line distance</term> between current location and destination</p></li>
+            </ul>
+        </p>
+    </subsection>
 
-            <p>
-                <term>Route planning:</term>
-                <ul>
-                    <li><p><term>Straight-line distance</term> between current location and destination</p></li>
-                </ul>
-            </p>
-        </subsection>
+    <subsection xml:id="subsec-deriving-heuristics">
+        <title>Where Do Heuristics Come From?</title>
 
-        <subsection xml:id="subsec-deriving-heuristics">
-            <title>Where Do Heuristics Come From?</title>
+        <p>
+            One useful way to create a heuristic is to imagine a simpler version of your problem—one where some restrictions are removed. The cost of solving this simpler problem is always a good estimate for the original problem, and it never overestimates.
+        </p>
 
-            <p>
-                One useful way to create a heuristic is to imagine a simpler version of your problem—one where some restrictions are removed. The cost of solving this simpler problem is always a good estimate for the original problem, and it never overestimates.
-            </p>
-
-            <p>
-                For example, the Manhattan distance heuristic for the 8-puzzle comes from removing the rule that tiles can't pass through each other. If tiles could pass through each other, each tile would simply move directly to its goal position without worrying about other tiles.
-            </p>
-        </subsection>
+        <p>
+            For example, the Manhattan distance heuristic for the 8-puzzle comes from removing the rule that tiles can't pass through each other. If tiles could pass through each other, each tile would simply move directly to its goal position without worrying about other tiles.
+        </p>
     </subsection>
 
     <subsection xml:id="subsec-weighted-a-star">
@@ -637,7 +635,7 @@
         </p>
 
         <p>
-            <term>Advantage:</term> Uses much less memory than regular A*<br/>
+            <term>Advantage:</term> Uses much less memory than regular A*
             <term>Disadvantage:</term> May re-explore nodes many times
         </p>
 
@@ -650,7 +648,7 @@
         <title>Comparing Informed Search Strategies</title>
 
         <table xml:id="tbl-informed-comparison">
-            <caption>Comparison of informed search strategies</caption>
+            <title>Comparison of informed search strategies</title>
             <tabular>
                 <row>
                     <cell><term>Algorithm</term></cell>
@@ -695,8 +693,8 @@
                     <cell>Memory-constrained optimal search</cell>
                 </row>
             </tabular>
-            <p>*(*Finds the best solution only when the heuristic is admissible and consistent)*</p>
         </table>
+        <p>*Finds the best solution only when the heuristic is admissible and consistent</p>
     </subsection>
 
     <subsection xml:id="subsec-when-to-use-informed">
