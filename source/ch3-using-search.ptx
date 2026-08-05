@@ -228,10 +228,509 @@
     <p>Content for the section.</p>
   </section>  
 
-  <section xml:id="sec-informed-search">
+<section xml:id="sec-informed-search">
     <title>Informed Search</title>
-    <p>Content for the section.</p>
-  </section>    
+
+    <introduction xml:id="intro-informed-search">
+        <p>
+            In the previous section, you learned about uninformed search strategies, where the algorithm had no additional information about the problem beyond its basic definition. Uninformed search methods lack problem-specific knowledge and are too slow for most real-world problems. The good news is that in many situations, we can dramatically improve search speed by using knowledge about the problem itself. This is the core idea behind <term>informed search</term><idx><h>informed search</h></idx>, also known as <term>heuristic search</term><idx><h>heuristic search</h></idx>.
+        </p>
+
+        <p>
+            Informed search algorithms use problem-specific knowledge to find solutions more efficiently than uninformed methods. The key difference is that informed search uses a <term>heuristic</term><idx><h>heuristic</h></idx>—a rule of thumb that estimates how close a state is to the goal. This knowledge allows algorithms to prioritize promising directions and dramatically reduce the number of states explored.
+        </p>
+
+        <figure xml:id="fig-informed-search-overview">
+            <caption>
+                Informed search uses a heuristic to guide the search toward the goal, much like having a map and compass in a maze.
+            </caption>
+            <image source="informed-search-overview.png">
+                <shortdescription>
+                    A comparison showing uninformed search exploring all directions equally while informed search uses a heuristic to focus toward the goal.
+                </shortdescription>
+                <description>
+                    <p>
+                        A side-by-side comparison diagram. The left panel, labeled "UNINFORMED SEARCH," shows a search tree expanding outward in all directions from the start node, with many branches explored evenly. The right panel, labeled "INFORMED SEARCH," shows a search tree with a clear bias toward the goal node, with most expansions concentrated along the most promising path and fewer wasted branches.
+                    </p>
+                </description>
+            </image>
+        </figure>
+
+        <assemblage xml:id="asm-heuristic-analogy">
+            <title>Think of It This Way...</title>
+            <p><em>
+                Imagine you're trying to find a friend's house in an unfamiliar city. An uninformed search would be like walking down every street systematically until you happen to find the right house. An informed search is like having a GPS that gives you the straight-line distance to your destination—you still don't know every turn, but you at least know which direction is generally correct.
+            </em></p>
+        </assemblage>
+    </introduction>
+
+    <subsection xml:id="subsec-what-is-a-heuristic">
+        <title>What Is a Heuristic?</title>
+
+        <p>
+            A <term>heuristic</term><idx><h>heuristic</h></idx> is a rule of thumb, a guideline, or an educated guess that helps point the search in a promising direction. In everyday life, we use heuristics all the time:
+        </p>
+
+        <p>
+            <ul>
+                <li>
+                    <p>"If you're lost in a forest, follow a stream downhill—it will eventually lead to civilization."</p>
+                </li>
+                <li>
+                    <p>"When packing a suitcase, put heavy items at the bottom."</p>
+                </li>
+                <li>
+                    <p>"In a restaurant, choose the dish the waiter recommends—it's probably the freshest."</p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            In AI search, a heuristic estimates how far a given state is from the goal. It doesn't need to be perfect—it just needs to be useful. The better the heuristic, the faster the search will find a solution.
+        </p>
+
+        <p>
+            For example, in a route-finding problem, a good heuristic might be the straight-line distance to your destination. Even though you can't drive in a straight line, this estimate helps the search focus on cities that are generally in the right direction.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-best-first-search">
+        <title>Best-First Search</title>
+
+        <p>
+            <term>Best-first search</term><idx><h>best-first search</h></idx> is a general approach where the algorithm always chooses the most promising node to explore next. It uses an evaluation function to determine which node looks best. The algorithm always picks the node that seems closest to the goal—at least according to its heuristic.
+        </p>
+
+        <p>
+            However, the evaluation function may not be perfect. The node that appears to be the "best" might not actually be the best in reality. Different strategies use different ways of evaluating which node is "best."
+        </p>
+
+        <subsection xml:id="subsec-greedy-best-first">
+            <title>Greedy Best-First Search</title>
+
+            <p>
+                <term>Greedy best-first search</term><idx><h>greedy best-first search</h></idx> always expands the node that appears closest to the goal. It uses only the heuristic to make its decision, completely ignoring how much it has already cost to get there.
+            </p>
+
+            <p>
+                <dl>
+                    <li>
+                        <title>How it works:</title>
+                        <p>At each step, pick the node with the lowest heuristic value—the one that seems closest to the goal.</p>
+                    </li>
+                    <li>
+                        <title>Strengths:</title>
+                        <p>Very fast—it heads straight for what looks like the goal.</p>
+                    </li>
+                    <li>
+                        <title>Weaknesses:</title>
+                        <p>It can be fooled. A path that looks good at first might turn out to be a dead end, and by then you've already invested time exploring it.</p>
+                    </li>
+                </dl>
+            </p>
+
+            <assemblage xml:id="asm-greedy-analogy">
+                <title>Analogy:</title>
+                <p><em>
+                    Imagine you're trying to find a friend's house in an unfamiliar city. You know the general direction, so you just keep heading that way, turning down any street that points toward your destination. You might get there quickly, or you might hit a dead end and have to backtrack.
+                </em></p>
+            </assemblage>
+
+            <p>
+                <term>Best for:</term> Situations where speed matters more than finding the absolute best path, and you have a reliable heuristic.
+            </p>
+        </subsection>
+
+        <subsection xml:id="subsec-uniform-cost">
+            <title>Uniform-Cost Search</title>
+
+            <p>
+                <term>Uniform-cost search</term><idx><h>uniform-cost search</h></idx> uses the cost of the path so far to determine which node to explore next. It expands the node with the lowest <term>path cost</term><idx><h>path cost</h></idx> (how expensive it has been to get there).
+            </p>
+
+            <p>
+                <dl>
+                    <li>
+                        <title>How it works:</title>
+                        <p>At each step, pick the node that has cost the least to reach.</p>
+                    </li>
+                    <li>
+                        <title>Strengths:</title>
+                        <p>It always finds the cheapest path.</p>
+                    </li>
+                    <li>
+                        <title>Weaknesses:</title>
+                        <p>It doesn't use any information about the goal, so it might wander around exploring cheap paths that lead nowhere.</p>
+                    </li>
+                </dl>
+            </p>
+
+            <assemblage xml:id="asm-uniform-analogy">
+                <title>Analogy:</title>
+                <p><em>
+                    Imagine you're looking for the cheapest way to travel across the country. You always take the cheapest next leg of the trip, without considering whether it's actually taking you in the right direction. You might find a very cheap route—or you might end up in the wrong state entirely!
+                </em></p>
+            </assemblage>
+
+            <p>
+                <term>Important:</term> Uniform-cost search is actually considered an uninformed strategy because it doesn't use any goal information—it only looks backward at where you've been, not forward at where you're going.
+            </p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="subsec-a-star-search">
+        <title>A* Search</title>
+
+        <p>
+            <term>A* search</term><idx><h>A* search</h></idx> (pronounced "A-star") combines the best of both worlds. It considers both how much it has cost to get to a node and how much it will cost to reach the goal from there. It was first published in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael, and remains one of the most widely used search algorithms more than fifty years later.
+        </p>
+
+        <figure xml:id="fig-a-star-comparison">
+            <caption>
+                A* search balances the cost already paid (g) with the estimated cost to the goal (h) to find the optimal path.
+            </caption>
+            <image source="a-star-comparison.png">
+                <shortdescription>
+                    A diagram comparing greedy, uniform-cost, and A* search on the same map showing the different paths each would take.
+                </shortdescription>
+                <description>
+                    <p>
+                        A map with a start point (S), a goal point (G), and several obstacles. Three paths are shown:
+                    </p>
+                    <p>
+                        A red path (Greedy) goes straight toward the goal but hits a dead end and backtracks.
+                    </p>
+                    <p>
+                        A blue path (Uniform-Cost) wanders around taking the cheapest local steps, eventually finding the goal through a long route.
+                    </p>
+                    <p>
+                        A green path (A*) balances both approaches, finding the optimal route that is neither too greedy nor too cheap locally.
+                    </p>
+                </description>
+            </image>
+        </figure>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <p>
+            At each step, pick the node with the lowest value of:
+        </p>
+
+        <p>
+            <em>f(n) = cost so far + estimated cost to goal</em>
+        </p>
+
+        <p>
+            Where:
+            <ul>
+                <li>
+                    <p><term>cost so far (g)</term> = how expensive it has been to reach this node</p>
+                </li>
+                <li>
+                    <p><term>estimated cost to goal (h)</term> = how far this node appears to be from the goal</p>
+                </li>
+            </ul>
+        </p>
+
+        <assemblage xml:id="asm-a-star-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine planning a road trip. You consider both how far you've already driven and how far you still need to go. If one route has already taken you 100 miles but you're almost there, while another has only taken you 10 miles but you're still far away, A* will consider both factors to choose the better route.
+            </em></p>
+        </assemblage>
+
+        <p>
+            <dl>
+                <li>
+                    <title>Strengths:</title>
+                    <p>
+                        <ul>
+                            <li><p>It finds the optimal (best) solution—provided your heuristic is good</p></li>
+                            <li><p>It's much faster than uninformed search</p></li>
+                            <li><p>It balances exploring new areas with following promising paths</p></li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <title>Weaknesses:</title>
+                    <p>
+                        <ul>
+                            <li><p>It uses a lot of memory—it must store all nodes it's considering</p></li>
+                            <li><p>It requires a good heuristic to work well</p></li>
+                            <li><p>For very large problems, even A* can be too slow</p></li>
+                        </ul>
+                    </p>
+                </li>
+            </dl>
+        </p>
+
+        <p>
+            <term>Best for:</term> Route planning, game pathfinding, robotics, and any problem where you need a guaranteed best path and have a good heuristic available.
+        </p>
+
+        <p>
+            <term>Properties of A*:</term>
+        </p>
+
+        <table xml:id="tbl-astar-properties">
+            <caption>Properties of A* Search</caption>
+            <tabular>
+                <row>
+                    <cell><term>Property</term></cell>
+                    <cell><term>What It Means</term></cell>
+                </row>
+                <row>
+                    <cell><term>Complete</term></cell>
+                    <cell>Yes—it will always find a solution if one exists</cell>
+                </row>
+                <row>
+                    <cell><term>Optimal</term></cell>
+                    <cell>Yes—but only if the heuristic is admissible</cell>
+                </row>
+                <row>
+                    <cell><term>Time</term></cell>
+                    <cell>Can be slow, but much faster than uninformed search with a good heuristic</cell>
+                </row>
+                <row>
+                    <cell><term>Space</term></cell>
+                    <cell>Uses a lot of memory—it stores many nodes at once</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+
+    <subsection xml:id="subsec-heuristic-functions">
+        <title>Heuristic Functions</title>
+
+        <p>
+            The quality of a heuristic is crucial. A good heuristic can make A* find a solution in milliseconds. A bad heuristic can make it barely better than blind exploration.
+        </p>
+
+        <subsection xml:id="subsec-admissible-heuristics">
+            <title>Admissible Heuristics</title>
+
+            <p>
+                For A* to guarantee finding the best possible solution, the heuristic must be <term>admissible</term><idx><h>admissible heuristic</h></idx>. This is a fancy word that simply means: <term>the heuristic never overestimates the true cost</term>. In other words, it's always optimistic—it thinks you're at least as close to the goal as you actually are.
+            </p>
+
+            <p>
+                <term>Example:</term> In route planning, straight-line distance is admissible because a straight line is always the shortest possible distance. The actual driving distance will always be at least as long as the straight-line distance.
+            </p>
+
+            <p>
+                If a heuristic occasionally overestimates, the search might ignore the best path because it looks too expensive. It might then find a worse path and mistakenly think it's the best one.
+            </p>
+
+            <p>
+                <term>Examples of admissible heuristics:</term>
+                <ul>
+                    <li><p>Straight-line distance in route-finding</p></li>
+                    <li><p>Number of tiles in the wrong position in the 8-puzzle</p></li>
+                    <li><p>Sum of distances of tiles from their goal position (called <term>Manhattan distance</term><idx><h>Manhattan distance</h></idx>) in the 8-puzzle</p></li>
+                </ul>
+            </p>
+        </subsection>
+
+        <subsection xml:id="subsec-consistency">
+            <title>Consistency</title>
+
+            <p>
+                A heuristic is <term>consistent</term><idx><h>consistent heuristic</h></idx> if a simple rule holds: the estimated cost from a node to the goal should never exceed the cost of moving to a neighboring node plus the estimated cost from that neighbor to the goal.
+            </p>
+
+            <p>
+                Don't worry too much about the formal definition. What matters is this: most well-designed heuristics are consistent, and consistency guarantees that A* will find the best solution.
+            </p>
+        </subsection>
+
+        <subsection xml:id="subsec-common-heuristics">
+            <title>Common Heuristics for Different Problems</title>
+
+            <p>
+                <term>Grid pathfinding:</term>
+                <ul>
+                    <li><p><term>Manhattan distance</term><idx><h>Manhattan distance</h></idx> for moving only up, down, left, and right (like moving on city streets)</p></li>
+                    <li><p><term>Euclidean distance</term><idx><h>Euclidean distance</h></idx> for free movement in any direction (like flying)</p></li>
+                    <li><p><term>Chebyshev distance</term><idx><h>Chebyshev distance</h></idx> for moving in any of eight directions, including diagonals</p></li>
+                </ul>
+            </p>
+
+            <p>
+                <term>Puzzle solving:</term>
+                <ul>
+                    <li><p><term>Number of misplaced tiles</term> (simple but weak)</p></li>
+                    <li><p><term>Sum of distances of each tile from its goal position</term> (more helpful—it's called Manhattan distance)</p></li>
+                </ul>
+            </p>
+
+            <p>
+                <term>Route planning:</term>
+                <ul>
+                    <li><p><term>Straight-line distance</term> between current location and destination</p></li>
+                </ul>
+            </p>
+        </subsection>
+
+        <subsection xml:id="subsec-deriving-heuristics">
+            <title>Where Do Heuristics Come From?</title>
+
+            <p>
+                One useful way to create a heuristic is to imagine a simpler version of your problem—one where some restrictions are removed. The cost of solving this simpler problem is always a good estimate for the original problem, and it never overestimates.
+            </p>
+
+            <p>
+                For example, the Manhattan distance heuristic for the 8-puzzle comes from removing the rule that tiles can't pass through each other. If tiles could pass through each other, each tile would simply move directly to its goal position without worrying about other tiles.
+            </p>
+        </subsection>
+    </subsection>
+
+    <subsection xml:id="subsec-weighted-a-star">
+        <title>Trading Accuracy for Speed: Weighted A*</title>
+
+        <p>
+            Sometimes you don't need the absolute best solution—you just need a good solution quickly. <term>Weighted A*</term><idx><h>Weighted A*</h></idx> does exactly this by multiplying the heuristic by a number greater than 1.
+        </p>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <p>
+            f(n) = cost so far + (weight × estimated cost to goal)
+        </p>
+
+        <p>
+            <ul>
+                <li><p>Weight = 1 gives you regular A* (guaranteed optimal)</p></li>
+                <li><p>Weight &gt; 1 makes the search more "greedy"—it focuses more on getting to the goal quickly</p></li>
+            </ul>
+        </p>
+
+        <p>
+            <term>Trade-off:</term> The solution is guaranteed to be no more than (weight) times worse than optimal. For example, with a weight of 2, you're guaranteed a solution at most twice as long as the absolute best.
+        </p>
+
+        <p>
+            <term>Best for:</term> Real-time systems where finding a "good enough" solution quickly is more important than finding the perfect solution slowly.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-ida-star">
+        <title>Iterative-Deepening A* (IDA*)</title>
+
+        <p>
+            Remember IDDFS from the uninformed section? <term>IDA*</term><idx><h>IDA*</h></idx> applies the same idea to A*. Instead of storing all nodes in memory (which A* does), IDA* uses depth-first search with a limit based on f(n) values.
+        </p>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <p>
+            <ol>
+                <li><p>Set a limit based on the heuristic value of the start node</p></li>
+                <li><p>Run depth-first search, but stop exploring any node whose f(n) exceeds the limit</p></li>
+                <li><p>If no solution is found, increase the limit and repeat</p></li>
+            </ol>
+        </p>
+
+        <p>
+            <term>Advantage:</term> Uses much less memory than regular A*<br/>
+            <term>Disadvantage:</term> May re-explore nodes many times
+        </p>
+
+        <p>
+            <term>Best for:</term> Problems where memory is limited but you still want A*'s optimality guarantees.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-informed-search-summary">
+        <title>Comparing Informed Search Strategies</title>
+
+        <table xml:id="tbl-informed-comparison">
+            <caption>Comparison of informed search strategies</caption>
+            <tabular>
+                <row>
+                    <cell><term>Algorithm</term></cell>
+                    <cell><term>Complete?</term></cell>
+                    <cell><term>Finds Best?</term></cell>
+                    <cell><term>Memory Use</term></cell>
+                    <cell><term>Best For</term></cell>
+                </row>
+                <row>
+                    <cell><term>Greedy BFS</term></cell>
+                    <cell>No</cell>
+                    <cell>No</cell>
+                    <cell>Moderate</cell>
+                    <cell>Speed over optimality</cell>
+                </row>
+                <row>
+                    <cell><term>Uniform-Cost</term></cell>
+                    <cell>Yes</cell>
+                    <cell>Yes</cell>
+                    <cell>High</cell>
+                    <cell>Cheapest path, no heuristic</cell>
+                </row>
+                <row>
+                    <cell><term>A*</term></cell>
+                    <cell>Yes</cell>
+                    <cell>Yes*</cell>
+                    <cell>High</cell>
+                    <cell>Optimal path with good heuristic</cell>
+                </row>
+                <row>
+                    <cell><term>Weighted A*</term></cell>
+                    <cell>Yes</cell>
+                    <cell>No (near-optimal)</cell>
+                    <cell>High</cell>
+                    <cell>Speed with bounded suboptimality</cell>
+                </row>
+                <row>
+                    <cell><term>IDA*</term></cell>
+                    <cell>Yes</cell>
+                    <cell>Yes*</cell>
+                    <cell>Low</cell>
+                    <cell>Memory-constrained optimal search</cell>
+                </row>
+            </tabular>
+            <p>*(*Finds the best solution only when the heuristic is admissible and consistent)*</p>
+        </table>
+    </subsection>
+
+    <subsection xml:id="subsec-when-to-use-informed">
+        <title>When to Use Informed Search</title>
+
+        <p>
+            Informed search is the right tool when:
+        </p>
+
+        <p>
+            <ol>
+                <li>
+                    <p><term>You have a good heuristic</term> — If you can define a reliable rule of thumb, informed search will be much faster than uninformed search.</p>
+                </li>
+                <li>
+                    <p><term>The problem is large</term> — For large state spaces, uninformed search is often too slow to be practical.</p>
+                </li>
+                <li>
+                    <p><term>You need optimality</term> — With an admissible heuristic, A* guarantees the best solution.</p>
+                </li>
+                <li>
+                    <p><term>Speed matters</term> — Even a simple heuristic can dramatically reduce search time compared to uninformed methods.</p>
+                </li>
+            </ol>
+        </p>
+
+        <assemblage xml:id="asm-informed-choice">
+            <title>Choosing Your Search Strategy</title>
+            <p><em>
+                Think of it like choosing a travel strategy: If you have a good map (heuristic), use it to plan your route (A*). If you're in a hurry and don't need the absolute best route, just head toward your destination (Greedy BFS). If you're on a tight budget and the map is unreliable, take the cheapest steps (Uniform-Cost). And if you're exploring with limited supplies, use IDA* to save memory while still finding the best path.
+            </em></p>
+        </assemblage>
+    </subsection>
+</section>   
 
   <section xml:id="sec-adversarial-search">
     <title>Adversarial Search</title>
