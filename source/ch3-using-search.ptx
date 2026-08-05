@@ -233,9 +233,271 @@
     <p>Content for the section.</p>
   </section>    
 
-  <section xml:id="sec-adversarial-search">
+<section xml:id="sec-adversarial-search">
     <title>Adversarial Search</title>
-    <p>Content for the section.</p>
-  </section>   
+
+    <introduction xml:id="intro-adversarial-search">
+        <p>
+            So far, we've looked at search problems where the environment simply follows the rules—there's no opponent actively working against you. But what happens when your AI has to face an adversary? This is the domain of <term>adversarial search</term><idx><h>adversarial search</h></idx>, and it's the foundation of game-playing AI.
+        </p>
+
+        <p>
+            In adversarial search, the AI agent faces an opponent with opposing goals. The AI must account for the actions of an adversary who is trying to win. This is the kind of search used in game-playing AI, where the AI must plan its moves while assuming the opponent will do everything possible to defeat it.
+        </p>
+
+        <figure xml:id="fig-adversarial-search-overview">
+            <caption>
+                Adversarial search involves an AI (MAX) competing against an opponent (MIN) with opposing goals.
+            </caption>
+            <image source="adversarial-search-overview.png">
+                <shortdescription>
+                    A diagram showing a game tree where two players alternate turns, with one player trying to maximize the outcome and the other trying to minimize it.
+                </shortdescription>
+                <description>
+                    <p>
+                        A game tree diagram with a root node labeled "MAX" at the top. Branching down from the root are nodes at depth 1 labeled "MIN." Below those are nodes at depth 2 labeled "MAX," and so on. The terminal nodes at the bottom have utility values (win, lose, draw). Arrows show how values propagate upward: MIN nodes take the minimum of their children, MAX nodes take the maximum of their children.
+                    </p>
+                </description>
+            </image>
+        </figure>
+
+        <assemblage xml:id="asm-adversarial-analogy">
+            <title>Think of It This Way...</title>
+            <p><em>
+                Imagine playing chess against a friend who's just as good as you. Before making a move, you think not just about what the board looks like now, but what your opponent could do in response, and what you could do after that, and so on. You choose the move that gives you the best result assuming your opponent will make the strongest possible counter-move. That's adversarial search in a nutshell!
+            </em></p>
+        </assemblage>
+    </introduction>
+
+    <subsection xml:id="subsec-minimax-algorithm">
+        <title>The Minimax Algorithm</title>
+
+        <p>
+            The fundamental algorithm for adversarial search is <term>Minimax</term><idx><h>Minimax</h></idx>. In games with two players, the AI evaluates all possible moves to guarantee optimal play. The algorithm assumes that both players play optimally: one player tries to maximize the outcome, while the other tries to minimize it.
+        </p>
+
+        <p>
+            Think of it like playing chess against a friend who's just as good as you. Before making a move, you consider not just what the board looks like now, but what your opponent could do in response, and what you could do after that, and so on. You choose the move that gives you the best result assuming your opponent will make the strongest possible counter-move.
+        </p>
+
+        <p>
+          <em>How it works:</em>
+        </p>
+
+        <p><ol>
+          <li><p>Explore the game tree to a certain depth</p></li>
+          <li><p>Evaluate the end states (win, lose, draw) using a scoring system</p></li>
+          <li><p>Work backwards up the tree:</p>
+            <p><ul>
+              <li><p>If it's your turn, take the <term>maximum</term> value among your options</p></li>
+              <li><p>If it's the opponent's turn, take the <term>minimum</term> value among their options</p></li>
+            </ul></p>
+          </li>
+        </ol></p>
+
+        <p>
+            This allows the AI to look ahead and choose moves that lead to winning positions while assuming the opponent will choose the move that is worst for the AI.
+        </p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-game-state-spaces">
+        <title>Game State Spaces</title>
+
+        <p>
+            The challenge in adversarial search is the size of the state space. For example, chess has approximately 10^47 possible states (that's a 1 with 47 zeros after it), making it impossible to explore completely. Games like Tic-Tac-Toe, however, have a small enough state space to explore completely.
+        </p>
+
+        <p>
+            Let's revisit Tic-Tac-Toe from Section 3.2. Using the minimax algorithm, the AI can examine all possible moves, evaluate each board position, and choose the move that maximizes its chances of winning—even against an optimal opponent. Because Tic-Tac-Toe has a relatively small state space, the AI can search the entire game tree and play perfectly.
+        </p>
+
+        <p>
+            <term>Key insight:</term> With Tic-Tac-Toe, there are only 9 possible first moves, then 8 possible responses, then 7, and so on. The total number of possible games is about 255,168—small enough for a computer to examine all of them.
+        </p>
+
+        <table xml:id="tbl-game-state-sizes">
+            <title>State space sizes for common games</title>
+            <tabular>
+                <row>
+                    <cell><term>Game</term></cell>
+                    <cell><term>Approximate States</term></cell>
+                    <cell><term>Searchable?</term></cell>
+                </row>
+                <row>
+                    <cell><term>Tic-Tac-Toe</term></cell>
+                    <cell>~255,168</cell>
+                    <cell>Yes (fully searchable)</cell>
+                </row>
+                <row>
+                    <cell><term>Checkers</term></cell>
+                    <cell>~10^20</cell>
+                    <cell>Partially (with pruning)</cell>
+                </row>
+                <row>
+                    <cell><term>Chess</term></cell>
+                    <cell>~10^47</cell>
+                    <cell>No (requires heuristics)</cell>
+                </row>
+                <row>
+                    <cell><term>Go</term></cell>
+                    <cell>~10^170</cell>
+                    <cell>No (requires heuristics)</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+
+    <subsection xml:id="subsec-alpha-beta-pruning">
+        <title>Alpha-Beta Pruning</title>
+
+        <p>
+            For larger games, the naive Minimax algorithm is too slow. <term>Alpha-Beta Pruning</term><idx><h>alpha-beta pruning</h></idx> is an optimization that dramatically speeds up Minimax by ignoring branches that cannot possibly affect the final decision.
+        </p>
+
+        <p>
+            <em>How it works:</em>
+        </p>
+
+        <assemblage xml:id="asm-alpha-beta-analogy">
+            <title>Analogy:</title>
+            <p><em>
+                Imagine you're looking for the best route to a destination. You've already found a route that takes 3 hours. While exploring another route, you realize it's already taken 3 hours and you're still far from the destination. You can stop exploring that route immediately—it's already worse than what you've found!
+            </em></p>
+        </assemblage>
+
+        <p>
+            Alpha-beta pruning works the same way. It maintains two values:
+            <ul>
+                <li><p><term>Alpha (α)</term>: The best value the AI can guarantee (the lower bound)</p></li>
+                <li><p><term>Beta (β)</term>: The best value the opponent can guarantee (the upper bound)</p></li>
+            </ul>
+        </p>
+
+        <p>
+            If at any point alpha is greater than or equal to beta, the remaining branches can be <term>pruned</term> (cut off) because they cannot improve the outcome.
+        </p>
+
+        <p>
+            <term>Result:</term> Alpha-beta pruning can reduce the search time by about half in the best case. This makes it possible to search twice as deep in the same amount of time!
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title>Without pruning:</title>
+                    <p>Must examine O(b^d) nodes, where b = branching factor and d = depth</p>
+                </li>
+                <li>
+                    <title>With alpha-beta pruning:</title>
+                    <p>Only examines about O(b^(d/2)) nodes in the best case</p>
+                </li>
+            </dl>
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-heuristics-in-games">
+        <title>Why Larger Games Still Need Heuristics</title>
+
+        <p>
+            Even with alpha-beta pruning, games like chess (≈10^47 states) or Go remain too large to search completely. This is why game-playing AI systems also use heuristics to evaluate board positions without searching all the way to the end.
+        </p>
+
+        <p>
+            Instead of searching all the way to a win or loss, the AI searches to a limited depth and then uses an <term>evaluation function</term><idx><h>evaluation function</h></idx> to estimate how favorable the current position is. For example, a chess AI might evaluate a position by:
+        </p>
+
+        <p>
+            <ul>
+                <li><p>Counting the value of pieces on the board (queens = 9, rooks = 5, bishops = 3, etc.)</p></li>
+                <li><p>Considering king safety and pawn structure</p></li>
+                <li><p>Evaluating control of the center of the board</p></li>
+                <li><p>Looking at mobility (how many possible moves a player has)</p></li>
+            </ul>
+        </p>
+
+        <assemblage xml:id="asm-game-heuristic">
+            <title>Think of It This Way...</title>
+            <p><em>
+                A good chess player doesn't need to see every possible move until checkmate. Instead, they evaluate a position using their experience and knowledge: "My pieces are well-developed, I control the center, and my king is safe." An AI evaluation function does the same thing—it uses a heuristic to estimate how good a position is without exploring every possible future move.
+            </em></p>
+        </assemblage>
+
+        <p>
+            This is how systems like <term>DeepBlue</term><idx><h>DeepBlue</h></idx> (the chess AI that beat world champion Garry Kasparov) and <term>AlphaGo</term><idx><h>AlphaGo</h></idx> (the Go AI that beat world champion Lee Sedol) achieved world-class performance—they combined deep search with sophisticated evaluation heuristics.
+        </p>
+    </subsection>
+
+    <subsection xml:id="subsec-adversarial-applications">
+        <title>Real-World Applications</title>
+
+        <p>
+            Adversarial search extends well beyond board games:
+        </p>
+
+        <p>
+            <dl>
+                <li>
+                    <title><term>Video Game AI</term></title>
+                    <p>Non-player characters (NPCs) that plan their actions against you in games like <em>Halo</em>, <em>StarCraft</em>, or <em>The Last of Us</em></p>
+                </li>
+                <li>
+                    <title><term>Robotics</term></title>
+                    <p>Planning in environments where other robots or people may interfere with your robot's goals</p>
+                </li>
+                <li>
+                    <title><term>Security</term></title>
+                    <p>Cybersecurity systems defending against attackers who are actively trying to break in</p>
+                </li>
+                <li>
+                    <title><term>Economics</term></title>
+                    <p>Strategic decision-making in competitive markets where other companies are trying to out-compete you</p>
+                </li>
+            </dl>
+        </p>
+
+        <assemblage xml:id="asm-adversarial-summary">
+            <title>Putting It All Together</title>
+            <p><em>
+                Adversarial search is everywhere—from the chess AI on your phone to the NPC enemies in your favorite video game. The key insight is that when you face an opponent, you need to plan not just for what you want to do, but for what your opponent will do in response. Minimax and alpha-beta pruning give AI systems the ability to think several steps ahead, anticipating and countering an opponent's best moves.
+            </em></p>
+        </assemblage>
+    </subsection>
+
+    <subsection xml:id="subsec-adversarial-search-summary">
+        <title>Summary: Key Concepts in Adversarial Search</title>
+
+        <table xml:id="tbl-adversarial-summary">
+            <title>Key concepts in adversarial search</title>
+            <tabular>
+                <row>
+                    <cell><term>Concept</term></cell>
+                    <cell><term>What It Does</term></cell>
+                    <cell><term>Best Used For</term></cell>
+                </row>
+                <row>
+                    <cell><term>Minimax</term></cell>
+                    <cell>Explores all possible moves assuming optimal play from both sides</cell>
+                    <cell>Small games that can be fully explored (Tic-Tac-Toe)</cell>
+                </row>
+                <row>
+                    <cell><term>Alpha-Beta Pruning</term></cell>
+                    <cell>Speeds up minimax by ignoring branches that can't affect the outcome</cell>
+                    <cell>Larger games where minimax alone is too slow</cell>
+                </row>
+                <row>
+                    <cell><term>Evaluation Function</term></cell>
+                    <cell>Estimates how good a position is without searching to the end</cell>
+                    <cell>Very large games like chess and Go</cell>
+                </row>
+                <row>
+                    <cell><term>Depth Limiting</term></cell>
+                    <cell>Searches only a certain number of moves ahead</cell>
+                    <cell>Real-time games where you need a decision quickly</cell>
+                </row>
+            </tabular>
+        </table>
+    </subsection>
+</section>
 
 </chapter>  
