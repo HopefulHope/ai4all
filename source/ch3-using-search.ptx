@@ -851,106 +851,6 @@
         </p>
     </subsection>
 
-    <subsection xml:id="subsec-common-heuristics">
-        <title>Common Heuristics for Different Problems</title>
-
-        <p>
-            <term>Grid pathfinding:</term>
-            <ul>
-                <li><p><term>Manhattan distance</term><idx><h>Manhattan distance</h></idx> for moving only up, down, left, and right (like moving on city streets)</p></li>
-                <li><p><term>Euclidean distance</term><idx><h>Euclidean distance</h></idx> for free movement in any direction (like flying)</p></li>
-                <li><p><term>Chebyshev distance</term><idx><h>Chebyshev distance</h></idx> for moving in any of eight directions, including diagonals</p></li>
-            </ul>
-        </p>
-
-        <p>
-            <term>Puzzle solving:</term>
-            <ul>
-                <li><p><term>Number of misplaced tiles</term> (simple but weak)</p></li>
-                <li><p><term>Sum of distances of each tile from its goal position</term> (more helpful—it's called Manhattan distance)</p></li>
-            </ul>
-        </p>
-
-        <p>
-            <term>Route planning:</term>
-            <ul>
-                <li><p><term>Straight-line distance</term> between current location and destination</p></li>
-            </ul>
-        </p>
-    </subsection>
-
-    <subsection xml:id="subsec-deriving-heuristics">
-        <title>Where Do Heuristics Come From?</title>
-
-        <p>
-            One useful way to create a heuristic is to imagine a simpler version of your problem—one where some restrictions are removed. The cost of solving this simpler problem is always a good estimate for the original problem, and it never overestimates.
-        </p>
-
-        <p>
-            For example, the Manhattan distance heuristic for the 8-puzzle comes from removing the rule that tiles can't pass through each other. If tiles could pass through each other, each tile would simply move directly to its goal position without worrying about other tiles.
-        </p>
-    </subsection>
-
-    <subsection xml:id="subsec-weighted-a-star">
-        <title>Trading Accuracy for Speed: Weighted A*</title>
-
-        <p>
-            Sometimes you don't need the absolute best solution—you just need a good solution quickly. <term>Weighted A*</term><idx><h>Weighted A*</h></idx> does exactly this by multiplying the heuristic by a number greater than 1.
-        </p>
-
-        <p>
-            <em>How it works:</em>
-        </p>
-
-        <p>
-            f(n) = cost so far + (weight × estimated cost to goal)
-        </p>
-
-        <p>
-            <ul>
-                <li><p>Weight = 1 gives you regular A* (guaranteed optimal)</p></li>
-                <li><p>Weight &gt; 1 makes the search more "greedy"—it focuses more on getting to the goal quickly</p></li>
-            </ul>
-        </p>
-
-        <p>
-            <term>Trade-off:</term> The solution is guaranteed to be no more than (weight) times worse than optimal. For example, with a weight of 2, you're guaranteed a solution at most twice as long as the absolute best.
-        </p>
-
-        <p>
-            <term>Best for:</term> Real-time systems where finding a "good enough" solution quickly is more important than finding the perfect solution slowly.
-        </p>
-    </subsection>
-
-    <subsection xml:id="subsec-ida-star">
-        <title>Iterative-Deepening A* (IDA*)</title>
-
-        <p>
-            Remember IDDFS from the uninformed section? <term>IDA*</term><idx><h>IDA*</h></idx> applies the same idea to A*. Instead of storing all nodes in memory (which A* does), IDA* uses depth-first search with a limit based on f(n) values.
-        </p>
-
-        <p>
-            <em>How it works:</em>
-        </p>
-
-        <p>
-            <ol>
-                <li><p>Set a limit based on the heuristic value of the start node</p></li>
-                <li><p>Run depth-first search, but stop exploring any node whose f(n) exceeds the limit</p></li>
-                <li><p>If no solution is found, increase the limit and repeat</p></li>
-            </ol>
-        </p>
-
-        <p>
-            <term>Advantage:</term> Uses much less memory than regular A*
-            <term>Disadvantage:</term> May re-explore nodes many times
-        </p>
-
-        <p>
-            <term>Best for:</term> Problems where memory is limited but you still want A*'s optimality guarantees.
-        </p>
-    </subsection>
-
     <subsection xml:id="subsec-informed-search-summary">
         <title>Comparing Informed Search Strategies</title>
 
@@ -984,20 +884,6 @@
                     <cell>Yes*</cell>
                     <cell>High</cell>
                     <cell>Optimal path with good heuristic</cell>
-                </row>
-                <row>
-                    <cell><term>Weighted A*</term></cell>
-                    <cell>Yes</cell>
-                    <cell>No (near-optimal)</cell>
-                    <cell>High</cell>
-                    <cell>Speed with bounded suboptimality</cell>
-                </row>
-                <row>
-                    <cell><term>IDA*</term></cell>
-                    <cell>Yes</cell>
-                    <cell>Yes*</cell>
-                    <cell>Low</cell>
-                    <cell>Memory-constrained optimal search</cell>
                 </row>
             </tabular>
         </table>
