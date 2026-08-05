@@ -13,14 +13,17 @@
         they work. Throughout this section, we will use the following tree as a
         guiding example for visualizing the definitions.</p>
 
-        <figure xml:id="fig-sample-tree">
-            <caption>Sample tree for visualizing definitions</caption>
-            <image source="sample-tree.png">
-                <shortdescription>Example tree structure with a root node and child nodes</shortdescription>
+        <figure xml:id="fig-tree-empty">
+            <caption>Unlabeled tree structure.</caption>
+            <image source="3.1-tree-empty.png">
+                <shortdescription>A directed tree diagram consisting of six empty circles connected 
+                by downward-pointing arrows.</shortdescription>
                 <description>
-                    <p>A tree diagram showing a root node at the top with branches
-                    extending downward to child nodes, illustrating the hierarchical
-                    structure of a tree.</p>
+                    <p>A simple tree diagram showing a hierarchical structure. The diagram is composed of six empty,
+                    unlabeled circles. At the top is a single circle with two arrows branching left and right into two
+                    more circles. The left circle then branches further into three more circles arranged side-by-side
+                    at the bottom. All arrows connecting these circles are pointing strictly downward, indicating the 
+                    direction of the hierarchy.</p>
                 </description>
             </image>
         </figure>
@@ -40,13 +43,17 @@
             In a tree, the edge will be pointing in a downward direction.
         </p>
 
-        <figure xml:id="fig-tree-edges-nodes">
-            <caption>Tree with five edges and six nodes</caption>
-            <image source="tree-edges-nodes.png">
-                <shortdescription>Tree diagram showing five edges connecting six nodes</shortdescription>
+        <figure xml:id="fig-tree-node-edge">
+            <caption>Tree diagram with nodes and edges explicitly labeled.</caption>
+            <image source="3.1-tree-node-edge.png">
+                <shortdescription>The empty tree diagram with every circle labeled as "node" and every 
+                connecting arrow labeled as "edge".</shortdescription>
                 <description>
-                    <p>A tree diagram with six nodes connected by five edges, illustrating
-                    the relationship between nodes and edges in a tree structure.</p>
+                    <p>The same hierarchical tree diagram from the previous figure, with all structural elements now labeled. 
+                    Every one of the six circles in the diagram is labeled with the word "node." Every arrow connecting these 
+                    circles is labeled with the word "edge." This provides a clear visual distinction between the two 
+                    fundamental components of the tree: the points of data storage (nodes) and the directional connections 
+                    between them (edges).</p>
                 </description>
             </image>
         </figure>
@@ -70,26 +77,19 @@
             to be a parent node, the node must have at least one child node.
         </p>
 
-        <figure xml:id="fig-parent-child-1">
-            <caption>Parent-child relationship in a tree (example 1)</caption>
-            <image source="parent-child-1.png">
-                <shortdescription>Tree diagram highlighting a parent node and its child</shortdescription>
+        <figure xml:id="fig-tree-parents-children">
+            <caption>Two tree diagrams illustrating the parent-child relationship from different starting points.</caption>
+            <image source="3.1-tree-parents-children.png">
+                <shortdescription>Two side-by-side tree diagrams showing how different nodes can be labeled as parent or 
+                child depending on the chosen perspective.</shortdescription>
                 <description>
-                    <p>A tree diagram with one node highlighted as a parent and
-                    its connected child nodes highlighted, showing the direct
-                    predecessor-successor relationship.</p>
-                </description>
-            </image>
-        </figure>
-
-        <figure xml:id="fig-parent-child-2">
-            <caption>Parent-child relationship in a tree (example 2)</caption>
-            <image source="parent-child-2.png">
-                <shortdescription>Tree diagram showing a different parent-child relationship</shortdescription>
-                <description>
-                    <p>A tree diagram with a different parent node and its children
-                    highlighted, demonstrating that parent-child relationships
-                    exist throughout the tree structure.</p>
+                    <p>Two identical hierarchical tree diagrams placed side-by-side, demonstrating parent and child 
+                    relationships using different reference points. In the tree on the left, the topmost node is labeled
+                    "parent," with two edges branching down to two nodes, both of which are labeled "child." In the tree
+                    on the right, the topmost node is empty. The left node, which receives an edge from the top, 
+                    is labeled "parent." This node branches down into three nodes at the bottom, all of which 
+                    are labeled "child." Together, these two diagrams show that a "parent" node is simply one that 
+                    has direct successors, while a "child" node is a direct successor of another node.</p>
                 </description>
             </image>
         </figure>
@@ -101,14 +101,15 @@
             that single node would be the root.
         </p>
 
-        <figure xml:id="fig-root">
-            <caption>Root node of a tree</caption>
-            <image source="root-node.png">
-                <shortdescription>Tree diagram highlighting the root node</shortdescription>
+        <figure xml:id="fig-tree-root">
+            <caption>Tree diagram with root node explicitly labeled.</caption>
+            <image source="3.1-tree-root.png">
+                <shortdescription>The empty tree diagram with the single node at the very top labeled "root".</shortdescription>
                 <description>
-                    <p>A tree diagram with the topmost node highlighted as the
-                    root, showing that it has no parent and all other nodes
-                    descend from it.</p>
+                    <p>The same hierarchical tree diagram from the previous figures, with one label applied. The single node
+                    positioned at the very top of the structure—which has no incoming arrows—is labeled "root." This node acts 
+                    as the entry point for the entire tree. The rest of the nodes remain empty, with the root node branching 
+                    down into the rest of the hierarchy, illustrating that a tree must have exactly one root node.</p>
                 </description>
             </image>
         </figure>
@@ -121,13 +122,16 @@
             <term><idx>siblings</idx>Siblings</term> — nodes with the same parent.
         </p>
 
-        <figure xml:id="fig-siblings">
-            <caption>Sibling nodes in a tree</caption>
-            <image source="siblings.png">
-                <shortdescription>Tree diagram highlighting sibling nodes</shortdescription>
+        <figure xml:id="fig-tree-siblings">
+            <caption>Tree diagram showing two nodes that share the same direct parent labeled as sibings.</caption>
+            <image source="3.1-tree-siblings.png">
+                <shortdescription>The tree diagram with the top node labeled "Parent" and its two direct children labeled
+                "Sibling".</shortdescription>
                 <description>
-                    <p>A tree diagram with two nodes at the same level sharing
-                    the same parent, highlighted to show sibling relationships.</p>
+                    <p>The same hierarchical tree diagram, now used to demonstrate the concept of siblings. The root node
+                    is labeled "Parent." From this parent node, two edges branch downward to two separate nodes. Both of 
+                    these direct child nodes are labeled "Sibling." This visual shows that siblings are nodes that share 
+                    the exact same parent.</p>
                 </description>
             </image>
         </figure>
@@ -137,13 +141,14 @@
             has four leaves. There is no limit to how many leaves can be in a tree.
         </p>
 
-        <figure xml:id="fig-leaves">
-            <caption>Leaf nodes in a tree</caption>
-            <image source="leaves.png">
-                <shortdescription>Tree diagram highlighting leaf nodes</shortdescription>
+        <figure xml:id="fig-tree-leaf">
+            <caption>Tree diagram showing nodes with no children labeled as leaves.</caption>
+            <image source="3.1-tree-leaf.png">
+                <shortdescription>The tree diagram with the four nodes that have no outgoing arrows labeled "leaf".</shortdescription>
                 <description>
-                    <p>A tree diagram with all nodes that have no children
-                    highlighted, showing the leaf nodes of the tree structure.</p>
+                    <p>The same hierarchical tree diagram, illustrating leaf nodes. The four nodes located at the very ends of their 
+                    respective branches—meaning they have no outgoing arrows pointing to any other nodes—are each labeled with the word 
+                    "leaf." All the parent nodes remain unlabeled, demonstrating that leaves are strictly nodes at the bottom of a tree.</p>
                 </description>
             </image>
         </figure>
@@ -156,17 +161,21 @@
         directories, folders, and files. Some of you may have a folder, within a
         folder, within a folder, that leads to your assignments files. The files
         you reach from a folder would be considered the leaf nodes while the
-        folder(s) that got you to those files would be the nodes. Here is a
+        folder(s) that got you to those files would be the parent nodes. Here is a
         visual of how the files and folders may look as a tree.</p>
 
-        <figure xml:id="fig-file-system-tree">
-            <caption>File system organized as a tree</caption>
-            <image source="file-system-tree.png">
-                <shortdescription>Tree structure showing folders and files in an operating system</shortdescription>
+        <figure xml:id="fig-file-tree">
+            <caption>A visual representation of a computer file system organized as a tree structure.</caption>
+            <image source="3.1-file-tree.png">
+                <shortdescription>A tree diagram with icon-based nodes illustrating a hierarchy of folders and files on a computer.
+                </shortdescription>
                 <description>
-                    <p>A tree diagram representing a file system hierarchy, with
-                    folders as internal nodes and files as leaf nodes, showing
-                    how directories and files are organized in a tree structure.</p>
+                    <p>A tree diagram demonstrating a directory structure commonly used in operating systems. At the top, a root folder 
+                    icon labeled "Student_Files" branches down into four separate subfolder nodes: "Math," "Physics," "Literature," and 
+                    "Biology." Each of these subfolders acts as a parent node to various file nodes listed beneath them. The files 
+                    consist of homework, projects and assignments. A box at the bottom of the image clarifies that blue folder icons 
+                    represent directories, while white document icons represent files. All files are positioned as leaf nodes at the 
+                    bottom of their branches.</p>
                 </description>
             </image>
         </figure>
@@ -183,41 +192,41 @@
             means that trees are a subset of graphs (all trees are graphs).
         </p>
 
-        <figure xml:id="fig-non-tree-graph">
-            <caption>Graph that cannot be a tree</caption>
-            <image source="non-tree-graph.png">
-                <shortdescription>Graph showing a node with two parents</shortdescription>
-                <description>
-                    <p>A graph diagram where one node has two parent nodes,
-                    violating the tree property that each node must have exactly
-                    one parent. This graph cannot be considered a tree.</p>
-                </description>
-            </image>
-        </figure>
 
         <p>Here is a graph that cannot be a tree because one node has two
         parents.</p>
 
-        <subsection xml:id="ssec-disconnected-graphs">
-            <title>Disconnected Graphs</title>
+        <figure xml:id="fig-graph-two-parents">
+            <caption>A graph with a node having two parents</caption>
+            <image source="3.1-graph-two-parents.png">
+                <shortdescription>A graph with two nodes labeled "Parent", that both point to the same node, making the 
+                node have two parents</shortdescription>
+                <description>
+                    <p>The same graph stucture with specific nodes labeled to demonstrate a parent-child relationship. 
+                    The upmost node is labeled "Parent", and branches down left and right to two separate nodes. The left node is 
+                    also labeled "Parent," and a bolded arrow points horizontally from this left "Parent" node to the right node, 
+                    which is labeled "Child." This bolded arrow highlights that the node can be a direct descendant of more than one node.</p>
+                </description>
+            </image>
+        </figure>
 
-            <p>A graph where not all nodes are connected by edges.</p>
+        <p><term><idx>disconnected graphs</idx>Disconnected Graphs</term> - A graph where not all nodes are connected by edges.</p> 
 
-            <figure xml:id="fig-disconnected-graph">
-                <caption>Disconnected graph with two separate components</caption>
-                <image source="disconnected-graph.png">
-                    <shortdescription>Graph with two disconnected components</shortdescription>
-                    <description>
-                        <p>A graph diagram showing two separate pieces that are
-                        not connected by any edge, illustrating a disconnected
-                        graph.</p>
-                    </description>
-                </image>
-            </figure>
+        <p>This graph has two separate pieces that are not connected by an
+        edge, making it disconnected.</p>
 
-            <p>This graph has two separate pieces that are not connected by an
-            edge, making it disconnected.</p>
-        </subsection>
+        <figure xml:id="fig-graph-disconnected">
+            <caption>A disconnected graph with two separate components.</caption>
+            <image source="3.1-graph-disconnected.png">
+                <shortdescription>A graph diagram consisting of two entirely separate, unconnected groups of nodes.</shortdescription>
+                <description>
+                    <p>A graph diagram showing two completely disjoint structures. On the right, a single vertical pair of nodes is 
+                    connected by a downward arrow. On the left, a larger five-node structure branches into a hierarchy. There is no 
+                    arrow or edge connecting the two components, illustrating that the graph is disconnected.</p>
+                </description>
+            </image>
+        </figure>
+    
     </subsection>
 
     <subsection xml:id="ssec-real-world-graphs">
