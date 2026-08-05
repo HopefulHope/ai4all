@@ -588,22 +588,6 @@
             Informed search algorithms use problem-specific knowledge to find solutions more efficiently than uninformed methods. The key difference is that informed search uses a <term>heuristic</term><idx><h>heuristic</h></idx>—a rule of thumb that estimates how close a state is to the goal. This knowledge allows algorithms to prioritize promising directions and dramatically reduce the number of states explored.
         </p>
 
-        <figure xml:id="fig-informed-search-overview">
-            <caption>
-                Informed search uses a heuristic to guide the search toward the goal, much like having a map and compass in a maze.
-            </caption>
-            <image source="informed-search-overview.png">
-                <shortdescription>
-                    A comparison showing uninformed search exploring all directions equally while informed search uses a heuristic to focus toward the goal.
-                </shortdescription>
-                <description>
-                    <p>
-                        A side-by-side comparison diagram. The left panel, labeled "UNINFORMED SEARCH," shows a search tree expanding outward in all directions from the start node, with many branches explored evenly. The right panel, labeled "INFORMED SEARCH," shows a search tree with a clear bias toward the goal node, with most expansions concentrated along the most promising path and fewer wasted branches.
-                    </p>
-                </description>
-            </image>
-        </figure>
-
         <assemblage xml:id="asm-heuristic-analogy">
             <title>Think of It This Way...</title>
             <p><em>
@@ -731,31 +715,6 @@
         <p>
             <term>A* search</term><idx><h>A* search</h></idx> (pronounced "A-star") combines the best of both worlds. It considers both how much it has cost to get to a node and how much it will cost to reach the goal from there. It was first published in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael, and remains one of the most widely used search algorithms more than fifty years later.
         </p>
-
-        <figure xml:id="fig-a-star-comparison">
-            <caption>
-                A* search balances the cost already paid (g) with the estimated cost to the goal (h) to find the optimal path.
-            </caption>
-            <image source="a-star-comparison.png">
-                <shortdescription>
-                    A diagram comparing greedy, uniform-cost, and A* search on the same map showing the different paths each would take.
-                </shortdescription>
-                <description>
-                    <p>
-                        A map with a start point (S), a goal point (G), and several obstacles. Three paths are shown:
-                    </p>
-                    <p>
-                        A red path (Greedy) goes straight toward the goal but hits a dead end and backtracks.
-                    </p>
-                    <p>
-                        A blue path (Uniform-Cost) wanders around taking the cheapest local steps, eventually finding the goal through a long route.
-                    </p>
-                    <p>
-                        A green path (A*) balances both approaches, finding the optimal route that is neither too greedy nor too cheap locally.
-                    </p>
-                </description>
-            </image>
-        </figure>
 
         <p>
             <em>How it works:</em>
