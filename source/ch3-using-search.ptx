@@ -15,7 +15,7 @@
 
         <figure xml:id="fig-tree-empty">
             <caption>Unlabeled tree structure.</caption>
-            <image source="3.1-tree-empty.png">
+            <image source="3.1-tree-empty.png" width="50%">
                 <shortdescription>A directed tree diagram consisting of six empty circles connected 
                 by downward-pointing arrows.</shortdescription>
                 <description>
@@ -45,7 +45,7 @@
 
         <figure xml:id="fig-tree-node-edge">
             <caption>Tree diagram with nodes and edges explicitly labeled.</caption>
-            <image source="3.1-tree-node-edge.png">
+            <image source="3.1-tree-node-edge.png" width="50%">
                 <shortdescription>The empty tree diagram with every circle labeled as "node" and every 
                 connecting arrow labeled as "edge".</shortdescription>
                 <description>
@@ -103,7 +103,7 @@
 
         <figure xml:id="fig-tree-root">
             <caption>Tree diagram with root node explicitly labeled.</caption>
-            <image source="3.1-tree-root.png">
+            <image source="3.1-tree-root.png" width="50%">
                 <shortdescription>The empty tree diagram with the single node at the very top labeled "root".</shortdescription>
                 <description>
                     <p>The same hierarchical tree diagram from the previous figures, with one label applied. The single node
@@ -124,7 +124,7 @@
 
         <figure xml:id="fig-tree-siblings">
             <caption>Tree diagram showing two nodes that share the same direct parent labeled as sibings.</caption>
-            <image source="3.1-tree-siblings.png">
+            <image source="3.1-tree-siblings.png" width="50%">
                 <shortdescription>The tree diagram with the top node labeled "Parent" and its two direct children labeled
                 "Sibling".</shortdescription>
                 <description>
@@ -143,7 +143,7 @@
 
         <figure xml:id="fig-tree-leaf">
             <caption>Tree diagram showing nodes with no children labeled as leaves.</caption>
-            <image source="3.1-tree-leaf.png">
+            <image source="3.1-tree-leaf.png" width="50%">
                 <shortdescription>The tree diagram with the four nodes that have no outgoing arrows labeled "leaf".</shortdescription>
                 <description>
                     <p>The same hierarchical tree diagram, illustrating leaf nodes. The four nodes located at the very ends of their 
@@ -166,7 +166,7 @@
 
         <figure xml:id="fig-file-tree">
             <caption>A visual representation of a computer file system organized as a tree structure.</caption>
-            <image source="3.1-file-tree.png">
+            <image source="3.1-file-tree.png" width="80%">
                 <shortdescription>A tree diagram with icon-based nodes illustrating a hierarchy of folders and files on a computer.
                 </shortdescription>
                 <description>
@@ -198,7 +198,7 @@
 
         <figure xml:id="fig-graph-two-parents">
             <caption>A graph with a node having two parents</caption>
-            <image source="3.1-graph-two-parents.png">
+            <image source="3.1-graph-two-parents.png" width="50%">
                 <shortdescription>A graph with two nodes labeled "Parent", that both point to the same node, making the 
                 node have two parents</shortdescription>
                 <description>
@@ -217,7 +217,7 @@
 
         <figure xml:id="fig-graph-disconnected">
             <caption>A disconnected graph with two separate components.</caption>
-            <image source="3.1-graph-disconnected.png">
+            <image source="3.1-graph-disconnected.png" width="50%">
                 <shortdescription>A graph diagram consisting of two entirely separate, unconnected groups of nodes.</shortdescription>
                 <description>
                     <p>A graph diagram showing two completely disjoint structures. On the right, a single vertical pair of nodes is 
