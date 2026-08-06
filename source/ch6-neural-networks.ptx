@@ -14,7 +14,7 @@
         <figure xml:id="fig-handwritten-6-digits">
             <caption>A sequence of six handwritten digits.</caption>
 
-            <image source="handwritten-digits.png">
+            <image source="handwritten-digits.png" width="40%">
                 <shortdescription>
                     A sequence of handwritten digits showing the numbers 5, 0, 4, 1, 9, and 2.
                 </shortdescription>
@@ -37,7 +37,7 @@
         
         <figure xml:id="fig-handwritten-100-digits">
           <caption>A grid of 100 handwritten digits.</caption>
-          <image source="handwritten-digits-100.png">
+          <image source="handwritten-digits-100.png" width="50%">
             <shortdescription>A grid of 100 handwritten digits.</shortdescription>
 
             <description>
@@ -121,7 +121,7 @@
                 The smooth S-shaped graph of the sigmoid activation function.
             </caption>
 
-            <image source="sigmoid-curve.png">
+            <image source="sigmoid-curve.png" width="70%">
                 <shortdescription>
                     A graph plotting the smooth S-curve of a sigmoid function ranging from 0 to 1.
                 </shortdescription>
