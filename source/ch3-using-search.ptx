@@ -372,7 +372,7 @@
 
     <figure xml:id="fig-tic-tac-toe-initial-state">
         <caption>Initial state of tic-tac-toe with nine possible first moves</caption>
-        <image source="tic-tac-toe-initial-state.png">
+        <image source="tictactoe-image-1.png">
             <shortdescription>Tic-tac-toe tree showing the empty board as the root with nine branches for each possible first move</shortdescription>
             <description>
                 <p>A tree diagram showing the initial empty tic-tac-toe board as
@@ -394,7 +394,7 @@
 
     <figure xml:id="fig-tic-tac-toe-first-move">
         <caption>State space tree after the first move (center square)</caption>
-        <image source="tic-tac-toe-first-move.png">
+        <image source="tictactoe-image-2.png">
             <shortdescription>Tic-tac-toe tree showing the center-O state with eight branches for possible second moves</shortdescription>
             <description>
                 <p>A tree diagram zooming in on one branch from the initial tree,
@@ -418,7 +418,7 @@
 
     <figure xml:id="fig-tic-tac-toe-goal-state">
         <caption>State approaching a goal state with three moves remaining</caption>
-        <image source="tic-tac-toe-goal-state.png">
+        <image source="tictactoe-image-3.png">
             <shortdescription>Tic-tac-toe board and tree showing a state with three empty squares remaining</shortdescription>
             <description>
                 <p>A diagram showing a tic-tac-toe board with only three empty
